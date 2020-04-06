@@ -168,7 +168,7 @@ module GitHub
       # client.create_gist(payload)
       # ```
       # TODO: This endpoint seems broken too, check this out
-      def create_gist(payload : GistCreationPayload) : Gist
+      def create_gist(payload : GistPayload) : Gist
         json = REST.request(
           "POST",
           "/gists",
@@ -185,6 +185,34 @@ module GitHub
       # Allows you to update or delete a gist file and rename gist files
       # Files from the previous version of the gist that aren't
       # explicitly changed during an edit are unchanged.
+      # TODO: Look into the different [new fields](https://developer.github.com/v3/gists/#update-a-gist)
+      # that might appear
+      def update_gist(id : String, payload : GistPayload) : Gist
+        json = REST.request(
+          "PATCH",
+          "/gists/#{id}",
+          HTTP::Headers{
+            "Authorization" => get_auth_header,
+            "Content-Type" => "application/json",
+          },
+          payload.to_json
+        )
+
+        Gist.from_json(json)
+      end
+
+      # Allows you to list the commits of a gist
+      def list_gist_commits(id : String) : Array(GistCommit)
+        json = REST.request(
+          "GET",
+          "/gists/#{id}/commits",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(GistCommit).from_json(json)
+      end
+
     end
   end
 end
