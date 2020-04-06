@@ -5,7 +5,7 @@ struct GistFile
   JSON.mapping(
     filename: String,
     type: String,
-    language: String,
+    language: String?,
     raw_url: String,
     size: Int32
   )
