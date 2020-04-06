@@ -1,0 +1,9 @@
+name: githubcr
+version: 0.1.0
+
+authors:
+  - Amit Katz <callcraft456@gmail.com>
+
+crystal: 0.33.0
+
+license: MIT
