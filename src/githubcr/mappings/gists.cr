@@ -11,51 +11,28 @@ struct GistFile
   )
 end
 
-# A struct which represents the owenr of the gist.
-struct GistUser
-  JSON.mapping(
-    login: String?,
-    id: Int32?,
-    node_id: String?,
-    avatar_url: String?,
-    gravatar_id: String?,
-    url: String?,
-    html_url: String?,
-    followers_url: String?,
-    gists_url: String?,
-    starred_url: String?,
-    subscriptions_url: String,
-    organizations_url: String,
-    repos_url: String?,
-    events_url: String,
-    received_events_url: String,
-    type: String?,
-    site_admin: Bool
-  )
-end
-
 # This structs represents a Gist payload.
 # see https://developer.github.com/v3/gists/#list-gists-for-a-user
 struct Gist
   JSON.mapping(
-    url: String,
-    forks_url: String,
-    commits_url: String,
-    id: String,
-    node_id: String,
-    git_pull_url: String,
-    git_push_url: String,
-    html_url: String,
-    files: Hash(String, GistFile),
-    public: Bool,
-    created_at: String,
-    updated_at: String,
-    description: String?,
-    comments: Int32,
-    user: GistUser?, # (always got null, no idea what to put here.)
-    comments_url: String,
-    owner: GistUser,
-    truncated: Bool
+    url: {type: String, setter: false},
+    forks_url: {type: String, setter: false},
+    commits_url: {type: String, setter: false},
+    id: {type: String, setter: false},
+    node_id: {type: String, setter: false},
+    git_pull_url: {type: String, setter: false},
+    git_push_url: {type: String, setter: false},
+    html_url: {type: String, setter: false},
+    files: {type: Hash(String, GistFile), setter: false},
+    public: {type: Bool, setter: false},
+    created_at: {type: String, setter: false},
+    updated_at: {type: String, setter: false},
+    description: {type: String, setter: false},
+    comments: {type: Int32, setter: false},
+    user: User?,
+    comments_url: {type: String, setter: false},
+    owner: {type: User?, setter: false},
+    truncated: {type: Bool, setter: false}
   )
 end
 
@@ -73,7 +50,7 @@ struct GistCommit
   JSON.mapping(
     url: String,
     version: String,
-    user: GistUser,
+    user: User,
     change_status: GistCommitChangeStatus,
     committed_at: String
   )

@@ -1,3 +1,5 @@
+require "json"
+
 struct GitReferenceObject
   JSON.mapping(
     type: String,

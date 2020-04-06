@@ -1,113 +1,90 @@
 struct CommitAuthor
   JSON.mapping(
-    name: String,
-    email: String,
-    date: String
+    name: {type: String, setter: false},
+    email: {type: String, setter: false},
+    date: {type: String, setter: false}
   )
 end
 
 struct CommitCommitter
   JSON.mapping(
-    name: String,
-    email: String,
-    date: String
+    name: {type: String, setter: false},
+    email: {type: String, setter: false},
+    date: {type: String, setter: false}
   )
 end
 
 struct CommitTree
   JSON.mapping(
-    sha: String,
-    url: String
+    sha: {type: String, setter: false},
+    url: {type: String, setter: false}
   )
 end
 
 struct CommitVerification
   JSON.mapping(
-    verified: Bool,
-    reason: String,
-    signature: String?,
-    payload: String?
+    verified: {type: Bool, setter: false},
+    reason: {type: String, setter: false},
+    signature: {type: String?, setter: false},
+    payload: {type: String?, setter: false}
   )
 end
 
 struct CommitData
   JSON.mapping(
-    author: CommitAuthor,
-    committer: CommitCommitter,
-    message: String,
-    tree: CommitTree,
-    url: String,
-    comment_count: Int32,
-    verification: CommitVerification
-  )
-end
-
-struct Committer
-  JSON.mapping(
-    login: String,
-    id: Int32,
-    node_id: String,
-    avatar_url: String,
-    gravatar_id: String,
-    url: String,
-    html_url: String,
-    followers_url: String,
-    following_url: String,
-    gists_url: String,
-    starred_url: String,
-    subscriptions_url: String,
-    organizations_url: String,
-    repos_url: String,
-    events_url: String,
-    received_events_url: String,
-    type: String,
-    site_admin: Bool
+    author: {type: CommitAuthor, setter: false},
+    committer: {type: CommitCommitter, setter: false},
+    message: {type: String, setter: false},
+    tree: {type: CommitTree, setter: false},
+    url: {type: String, setter: false},
+    comment_count: {type: Int32, setter: false},
+    verification: {type: CommitVerification, setter: false}
   )
 end
 
 struct Parent
   JSON.mapping(
-    sha: String,
-    url: String,
-    html_url: String
+    sha: {type: String, setter: false},
+    url: {type: String, setter: false},
+    html_url: {type: String, setter: false}
   )
 end
 
 struct Stats
   JSON.mapping(
-    total: Int32,
-    additions: Int32,
-    deletions: Int32
+    total: {type: Int32, setter: false},
+    additions: {type: Int32, setter: false},
+    deletions: {type: Int32, setter: false}
   )
 end
 
 struct CommitFile
   JSON.mapping(
-    sha: String,
-    filename: String,
-    status: String,
-    additions: Int32,
-    deletions: Int32,
-    changes: Int32,
-    blob_url: String,
-    raw_url: String,
-    contents_url: String,
-    patch: String
+    sha: {type: String, setter: false},
+    filename: {type: String, setter: false},
+    status: {type: String, setter: false},
+    additions: {type: Int32, setter: false},
+    deletions: {type: Int32, setter: false},
+    changes: {type: Int32, setter: false},
+    blob_url: {type: String, setter: false},
+    raw_url: {type: String, setter: false},
+    contents_url: {type: String, setter: false},
+    patch: {type: String, setter: false}
   )
 end
 
 struct Commit
   JSON.mapping(
-    sha: String,
-    node_id: String,
-    commit: CommitData,
-    url: String,
-    html_url: String,
-    comments_url: String,
-    author: Committer,
-    committer: Committer,
-    parents: Array(Parent),
-    stats: Stats,
-    files: Array(CommitFile)
+    sha: {type: String, setter: false},
+    node_id: {type: String, setter: false},
+    commit: {type: CommitData, setter: false},
+    url: {type: String, setter: false},
+    html_url: {type: String, setter: false},
+    comments_url: {type: String, setter: false},
+    author: {type: User, setter: false},
+    committer: {type: User, setter: false},
+    parents: {type: Array(Parent), setter: false},
+    stats: {type: Stats, setter: false},
+    files: {type: Array(CommitFile), setter: false}
   )
 end
