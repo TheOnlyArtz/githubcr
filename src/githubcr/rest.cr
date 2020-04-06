@@ -222,8 +222,6 @@ module GitHub
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        pp response
       end
     end
   end
