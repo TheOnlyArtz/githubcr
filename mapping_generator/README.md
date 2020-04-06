@@ -41,7 +41,6 @@ struct Parents
   JSON.mapping(
     url: String,
     sha: String
-
   )
 end
 
@@ -65,7 +64,6 @@ end
 struct Tree
   JSON.mapping(
     url: String,
-
     sha: String
   )
 end
