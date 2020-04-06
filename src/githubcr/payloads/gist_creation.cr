@@ -1,6 +1,8 @@
 require "json"
 
 # Represents a file
+# NOTE: Fields which are required to gist creation
+# `filename`
 record GistFilePayload,
   content : String,
   filename : String? = nil do
@@ -8,9 +10,11 @@ record GistFilePayload,
 end
 
 # Represents gist creation payload
-record GistCreationPayload,
+# NOTE: Fields which are required to gist creation
+# `public`
+record GistPayload,
  description : String,
- public : Bool,
- files : Hash(String, GistFilePayload) do
+ files : Hash(String, GistFilePayload),
+ public : Bool? = nil, do
   include JSON::Serializable
 end

@@ -9,9 +9,9 @@ describe GitHub do
   end
 end
 
-describe GistCreationPayload do
+describe GistPayload do
   it "Should serialize" do
-    payload = GistCreationPayload.new(
+    payload = GistPayload.new(
         description: "This is a description",
         public: true,
         files: {
@@ -22,7 +22,6 @@ describe GistCreationPayload do
 
     equal = {
       "description" => "This is a description",
-      "public" => true,
       "files" => {
         "test.cr" => {
           "content" => "This is some content"
@@ -30,7 +29,8 @@ describe GistCreationPayload do
         "test2.cr" => {
           "content" => "This is some content"
         }
-      }
+      },
+      "public" => true,
     }
 
     payload.to_json.should eq(equal.to_json)
