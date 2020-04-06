@@ -303,7 +303,7 @@ module GitHub
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-        pp get_auth_header
+        
         Commit.from_json(json)
       end
     end
