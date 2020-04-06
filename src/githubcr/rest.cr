@@ -8,9 +8,8 @@ module GitHub
   # This module enables GitHub.cr to interact with the
   # GitHub API through HTTP requests
   module REST
-
-    API_BASE = "api.github.com"
-    HTTP_CLIENT = HTTP::Client.new API_BASE, tls: true
+    API_BASE     = "api.github.com"
+    HTTP_CLIENT  = HTTP::Client.new API_BASE, tls: true
     GLOBAL_MUTEX = Mutex.new
 
     # :nodoc:
@@ -26,7 +25,7 @@ module GitHub
       request_done = false
       pp API_BASE + path
       until request_done
-        GLOBAL_MUTEX.synchronize {}
+        GLOBAL_MUTEX.synchronize { }
 
         response = HTTP_CLIENT.exec(
           method: method,
@@ -39,7 +38,7 @@ module GitHub
           retry_after_val = response.headers["X-RateLimit-Reset-After"]?
           retry_after = retry_after_val.not_nil!.to_f
 
-          GLOBAL_MUTEX.synchronize {sleep retry_after}
+          GLOBAL_MUTEX.synchronize { sleep retry_after }
 
           request_done = true unless response.status_code == 429
         else
@@ -66,7 +65,6 @@ module GitHub
     # see [GitHub Events endpoints](https://developer.github.com/v3/activity/events/)
     # TODO ↑
     module Events
-
     end
 
     # This module is specifically for interacting with
@@ -102,7 +100,7 @@ module GitHub
       # ```
       def get_public_gists(since : Time) : Array(Gist)
         params = HTTP::Params.encode({
-          "since" => URI.parse(since.to_s).to_s
+          "since" => URI.parse(since.to_s).to_s,
         })
         json = REST.request(
           "GET",
@@ -118,7 +116,7 @@ module GitHub
       # TODO check if since can be null
       def get_starred_gists(since : Time) : Array(Gist)
         params = HTTP::Params.encode({
-          "since" => URI.parse(since.to_s).to_s
+          "since" => URI.parse(since.to_s).to_s,
         })
         json = REST.request(
           "GET",
@@ -174,7 +172,7 @@ module GitHub
           "/gists",
           HTTP::Headers{
             "Authorization" => get_auth_header,
-            "Content-Type" => "application/json",
+            "Content-Type"  => "application/json",
           },
           payload.to_json
         )
@@ -193,7 +191,7 @@ module GitHub
           "/gists/#{id}",
           HTTP::Headers{
             "Authorization" => get_auth_header,
-            "Content-Type" => "application/json",
+            "Content-Type"  => "application/json",
           },
           payload.to_json
         )
