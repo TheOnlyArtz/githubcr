@@ -1,5 +1,7 @@
 require "uri"
 require "http/client"
+require "json"
+require "./payloads/*"
 require "./mappings/*"
 
 module GitHub
@@ -11,8 +13,14 @@ module GitHub
     HTTP_CLIENT = HTTP::Client.new API_BASE, tls: true
     GLOBAL_MUTEX = Mutex.new
 
-    # This function is responsible for requesting the API
+    struct MalformedMessage
+      JSON.mapping(
+        message: String,
+        documentation_url: String
+      )
+    end
 
+    # This function is responsible for requesting the API
     def self.raw_request(method : String, path : String, headers : HTTP::Headers, body : String?)
       request_done = false
 
@@ -45,8 +53,8 @@ module GitHub
       response = raw_request(method, path, headers, body)
 
       unless response.success?
-        pp response.body
-        raise "Unknown payload" unless response.content_type == "application/json; charset=utf-8"
+        raise MalformedMessage.from_json(response.body).message unless response.status != HTTP::Status::NOT_FOUND
+        raise "Unknown/bad payload" unless response.content_type == "application/json; charset=utf-8"
       end
 
       response.body
@@ -103,6 +111,70 @@ module GitHub
         )
 
         Array(Gist).from_json(json)
+      end
+
+      # List the auth user's starred gists
+      # TODO check if since can be null
+      def get_starred_gists(since : Time) : Array(Gist)
+        params = HTTP::Params.encode({
+          "since" => URI.parse(since.to_s).to_s
+        })
+        json = REST.request(
+          "GET",
+          "/gists/starred?#{params}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Gist).from_json(json)
+      end
+
+      # Get a gist by it's ID
+      # TODO Contact GitHub about this endpoint, seems broken!
+      def get_gist(id : String)
+        json = REST.request(
+          "GET",
+          "/gists/#{id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Gist.from_json(json)
+      end
+
+      # Get a revision of a gist by it's ID and sha
+      # TODO Contact GitHub about this endpoint, seems broken!
+      def get_gist(id : String, sha : String)
+        json = REST.request(
+          "GET",
+          "/gists/#{id}/#{sha}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Gist.from_json(json)
+      end
+
+      # Creates a gist on the auth user's account
+      # ```cr
+      # payload = GistCreationPayload.new(
+      #     description: "This is a description",
+      #     public: true,
+      #     files: {
+      #       "test.cr" => GistCreationFilePayload.new(content: "This is some content")
+      #     }
+      # )
+      # client.create_gist(payload)
+      # ```
+      def create_gist(payload : GistCreationPayload) : Gist
+        json = REST.request(
+          "POST",
+          "/gists",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_h.to_json
+        )
+
+        Gist.from_json(payload)
       end
     end
   end
