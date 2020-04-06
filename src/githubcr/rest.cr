@@ -201,7 +201,7 @@ module GitHub
         Gist.from_json(json)
       end
 
-      # Allows you to list the commits of a gist
+      # Allows you to list the commits of a gist by it's ID
       def list_gist_commits(id : String) : Array(GistCommit)
         json = REST.request(
           "GET",
@@ -213,6 +213,18 @@ module GitHub
         Array(GistCommit).from_json(json)
       end
 
+      # Allows you star a gist by it's ID
+      # TODO: Why this route returns 404
+      def star_gist(id : String)
+        response = REST.request(
+          "PUT",
+          "/gists/#{id}/star",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        pp response
+      end
     end
   end
 end
