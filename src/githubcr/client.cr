@@ -12,6 +12,7 @@ module GitHub
   # With this client you will be able to make API requests to Discord
   class Client
     include REST::Gists
+    include REST::Blobs
 
     def initialize(@username : String, @access_token : String)
     end

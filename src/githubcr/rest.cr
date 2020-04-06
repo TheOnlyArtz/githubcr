@@ -270,5 +270,34 @@ module GitHub
         )
       end
     end
+
+    # This module is specifically for interacting with
+    # the Blobs endpoints GitHub offers us to use.
+    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/blobs/)
+    module Blobs
+      # The content in the response will always be Base64 encoded.
+      # NOTE: This API supports blobs up to 100 megabytes in size.
+      def get_blob(owner : String, repository : String, file_sha : String) : Blob
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/git/blobs/#{file_sha}/",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Blob.from_json(json)
+      end
+
+      def create_blob(owner : String, repository : String, payload : BlobPayload)
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/git/blobs/",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        pp json
+      end
+    end
   end
 end
