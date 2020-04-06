@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
+  <title>GitHub::REST::Gists - github.com/TheOnlyArtz/githubcr</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
+      <a href="../../Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsActor" data-name="eventsactor">
+      <a href="../../EventsActor.html">EventsActor</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsOrg" data-name="eventsorg">
+      <a href="../../EventsOrg.html">EventsOrg</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
+      <a href="../../EventsRepo.html">EventsRepo</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Gist" data-name="gist">
+      <a href="../../Gist.html">Gist</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCommit" data-name="gistcommit">
+      <a href="../../GistCommit.html">GistCommit</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCommitChangeStatus" data-name="gistcommitchangestatus">
+      <a href="../../GistCommitChangeStatus.html">GistCommitChangeStatus</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
+      <a href="../../GistFile.html">GistFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFilePayload" data-name="gistfilepayload">
+      <a href="../../GistFilePayload.html">GistFilePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistPayload" data-name="gistpayload">
+      <a href="../../GistPayload.html">GistPayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistUser" data-name="gistuser">
+      <a href="../../GistUser.html">GistUser</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/GitHub" data-name="github">
+      <a href="../../GitHub.html">GitHub</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/Client" data-name="github::client">
+      <a href="../../GitHub/Client.html">Client</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST" data-name="github::rest">
+      <a href="../../GitHub/REST.html">REST</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
+      <a href="../../GitHub/REST/Events.html">Events</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Gists" data-name="github::rest::gists">
+      <a href="../../GitHub/REST/Gists.html">Gists</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> GitHub::REST::Gists
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>This module is specifically for interacting with
+the Gists endpoints GitHub offers us to use.
+see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gists endpoints</a></p>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../GitHub/Client.html">GitHub::Client</a></li>
+    
+  </ul>
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L73" target="_blank">
+        githubcr/rest.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#create_gist(payload:GistPayload):Gist-instance-method" class="signature"><strong>#create_gist</strong>(payload : GistPayload) : Gist</a>
+        
+          <div class="summary"><p>Creates a gist on the auth user's account <code></code>`cr payload = GistCreationPayload.new(     description: "This is a description",     public: true,     files: {       "test.cr" => GistCreationFilePayload.new(content: "This is some content")     } ) client.create_gist(payload) <code></code>` TODO: This endpoint seems broken too, check this out</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_gist(id:String):Nil-instance-method" class="signature"><strong>#delete_gist</strong>(id : String) : Nil</a>
+        
+          <div class="summary"><p>Allows you to dleete a gist by it's ID NOTE: Fails if gist doesn't exist</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fork_gist(id:String):Gist-instance-method" class="signature"><strong>#fork_gist</strong>(id : String) : Gist</a>
+        
+          <div class="summary"><p>Allows you to fork a gist by it's ID NOTE: Check why this route returns 404</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_all_gists(owner:String):Array(Gist)-instance-method" class="signature"><strong>#get_all_gists</strong>(owner : String) : Array(Gist)</a>
+        
+          <div class="summary"><p><span class="flag purple">NOTE</span>  This will return the public repositories only if it wasn't obvious already...</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_gist(id:String,sha:String)-instance-method" class="signature"><strong>#get_gist</strong>(id : String, sha : String)</a>
+        
+          <div class="summary"><p>Get a revision of a gist by it's ID and sha TODO Contact GitHub about this endpoint, seems broken!</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_gist(id:String)-instance-method" class="signature"><strong>#get_gist</strong>(id : String)</a>
+        
+          <div class="summary"><p>Get a gist by it's ID TODO Contact GitHub about this endpoint, seems broken!</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_my_gists:Array(Gist)-instance-method" class="signature"><strong>#get_my_gists</strong> : Array(Gist)</a>
+        
+          <div class="summary"><p>Gets the authenticated user's gists</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_public_gists(since:Time):Array(Gist)-instance-method" class="signature"><strong>#get_public_gists</strong>(since : Time) : Array(Gist)</a>
+        
+          <div class="summary"><p>List public gists sorted by most recently updated to least recently updated.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_starred_gists(since:Time):Array(Gist)-instance-method" class="signature"><strong>#get_starred_gists</strong>(since : Time) : Array(Gist)</a>
+        
+          <div class="summary"><p>List the auth user's starred gists TODO check if since can be null</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gist_starred?(id:String):Bool-instance-method" class="signature"><strong>#gist_starred?</strong>(id : String) : Bool</a>
+        
+          <div class="summary"><p>Allows you to check whether a gist is starred NOTE: If an error is being raised, the git is not starred.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#list_gist_commits(id:String):Array(GistCommit)-instance-method" class="signature"><strong>#list_gist_commits</strong>(id : String) : Array(GistCommit)</a>
+        
+          <div class="summary"><p>Allows you to list the commits of a gist by it's ID</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#star_gist(id:String):Nil-instance-method" class="signature"><strong>#star_gist</strong>(id : String) : Nil</a>
+        
+          <div class="summary"><p>Allows you star a gist by it's ID TODO: Why this route returns 404</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unstar_gist(id:String):Nil-instance-method" class="signature"><strong>#unstar_gist</strong>(id : String) : Nil</a>
+        
+          <div class="summary"><p>Allows you to unstar a gist by it's ID TODO: Why this route returns 404</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_gist(id:String,payload:GistPayload):Gist-instance-method" class="signature"><strong>#update_gist</strong>(id : String, payload : GistPayload) : Gist</a>
+        
+          <div class="summary"><p>Allows you to update or delete a gist file and rename gist files Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="create_gist(payload:GistPayload):Gist-instance-method">
+      <div class="signature">
+        
+        def <strong>create_gist</strong>(payload : <a href="../../GistPayload.html">GistPayload</a>) : <a href="../../Gist.html">Gist</a>
+
+        <a class="method-permalink" href="#create_gist(payload:GistPayload):Gist-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a gist on the auth user's account</p>
+
+<pre><code class="language-cr">payload = GistCreationPayload.new(
+    description: "This is a description",
+    public: true,
+    files: {
+      "test.cr" => GistCreationFilePayload.new(content: "This is some content")
+    }
+)
+client.create_gist(payload)</code></pre>
+
+<p><span class="flag orange">TODO</span>  This endpoint seems broken too, check this out</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L169" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_gist(id:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_gist</strong>(id : String) : Nil
+
+        <a class="method-permalink" href="#delete_gist(id:String):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to dleete a gist by it's ID</p>
+
+<p><span class="flag purple">NOTE</span>  Fails if gist doesn't exist</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L264" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fork_gist(id:String):Gist-instance-method">
+      <div class="signature">
+        
+        def <strong>fork_gist</strong>(id : String) : <a href="../../Gist.html">Gist</a>
+
+        <a class="method-permalink" href="#fork_gist(id:String):Gist-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to fork a gist by it's ID</p>
+
+<p><span class="flag purple">NOTE</span>  Check why this route returns 404</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L251" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_all_gists(owner:String):Array(Gist)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_all_gists</strong>(owner : String) : Array(<a href="../../Gist.html">Gist</a>)
+
+        <a class="method-permalink" href="#get_all_gists(owner:String):Array(Gist)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  This will return the public repositories only
+if it wasn't obvious already...</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L76" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_gist(id:String,sha:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_gist</strong>(id : String, sha : String)
+
+        <a class="method-permalink" href="#get_gist(id:String,sha:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get a revision of a gist by it's ID and sha</p>
+
+<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L146" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_gist(id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_gist</strong>(id : String)
+
+        <a class="method-permalink" href="#get_gist(id:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get a gist by it's ID</p>
+
+<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L133" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_my_gists:Array(Gist)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_my_gists</strong> : Array(<a href="../../Gist.html">Gist</a>)
+
+        <a class="method-permalink" href="#get_my_gists:Array(Gist)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets the authenticated user's gists</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L88" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_public_gists(since:Time):Array(Gist)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_public_gists</strong>(since : Time) : Array(<a href="../../Gist.html">Gist</a>)
+
+        <a class="method-permalink" href="#get_public_gists(since:Time):Array(Gist)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>List public gists sorted by most recently updated to least recently updated.</p>
+
+<p><span class="flag purple">NOTE</span>  With pagination, you can fetch up to 3000 gists. For example
+you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.</p>
+
+<pre><code class="language-cr">gists = client.get_public_gists(
+   Time.local(2018, 3, 8, 22, 5, 13, location: Time::Location.load("Europe/Berlin"))
+)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_starred_gists(since:Time):Array(Gist)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_starred_gists</strong>(since : Time) : Array(<a href="../../Gist.html">Gist</a>)
+
+        <a class="method-permalink" href="#get_starred_gists(since:Time):Array(Gist)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>List the auth user's starred gists</p>
+
+<p><span class="flag orange">TODO</span>  check if since can be null</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L117" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gist_starred?(id:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>gist_starred?</strong>(id : String) : Bool
+
+        <a class="method-permalink" href="#gist_starred?(id:String):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to check whether a gist is starred</p>
+
+<p><span class="flag purple">NOTE</span>  If an error is being raised, the git is not starred.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L238" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="list_gist_commits(id:String):Array(GistCommit)-instance-method">
+      <div class="signature">
+        
+        def <strong>list_gist_commits</strong>(id : String) : Array(<a href="../../GistCommit.html">GistCommit</a>)
+
+        <a class="method-permalink" href="#list_gist_commits(id:String):Array(GistCommit)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to list the commits of a gist by it's ID</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L203" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="star_gist(id:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>star_gist</strong>(id : String) : Nil
+
+        <a class="method-permalink" href="#star_gist(id:String):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you star a gist by it's ID</p>
+
+<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L216" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unstar_gist(id:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>unstar_gist</strong>(id : String) : Nil
+
+        <a class="method-permalink" href="#unstar_gist(id:String):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to unstar a gist by it's ID</p>
+
+<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L227" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_gist(id:String,payload:GistPayload):Gist-instance-method">
+      <div class="signature">
+        
+        def <strong>update_gist</strong>(id : String, payload : <a href="../../GistPayload.html">GistPayload</a>) : <a href="../../Gist.html">Gist</a>
+
+        <a class="method-permalink" href="#update_gist(id:String,payload:GistPayload):Gist-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allows you to update or delete a gist file and rename gist files
+Files from the previous version of the gist that aren't
+explicitly changed during an edit are unchanged.</p>
+
+<p><span class="flag orange">TODO</span>  Look into the different <a href="https://developer.github.com/v3/gists/#update-a-gist" target="_blank">new fields</a>
+that might appear</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L188" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

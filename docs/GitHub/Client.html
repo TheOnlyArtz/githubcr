@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
+  <title>GitHub::Client - github.com/TheOnlyArtz/githubcr</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="../index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
+      <a href="../Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsActor" data-name="eventsactor">
+      <a href="../EventsActor.html">EventsActor</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsOrg" data-name="eventsorg">
+      <a href="../EventsOrg.html">EventsOrg</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
+      <a href="../EventsRepo.html">EventsRepo</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Gist" data-name="gist">
+      <a href="../Gist.html">Gist</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCommit" data-name="gistcommit">
+      <a href="../GistCommit.html">GistCommit</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCommitChangeStatus" data-name="gistcommitchangestatus">
+      <a href="../GistCommitChangeStatus.html">GistCommitChangeStatus</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
+      <a href="../GistFile.html">GistFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFilePayload" data-name="gistfilepayload">
+      <a href="../GistFilePayload.html">GistFilePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistPayload" data-name="gistpayload">
+      <a href="../GistPayload.html">GistPayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistUser" data-name="gistuser">
+      <a href="../GistUser.html">GistUser</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/GitHub" data-name="github">
+      <a href="../GitHub.html">GitHub</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/Client" data-name="github::client">
+      <a href="../GitHub/Client.html">Client</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST" data-name="github::rest">
+      <a href="../GitHub/REST.html">REST</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
+      <a href="../GitHub/REST/Events.html">Events</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Gists" data-name="github::rest::gists">
+      <a href="../GitHub/REST/Gists.html">Gists</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> GitHub::Client
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../GitHub/Client.html">GitHub::Client</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>The basic class which represents a GitHub client / user
+the client will be used to send REST requests to the GitHub
+API.</p>
+
+<pre><code class="language-cr">client = GitHub::Client.new(username: "TheOnlyArtz", token: "4f10YOU8654d442b5be610054e9sWISH7a813c4")</code></pre>
+
+<p>With this client you will be able to make API requests to Discord</p>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../GitHub/REST/Gists.html">GitHub::REST::Gists</a></li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/client.cr#L13" target="_blank">
+        githubcr/client.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(username:String,access_token:String)-class-method" class="signature"><strong>.new</strong>(username : String, access_token : String)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#get_auth_header-instance-method" class="signature"><strong>#get_auth_header</strong></a>
+        
+          <div class="summary"><p>This method will generate the auth header to GitHub</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../GitHub/REST/Gists.html">GitHub::REST::Gists</a></code></h3>
+  
+  
+    <a href="../GitHub/REST/Gists.html#create_gist(payload:GistPayload):Gist-instance-method" class="tooltip">
+      <span>create_gist(payload : GistPayload) : Gist</span>
+    create_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#delete_gist(id:String):Nil-instance-method" class="tooltip">
+      <span>delete_gist(id : String) : Nil</span>
+    delete_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#fork_gist(id:String):Gist-instance-method" class="tooltip">
+      <span>fork_gist(id : String) : Gist</span>
+    fork_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#get_all_gists(owner:String):Array(Gist)-instance-method" class="tooltip">
+      <span>get_all_gists(owner : String) : Array(Gist)</span>
+    get_all_gists</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#get_gist(id:String,sha:String)-instance-method" class="tooltip">
+      <span>get_gist(id : String, sha : String)<br/>get_gist(id : String)</span>
+    get_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#get_my_gists:Array(Gist)-instance-method" class="tooltip">
+      <span>get_my_gists : Array(Gist)</span>
+    get_my_gists</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#get_public_gists(since:Time):Array(Gist)-instance-method" class="tooltip">
+      <span>get_public_gists(since : Time) : Array(Gist)</span>
+    get_public_gists</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#get_starred_gists(since:Time):Array(Gist)-instance-method" class="tooltip">
+      <span>get_starred_gists(since : Time) : Array(Gist)</span>
+    get_starred_gists</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#gist_starred?(id:String):Bool-instance-method" class="tooltip">
+      <span>gist_starred?(id : String) : Bool</span>
+    gist_starred?</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#list_gist_commits(id:String):Array(GistCommit)-instance-method" class="tooltip">
+      <span>list_gist_commits(id : String) : Array(GistCommit)</span>
+    list_gist_commits</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#star_gist(id:String):Nil-instance-method" class="tooltip">
+      <span>star_gist(id : String) : Nil</span>
+    star_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#unstar_gist(id:String):Nil-instance-method" class="tooltip">
+      <span>unstar_gist(id : String) : Nil</span>
+    unstar_gist</a>, 
+    
+  
+    <a href="../GitHub/REST/Gists.html#update_gist(id:String,payload:GistPayload):Gist-instance-method" class="tooltip">
+      <span>update_gist(id : String, payload : GistPayload) : Gist</span>
+    update_gist</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(username:String,access_token:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(username : String, access_token : String)
+
+        <a class="method-permalink" href="#new(username:String,access_token:String)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/client.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="get_auth_header-instance-method">
+      <div class="signature">
+        
+        def <strong>get_auth_header</strong>
+
+        <a class="method-permalink" href="#get_auth_header-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>This method will generate the auth header to GitHub</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/client.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

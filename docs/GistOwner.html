@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.32.1">
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
+  <title>GistOwner - github.com/TheOnlyArtz/githubcr</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
+      <a href="Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsActor" data-name="eventsactor">
+      <a href="EventsActor.html">EventsActor</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsOrg" data-name="eventsorg">
+      <a href="EventsOrg.html">EventsOrg</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
+      <a href="EventsRepo.html">EventsRepo</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Gist" data-name="gist">
+      <a href="Gist.html">Gist</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCreationFilePayload" data-name="gistcreationfilepayload">
+      <a href="GistCreationFilePayload.html">GistCreationFilePayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistCreationPayload" data-name="gistcreationpayload">
+      <a href="GistCreationPayload.html">GistCreationPayload</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
+      <a href="GistFile.html">GistFile</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GistOwner" data-name="gistowner">
+      <a href="GistOwner.html">GistOwner</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistUser" data-name="gistuser">
+      <a href="GistUser.html">GistUser</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/GitHub" data-name="github">
+      <a href="GitHub.html">GitHub</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/Client" data-name="github::client">
+      <a href="GitHub/Client.html">Client</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST" data-name="github::rest">
+      <a href="GitHub/REST.html">REST</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
+      <a href="GitHub/REST/Events.html">Events</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Gists" data-name="github::rest::gists">
+      <a href="GitHub/REST/Gists.html">Gists</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/MalformedMessage" data-name="github::rest::malformedmessage">
+      <a href="GitHub/REST/MalformedMessage.html">MalformedMessage</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> GistOwner
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="GistOwner.html">GistOwner</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A struct which represents the owenr of the gist.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/a42a5023a7706ea0d858c9ebac8991bf958a307f/src/githubcr/mappings/gists.cr#L19" target="_blank">
+        githubcr/mappings/gists.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(__temp_119:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_119 : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#avatar_url:::Union(String,Nil)-instance-method" class="signature"><strong>#avatar_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#avatar_url=(_avatar_url:::Union(String,Nil))-instance-method" class="signature"><strong>#avatar_url=</strong>(_avatar_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#events_url:String-instance-method" class="signature"><strong>#events_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#events_url=(_events_url:String)-instance-method" class="signature"><strong>#events_url=</strong>(_events_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#followers_url:::Union(String,Nil)-instance-method" class="signature"><strong>#followers_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#followers_url=(_followers_url:::Union(String,Nil))-instance-method" class="signature"><strong>#followers_url=</strong>(_followers_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gists_url:::Union(String,Nil)-instance-method" class="signature"><strong>#gists_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gists_url=(_gists_url:::Union(String,Nil))-instance-method" class="signature"><strong>#gists_url=</strong>(_gists_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gravatar_id:::Union(String,Nil)-instance-method" class="signature"><strong>#gravatar_id</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gravatar_id=(_gravatar_id:::Union(String,Nil))-instance-method" class="signature"><strong>#gravatar_id=</strong>(_gravatar_id : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#html_url:::Union(String,Nil)-instance-method" class="signature"><strong>#html_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#html_url=(_html_url:::Union(String,Nil))-instance-method" class="signature"><strong>#html_url=</strong>(_html_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id:::Union(Int32,Nil)-instance-method" class="signature"><strong>#id</strong> : ::Union(Int32, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id=(_id:::Union(Int32,Nil))-instance-method" class="signature"><strong>#id=</strong>(_id : ::Union(Int32, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#login:::Union(String,Nil)-instance-method" class="signature"><strong>#login</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#login=(_login:::Union(String,Nil))-instance-method" class="signature"><strong>#login=</strong>(_login : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#node_id:::Union(String,Nil)-instance-method" class="signature"><strong>#node_id</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#node_id=(_node_id:::Union(String,Nil))-instance-method" class="signature"><strong>#node_id=</strong>(_node_id : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#organizations_url:String-instance-method" class="signature"><strong>#organizations_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#organizations_url=(_organizations_url:String)-instance-method" class="signature"><strong>#organizations_url=</strong>(_organizations_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#received_events_url:String-instance-method" class="signature"><strong>#received_events_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#received_events_url=(_received_events_url:String)-instance-method" class="signature"><strong>#received_events_url=</strong>(_received_events_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repos_url:::Union(String,Nil)-instance-method" class="signature"><strong>#repos_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repos_url=(_repos_url:::Union(String,Nil))-instance-method" class="signature"><strong>#repos_url=</strong>(_repos_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#site_admin:Bool-instance-method" class="signature"><strong>#site_admin</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#site_admin=(_site_admin:Bool)-instance-method" class="signature"><strong>#site_admin=</strong>(_site_admin : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#starred_url:::Union(String,Nil)-instance-method" class="signature"><strong>#starred_url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#starred_url=(_starred_url:::Union(String,Nil))-instance-method" class="signature"><strong>#starred_url=</strong>(_starred_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subscriptions_url:String-instance-method" class="signature"><strong>#subscriptions_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subscriptions_url=(_subscriptions_url:String)-instance-method" class="signature"><strong>#subscriptions_url=</strong>(_subscriptions_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type:::Union(String,Nil)-instance-method" class="signature"><strong>#type</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type=(_type:::Union(String,Nil))-instance-method" class="signature"><strong>#type=</strong>(_type : ::Union(String, Nil))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url:::Union(String,Nil)-instance-method" class="signature"><strong>#url</strong> : ::Union(String, Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url=(_url:::Union(String,Nil))-instance-method" class="signature"><strong>#url=</strong>(_url : ::Union(String, Nil))</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(__temp_119:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(__temp_119 : JSON::PullParser)
+
+        <a class="method-permalink" href="#new(__temp_119:JSON::PullParser)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="avatar_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>avatar_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#avatar_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="avatar_url=(_avatar_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>avatar_url=</strong>(_avatar_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#avatar_url=(_avatar_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="events_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>events_url</strong> : String
+
+        <a class="method-permalink" href="#events_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="events_url=(_events_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>events_url=</strong>(_events_url : String)
+
+        <a class="method-permalink" href="#events_url=(_events_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="followers_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>followers_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#followers_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="followers_url=(_followers_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>followers_url=</strong>(_followers_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#followers_url=(_followers_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gists_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>gists_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#gists_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gists_url=(_gists_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>gists_url=</strong>(_gists_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#gists_url=(_gists_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gravatar_id:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>gravatar_id</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#gravatar_id:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gravatar_id=(_gravatar_id:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>gravatar_id=</strong>(_gravatar_id : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#gravatar_id=(_gravatar_id:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="html_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>html_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#html_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="html_url=(_html_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>html_url=</strong>(_html_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#html_url=(_html_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:::Union(Int32,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : ::Union(Int32, Nil)
+
+        <a class="method-permalink" href="#id:::Union(Int32,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(_id:::Union(Int32,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(_id : ::Union(Int32, Nil))
+
+        <a class="method-permalink" href="#id=(_id:::Union(Int32,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="login:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>login</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#login:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="login=(_login:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>login=</strong>(_login : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#login=(_login:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="node_id:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>node_id</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#node_id:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="node_id=(_node_id:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>node_id=</strong>(_node_id : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#node_id=(_node_id:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="organizations_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>organizations_url</strong> : String
+
+        <a class="method-permalink" href="#organizations_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="organizations_url=(_organizations_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>organizations_url=</strong>(_organizations_url : String)
+
+        <a class="method-permalink" href="#organizations_url=(_organizations_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="received_events_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>received_events_url</strong> : String
+
+        <a class="method-permalink" href="#received_events_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="received_events_url=(_received_events_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>received_events_url=</strong>(_received_events_url : String)
+
+        <a class="method-permalink" href="#received_events_url=(_received_events_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repos_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>repos_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#repos_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repos_url=(_repos_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>repos_url=</strong>(_repos_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#repos_url=(_repos_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="site_admin:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>site_admin</strong> : Bool
+
+        <a class="method-permalink" href="#site_admin:Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="site_admin=(_site_admin:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>site_admin=</strong>(_site_admin : Bool)
+
+        <a class="method-permalink" href="#site_admin=(_site_admin:Bool)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="starred_url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>starred_url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#starred_url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="starred_url=(_starred_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>starred_url=</strong>(_starred_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#starred_url=(_starred_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subscriptions_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>subscriptions_url</strong> : String
+
+        <a class="method-permalink" href="#subscriptions_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subscriptions_url=(_subscriptions_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>subscriptions_url=</strong>(_subscriptions_url : String)
+
+        <a class="method-permalink" href="#subscriptions_url=(_subscriptions_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json : JSON::Builder)
+
+        <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>type</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#type:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type=(_type:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>type=</strong>(_type : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#type=(_type:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url:::Union(String,Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>url</strong> : ::Union(String, Nil)
+
+        <a class="method-permalink" href="#url:::Union(String,Nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url=(_url:::Union(String,Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>url=</strong>(_url : ::Union(String, Nil))
+
+        <a class="method-permalink" href="#url=(_url:::Union(String,Nil))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
