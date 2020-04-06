@@ -51,7 +51,6 @@ module GitHub
 
     def self.request(method : String, path : String, headers : HTTP::Headers, body : String?)
       response = raw_request(method, path, headers, body)
-
       unless response.success?
         raise "Unknown/bad payload" unless response.content_type.not_nil!.includes?("application/json")
         raise MalformedMessage.from_json(response.body).message
@@ -289,6 +288,23 @@ module GitHub
         )
 
         pp json
+      end
+    end
+
+    # This module is specifically for interacting with
+    # the Blobs endpoints GitHub offers us to use.
+    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/commits/)
+    module Commits
+      # Gets a Git commit object.
+      def get_commit(owner : String, repository : String, commit_sha : String) : Commit
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/commits/#{commit_sha}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+        pp get_auth_header
+        Commit.from_json(json)
       end
     end
   end

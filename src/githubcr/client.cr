@@ -13,6 +13,7 @@ module GitHub
   class Client
     include REST::Gists
     include REST::Blobs
+    include REST::Commits
 
     def initialize(@username : String, @access_token : String)
     end
