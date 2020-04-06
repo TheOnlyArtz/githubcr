@@ -5,7 +5,7 @@ struct GistFile
   JSON.mapping(
     filename: String,
     type: String,
-    language: String
+    language: String,
     raw_url: String,
     size: Int32
   )
@@ -54,7 +54,7 @@ struct Gist
     public: Bool,
     created_at: String,
     updated_at: String,
-    Description: String
+    description: String,
     comments: Int32,
     user: GistUser?, # (always got null, no idea what to put here.)
     comments_url: String,
