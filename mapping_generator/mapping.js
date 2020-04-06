@@ -19,10 +19,6 @@ String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
 
-/**
-* @param {Object} payload
-**/
-
 function getNewKey(key, name, root, array = false) {
   let newKey = key.replaceAt(0, key[0].toUpperCase());
   if (array) newKey = newKey.replaceAt(newKey.length - 1, ""); // delete the last char `s`
