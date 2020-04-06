@@ -1,4 +1,6 @@
 require "base64"
+require "./rest.cr"
+
 module GitHub
   # The basic class which represents a GitHub client / user
   # the client will be used to send REST requests to the GitHub
@@ -9,6 +11,7 @@ module GitHub
   #```
   # With this client you will be able to make API requests to Discord
   class Client
+    include REST::Gists
 
     def initialize(@username : String, @access_token : String)
     end
