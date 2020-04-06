@@ -260,6 +260,17 @@ module GitHub
 
         Gist.from_json(json)
       end
+
+      # Allows you to dleete a gist by it's ID
+      # NOTE: Fails if gist doesn't exist
+      def delete_gist(id : String) : Nil
+        response = REST.request(
+          "DELETE",
+          "/gists/#{id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
     end
   end
 end
