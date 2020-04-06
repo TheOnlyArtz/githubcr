@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>GitHub::REST::Events - github.com/TheOnlyArtz/githubcr</title>
+  <title>GitHub::REST::Blobs - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../../";
   </script>
@@ -120,12 +120,12 @@
       
         <ul>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
       <a href="../../GitHub/REST/Blobs.html">Blobs</a>
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
       <a href="../../GitHub/REST/Events.html">Events</a>
       
     </li>
@@ -154,7 +154,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> GitHub::REST::Events
+  <span class="kind">module</span> GitHub::REST::Blobs
 
 </h1>
 
@@ -172,10 +172,8 @@
   </h2>
 
   <p>This module is specifically for interacting with
-the Events endpoint GitHub offer us to use.
-see <a href="https://developer.github.com/v3/activity/events/" target="_blank">GitHub Events endpoints</a></p>
-
-<p><span class="flag orange">TODO</span>  ↑</p>
+the Blobs endpoints GitHub offers us to use.
+see <a href="https://developer.github.com/v3/git/blobs/" target="_blank">GitHub Gists endpoints</a></p>
 
 
 
@@ -186,6 +184,20 @@ see <a href="https://developer.github.com/v3/activity/events/" target="_blank">G
 
 
 
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../GitHub/Client.html">GitHub::Client</a></li>
+    
+  </ul>
 
 
 
@@ -200,7 +212,7 @@ see <a href="https://developer.github.com/v3/activity/events/" target="_blank">G
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L67" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L277" target="_blank">
         githubcr/rest.cr
       </a>
     
@@ -215,6 +227,30 @@ see <a href="https://developer.github.com/v3/activity/events/" target="_blank">G
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method" class="signature"><strong>#create_blob</strong>(owner : String, repository : String, payload : BlobPayload)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method" class="signature"><strong>#get_blob</strong>(owner : String, repository : String, file_sha : String) : Blob</a>
+        
+          <div class="summary"><p>The content in the response will always be Base64 encoded.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -227,6 +263,55 @@ see <a href="https://developer.github.com/v3/activity/events/" target="_blank">G
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method">
+      <div class="signature">
+        
+        def <strong>create_blob</strong>(owner : String, repository : String, payload : <a href="../../BlobPayload.html">BlobPayload</a>)
+
+        <a class="method-permalink" href="#create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L291" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method">
+      <div class="signature">
+        
+        def <strong>get_blob</strong>(owner : String, repository : String, file_sha : String) : <a href="../../Blob.html">Blob</a>
+
+        <a class="method-permalink" href="#get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The content in the response will always be Base64 encoded.</p>
+
+<p><span class="flag purple">NOTE</span>  This API supports blobs up to 100 megabytes in size.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L280" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 

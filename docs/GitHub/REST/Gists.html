@@ -40,6 +40,16 @@
   <div class="types-list">
     <ul>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Blob" data-name="blob">
+      <a href="../../Blob.html">Blob</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/BlobPayload" data-name="blobpayload">
+      <a href="../../BlobPayload.html">BlobPayload</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
       <a href="../../Event.html">Event</a>
       
@@ -110,6 +120,11 @@
       
         <ul>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
+      <a href="../../GitHub/REST/Blobs.html">Blobs</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Events" data-name="github::rest::events">
       <a href="../../GitHub/REST/Events.html">Events</a>
       
@@ -158,7 +173,7 @@
 
   <p>This module is specifically for interacting with
 the Gists endpoints GitHub offers us to use.
-see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gists endpoints</a></p>
+see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gists endpoints</a></p>
 
 
 
@@ -197,7 +212,7 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L73" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L73" target="_blank">
         githubcr/rest.cr
       </a>
     
@@ -225,49 +240,49 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
       <li class="entry-summary">
         <a href="#create_gist(payload:GistPayload):Gist-instance-method" class="signature"><strong>#create_gist</strong>(payload : GistPayload) : Gist</a>
         
-          <div class="summary"><p>Creates a gist on the auth user's account <code></code>`cr payload = GistCreationPayload.new(     description: "This is a description",     public: true,     files: {       "test.cr" => GistCreationFilePayload.new(content: "This is some content")     } ) client.create_gist(payload) <code></code>` TODO: This endpoint seems broken too, check this out</p></div>
+          <div class="summary"><p>Creates a gist on the auth user's account <code></code>`cr payload = GistCreationPayload.new(     description: "This is a description",     public: true,     files: {       "test.cr" => GistCreationFilePayload.new(content: "This is some content")     } ) client.create_gist(payload) <code></code>` TODO: This endpoint seems broken too, check this out</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#delete_gist(id:String):Nil-instance-method" class="signature"><strong>#delete_gist</strong>(id : String) : Nil</a>
         
-          <div class="summary"><p>Allows you to dleete a gist by it's ID NOTE: Fails if gist doesn't exist</p></div>
+          <div class="summary"><p>Allows you to dleete a gist by it's ID NOTE: Fails if gist doesn't exist</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#fork_gist(id:String):Gist-instance-method" class="signature"><strong>#fork_gist</strong>(id : String) : Gist</a>
         
-          <div class="summary"><p>Allows you to fork a gist by it's ID NOTE: Check why this route returns 404</p></div>
+          <div class="summary"><p>Allows you to fork a gist by it's ID NOTE: Check why this route returns 404</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#get_all_gists(owner:String):Array(Gist)-instance-method" class="signature"><strong>#get_all_gists</strong>(owner : String) : Array(Gist)</a>
         
-          <div class="summary"><p><span class="flag purple">NOTE</span>  This will return the public repositories only if it wasn't obvious already...</p></div>
+          <div class="summary"><p><span class="flag purple">NOTE</span>  This will return the public repositories only if it wasn't obvious already...</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#get_gist(id:String,sha:String)-instance-method" class="signature"><strong>#get_gist</strong>(id : String, sha : String)</a>
         
-          <div class="summary"><p>Get a revision of a gist by it's ID and sha TODO Contact GitHub about this endpoint, seems broken!</p></div>
+          <div class="summary"><p>Get a revision of a gist by it's ID and sha TODO Contact GitHub about this endpoint, seems broken!</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#get_gist(id:String)-instance-method" class="signature"><strong>#get_gist</strong>(id : String)</a>
         
-          <div class="summary"><p>Get a gist by it's ID TODO Contact GitHub about this endpoint, seems broken!</p></div>
+          <div class="summary"><p>Get a gist by it's ID TODO Contact GitHub about this endpoint, seems broken!</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#get_my_gists:Array(Gist)-instance-method" class="signature"><strong>#get_my_gists</strong> : Array(Gist)</a>
         
-          <div class="summary"><p>Gets the authenticated user's gists</p></div>
+          <div class="summary"><p>Gets the authenticated user's gists</p></div>
         
       </li>
     
@@ -281,42 +296,42 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
       <li class="entry-summary">
         <a href="#get_starred_gists(since:Time):Array(Gist)-instance-method" class="signature"><strong>#get_starred_gists</strong>(since : Time) : Array(Gist)</a>
         
-          <div class="summary"><p>List the auth user's starred gists TODO check if since can be null</p></div>
+          <div class="summary"><p>List the auth user's starred gists TODO check if since can be null</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#gist_starred?(id:String):Bool-instance-method" class="signature"><strong>#gist_starred?</strong>(id : String) : Bool</a>
         
-          <div class="summary"><p>Allows you to check whether a gist is starred NOTE: If an error is being raised, the git is not starred.</p></div>
+          <div class="summary"><p>Allows you to check whether a gist is starred NOTE: If an error is being raised, the git is not starred.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#list_gist_commits(id:String):Array(GistCommit)-instance-method" class="signature"><strong>#list_gist_commits</strong>(id : String) : Array(GistCommit)</a>
         
-          <div class="summary"><p>Allows you to list the commits of a gist by it's ID</p></div>
+          <div class="summary"><p>Allows you to list the commits of a gist by it's ID</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#star_gist(id:String):Nil-instance-method" class="signature"><strong>#star_gist</strong>(id : String) : Nil</a>
         
-          <div class="summary"><p>Allows you star a gist by it's ID TODO: Why this route returns 404</p></div>
+          <div class="summary"><p>Allows you star a gist by it's ID TODO: Why this route returns 404</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#unstar_gist(id:String):Nil-instance-method" class="signature"><strong>#unstar_gist</strong>(id : String) : Nil</a>
         
-          <div class="summary"><p>Allows you to unstar a gist by it's ID TODO: Why this route returns 404</p></div>
+          <div class="summary"><p>Allows you to unstar a gist by it's ID TODO: Why this route returns 404</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#update_gist(id:String,payload:GistPayload):Gist-instance-method" class="signature"><strong>#update_gist</strong>(id : String, payload : GistPayload) : Gist</a>
         
-          <div class="summary"><p>Allows you to update or delete a gist file and rename gist files Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.</p></div>
+          <div class="summary"><p>Allows you to update or delete a gist file and rename gist files Files from the previous version of the gist that aren't explicitly changed during an edit are unchanged.</p></div>
         
       </li>
     
@@ -365,13 +380,13 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
 )
 client.create_gist(payload)</code></pre>
 
-<p><span class="flag orange">TODO</span>  This endpoint seems broken too, check this out</p>
+<p><span class="flag orange">TODO</span>  This endpoint seems broken too, check this out</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -388,13 +403,13 @@ client.create_gist(payload)</code></pre>
           
           <p>Allows you to dleete a gist by it's ID</p>
 
-<p><span class="flag purple">NOTE</span>  Fails if gist doesn't exist</p>
+<p><span class="flag purple">NOTE</span>  Fails if gist doesn't exist</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L264" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L264" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -411,13 +426,13 @@ client.create_gist(payload)</code></pre>
           
           <p>Allows you to fork a gist by it's ID</p>
 
-<p><span class="flag purple">NOTE</span>  Check why this route returns 404</p>
+<p><span class="flag purple">NOTE</span>  Check why this route returns 404</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L251" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L251" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -433,13 +448,13 @@ client.create_gist(payload)</code></pre>
         <div class="doc">
           
           <p><span class="flag purple">NOTE</span>  This will return the public repositories only
-if it wasn't obvious already...</p>
+if it wasn't obvious already...</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -456,13 +471,13 @@ if it wasn't obvious already...</p>
           
           <p>Get a revision of a gist by it's ID and sha</p>
 
-<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
+<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L146" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L146" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -479,13 +494,13 @@ if it wasn't obvious already...</p>
           
           <p>Get a gist by it's ID</p>
 
-<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
+<p><span class="flag orange">TODO</span>  Contact GitHub about this endpoint, seems broken!</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -500,13 +515,13 @@ if it wasn't obvious already...</p>
       
         <div class="doc">
           
-          <p>Gets the authenticated user's gists</p>
+          <p>Gets the authenticated user's gists</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -534,7 +549,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L101" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -551,13 +566,13 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
           
           <p>List the auth user's starred gists</p>
 
-<p><span class="flag orange">TODO</span>  check if since can be null</p>
+<p><span class="flag orange">TODO</span>  check if since can be null</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L117" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L117" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -574,13 +589,13 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
           
           <p>Allows you to check whether a gist is starred</p>
 
-<p><span class="flag purple">NOTE</span>  If an error is being raised, the git is not starred.</p>
+<p><span class="flag purple">NOTE</span>  If an error is being raised, the git is not starred.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L238" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L238" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -595,13 +610,13 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       
         <div class="doc">
           
-          <p>Allows you to list the commits of a gist by it's ID</p>
+          <p>Allows you to list the commits of a gist by it's ID</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L203" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L203" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -618,13 +633,13 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
           
           <p>Allows you star a gist by it's ID</p>
 
-<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
+<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -641,13 +656,13 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
           
           <p>Allows you to unstar a gist by it's ID</p>
 
-<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
+<p><span class="flag orange">TODO</span>  Why this route returns 404</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L227" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L227" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -667,13 +682,13 @@ Files from the previous version of the gist that aren't
 explicitly changed during an edit are unchanged.</p>
 
 <p><span class="flag orange">TODO</span>  Look into the different <a href="https://developer.github.com/v3/gists/#update-a-gist" target="_blank">new fields</a>
-that might appear</p>
+that might appear</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/69a8f565e04ab1fdbd4f3365627c7476beb67316/src/githubcr/rest.cr#L188" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L188" target="_blank">View source</a>]
         
       </div>
     </div>
