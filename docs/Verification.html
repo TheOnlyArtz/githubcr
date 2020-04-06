@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>EventsRepo - github.com/TheOnlyArtz/githubcr</title>
+  <title>Verification - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -105,7 +105,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
       <a href="EventsRepo.html">EventsRepo</a>
       
     </li>
@@ -225,7 +225,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Verification" data-name="verification">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Verification" data-name="verification">
       <a href="Verification.html">Verification</a>
       
     </li>
@@ -239,26 +239,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> EventsRepo
+  <span class="kind">struct</span> Verification
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="EventsRepo.html">EventsRepo</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Verification.html">Verification</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>Represents the repository which hosts the event</p>
 
 
 
@@ -283,8 +272,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/events.cr#L15" target="_blank">
-        githubcr/mappings/events.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/tags.cr#L17" target="_blank">
+        githubcr/mappings/tags.cr
       </a>
     
     <br/>
@@ -305,7 +294,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_236:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_236 : JSON::PullParser)</a>
+        <a href="#new(__temp_426:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_426 : JSON::PullParser)</a>
         
       </li>
     
@@ -326,22 +315,32 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        <a href="#payload:String-instance-method" class="signature"><strong>#payload</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#id=(_id:Int32)-instance-method" class="signature"><strong>#id=</strong>(_id : Int32)</a>
+        <a href="#payload=(_payload:String)-instance-method" class="signature"><strong>#payload=</strong>(_payload : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name:String-instance-method" class="signature"><strong>#name</strong> : String</a>
+        <a href="#reason:String-instance-method" class="signature"><strong>#reason</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name=(_name:String)-instance-method" class="signature"><strong>#name=</strong>(_name : String)</a>
+        <a href="#reason=(_reason:String)-instance-method" class="signature"><strong>#reason=</strong>(_reason : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#signature:String-instance-method" class="signature"><strong>#signature</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#signature=(_signature:String)-instance-method" class="signature"><strong>#signature=</strong>(_signature : String)</a>
         
       </li>
     
@@ -351,12 +350,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
+        <a href="#verified:Bool-instance-method" class="signature"><strong>#verified</strong> : Bool</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#url=(_url:String)-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
+        <a href="#verified=(_verified:Bool)-instance-method" class="signature"><strong>#verified=</strong>(_verified : Bool)</a>
         
       </li>
     
@@ -410,12 +409,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_236:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_426:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_236 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_426 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_236:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_426:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -438,12 +437,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="id:Int32-instance-method">
+    <div class="entry-detail" id="payload:String-instance-method">
       <div class="signature">
         
-        def <strong>id</strong> : Int32
+        def <strong>payload</strong> : String
 
-        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#payload:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -452,12 +451,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="id=(_id:Int32)-instance-method">
+    <div class="entry-detail" id="payload=(_payload:String)-instance-method">
       <div class="signature">
         
-        def <strong>id=</strong>(_id : Int32)
+        def <strong>payload=</strong>(_payload : String)
 
-        <a class="method-permalink" href="#id=(_id:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#payload=(_payload:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -466,12 +465,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="name:String-instance-method">
+    <div class="entry-detail" id="reason:String-instance-method">
       <div class="signature">
         
-        def <strong>name</strong> : String
+        def <strong>reason</strong> : String
 
-        <a class="method-permalink" href="#name:String-instance-method">#</a>
+        <a class="method-permalink" href="#reason:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -480,12 +479,40 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="name=(_name:String)-instance-method">
+    <div class="entry-detail" id="reason=(_reason:String)-instance-method">
       <div class="signature">
         
-        def <strong>name=</strong>(_name : String)
+        def <strong>reason=</strong>(_reason : String)
 
-        <a class="method-permalink" href="#name=(_name:String)-instance-method">#</a>
+        <a class="method-permalink" href="#reason=(_reason:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="signature:String-instance-method">
+      <div class="signature">
+        
+        def <strong>signature</strong> : String
+
+        <a class="method-permalink" href="#signature:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="signature=(_signature:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>signature=</strong>(_signature : String)
+
+        <a class="method-permalink" href="#signature=(_signature:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -508,12 +535,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="url:String-instance-method">
+    <div class="entry-detail" id="verified:Bool-instance-method">
       <div class="signature">
         
-        def <strong>url</strong> : String
+        def <strong>verified</strong> : Bool
 
-        <a class="method-permalink" href="#url:String-instance-method">#</a>
+        <a class="method-permalink" href="#verified:Bool-instance-method">#</a>
       </div>
       
       <br/>
@@ -522,12 +549,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="url=(_url:String)-instance-method">
+    <div class="entry-detail" id="verified=(_verified:Bool)-instance-method">
       <div class="signature">
         
-        def <strong>url=</strong>(_url : String)
+        def <strong>verified=</strong>(_verified : Bool)
 
-        <a class="method-permalink" href="#url=(_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#verified=(_verified:Bool)-instance-method">#</a>
       </div>
       
       <br/>

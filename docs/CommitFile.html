@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>GistFile - github.com/TheOnlyArtz/githubcr</title>
+  <title>CommitFile - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -70,7 +70,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/CommitFile" data-name="commitfile">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/CommitFile" data-name="commitfile">
       <a href="CommitFile.html">CommitFile</a>
       
     </li>
@@ -125,7 +125,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
       <a href="GistFile.html">GistFile</a>
       
     </li>
@@ -239,26 +239,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> GistFile
+  <span class="kind">struct</span> CommitFile
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="GistFile.html">GistFile</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="CommitFile.html">CommitFile</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>This structs represent a single file in the files property</p>
 
 
 
@@ -283,8 +272,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/gists.cr#L4" target="_blank">
-        githubcr/mappings/gists.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/commits.cr#L84" target="_blank">
+        githubcr/mappings/commits.cr
       </a>
     
     <br/>
@@ -305,7 +294,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_277:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_277 : JSON::PullParser)</a>
+        <a href="#new(__temp_175:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_175 : JSON::PullParser)</a>
         
       </li>
     
@@ -326,6 +315,56 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#additions:Int32-instance-method" class="signature"><strong>#additions</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#additions=(_additions:Int32)-instance-method" class="signature"><strong>#additions=</strong>(_additions : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#blob_url:String-instance-method" class="signature"><strong>#blob_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#blob_url=(_blob_url:String)-instance-method" class="signature"><strong>#blob_url=</strong>(_blob_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changes:Int32-instance-method" class="signature"><strong>#changes</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changes=(_changes:Int32)-instance-method" class="signature"><strong>#changes=</strong>(_changes : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contents_url:String-instance-method" class="signature"><strong>#contents_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contents_url=(_contents_url:String)-instance-method" class="signature"><strong>#contents_url=</strong>(_contents_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#deletions:Int32-instance-method" class="signature"><strong>#deletions</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#deletions=(_deletions:Int32)-instance-method" class="signature"><strong>#deletions=</strong>(_deletions : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#filename:String-instance-method" class="signature"><strong>#filename</strong> : String</a>
         
       </li>
@@ -336,12 +375,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#language:::Union(String,Nil)-instance-method" class="signature"><strong>#language</strong> : ::Union(String, Nil)</a>
+        <a href="#patch:String-instance-method" class="signature"><strong>#patch</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#language=(_language:::Union(String,Nil))-instance-method" class="signature"><strong>#language=</strong>(_language : ::Union(String, Nil))</a>
+        <a href="#patch=(_patch:String)-instance-method" class="signature"><strong>#patch=</strong>(_patch : String)</a>
         
       </li>
     
@@ -356,27 +395,27 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#size:Int32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        <a href="#sha:String-instance-method" class="signature"><strong>#sha</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#size=(_size:Int32)-instance-method" class="signature"><strong>#size=</strong>(_size : Int32)</a>
+        <a href="#sha=(_sha:String)-instance-method" class="signature"><strong>#sha=</strong>(_sha : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status:String-instance-method" class="signature"><strong>#status</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#status=(_status:String)-instance-method" class="signature"><strong>#status=</strong>(_status : String)</a>
         
       </li>
     
       <li class="entry-summary">
         <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#type:String-instance-method" class="signature"><strong>#type</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#type=(_type:String)-instance-method" class="signature"><strong>#type=</strong>(_type : String)</a>
         
       </li>
     
@@ -430,12 +469,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_277:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_175:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_277 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_175 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_277:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_175:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -457,6 +496,146 @@
 </a>
     Instance Method Detail
   </h2>
+  
+    <div class="entry-detail" id="additions:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>additions</strong> : Int32
+
+        <a class="method-permalink" href="#additions:Int32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="additions=(_additions:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>additions=</strong>(_additions : Int32)
+
+        <a class="method-permalink" href="#additions=(_additions:Int32)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="blob_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>blob_url</strong> : String
+
+        <a class="method-permalink" href="#blob_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="blob_url=(_blob_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>blob_url=</strong>(_blob_url : String)
+
+        <a class="method-permalink" href="#blob_url=(_blob_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changes:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>changes</strong> : Int32
+
+        <a class="method-permalink" href="#changes:Int32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changes=(_changes:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>changes=</strong>(_changes : Int32)
+
+        <a class="method-permalink" href="#changes=(_changes:Int32)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contents_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>contents_url</strong> : String
+
+        <a class="method-permalink" href="#contents_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contents_url=(_contents_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>contents_url=</strong>(_contents_url : String)
+
+        <a class="method-permalink" href="#contents_url=(_contents_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="deletions:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>deletions</strong> : Int32
+
+        <a class="method-permalink" href="#deletions:Int32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="deletions=(_deletions:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>deletions=</strong>(_deletions : Int32)
+
+        <a class="method-permalink" href="#deletions=(_deletions:Int32)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
   
     <div class="entry-detail" id="filename:String-instance-method">
       <div class="signature">
@@ -486,12 +665,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="language:::Union(String,Nil)-instance-method">
+    <div class="entry-detail" id="patch:String-instance-method">
       <div class="signature">
         
-        def <strong>language</strong> : ::Union(String, Nil)
+        def <strong>patch</strong> : String
 
-        <a class="method-permalink" href="#language:::Union(String,Nil)-instance-method">#</a>
+        <a class="method-permalink" href="#patch:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -500,12 +679,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="language=(_language:::Union(String,Nil))-instance-method">
+    <div class="entry-detail" id="patch=(_patch:String)-instance-method">
       <div class="signature">
         
-        def <strong>language=</strong>(_language : ::Union(String, Nil))
+        def <strong>patch=</strong>(_patch : String)
 
-        <a class="method-permalink" href="#language=(_language:::Union(String,Nil))-instance-method">#</a>
+        <a class="method-permalink" href="#patch=(_patch:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -542,12 +721,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="size:Int32-instance-method">
+    <div class="entry-detail" id="sha:String-instance-method">
       <div class="signature">
         
-        def <strong>size</strong> : Int32
+        def <strong>sha</strong> : String
 
-        <a class="method-permalink" href="#size:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#sha:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -556,12 +735,40 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="size=(_size:Int32)-instance-method">
+    <div class="entry-detail" id="sha=(_sha:String)-instance-method">
       <div class="signature">
         
-        def <strong>size=</strong>(_size : Int32)
+        def <strong>sha=</strong>(_sha : String)
 
-        <a class="method-permalink" href="#size=(_size:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#sha=(_sha:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status:String-instance-method">
+      <div class="signature">
+        
+        def <strong>status</strong> : String
+
+        <a class="method-permalink" href="#status:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="status=(_status:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>status=</strong>(_status : String)
+
+        <a class="method-permalink" href="#status=(_status:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -576,34 +783,6 @@
         def <strong>to_json</strong>(json : JSON::Builder)
 
         <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>type</strong> : String
-
-        <a class="method-permalink" href="#type:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="type=(_type:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>type=</strong>(_type : String)
-
-        <a class="method-permalink" href="#type=(_type:String)-instance-method">#</a>
       </div>
       
       <br/>

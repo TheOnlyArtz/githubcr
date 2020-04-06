@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>GistFile - github.com/TheOnlyArtz/githubcr</title>
+  <title>Commit - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -50,7 +50,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
       <a href="Commit.html">Commit</a>
       
     </li>
@@ -125,7 +125,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GistFile" data-name="gistfile">
       <a href="GistFile.html">GistFile</a>
       
     </li>
@@ -239,26 +239,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> GistFile
+  <span class="kind">struct</span> Commit
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="GistFile.html">GistFile</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Commit.html">Commit</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>This structs represent a single file in the files property</p>
 
 
 
@@ -283,8 +272,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/gists.cr#L4" target="_blank">
-        githubcr/mappings/gists.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/commits.cr#L99" target="_blank">
+        githubcr/mappings/commits.cr
       </a>
     
     <br/>
@@ -305,7 +294,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_277:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_277 : JSON::PullParser)</a>
+        <a href="#new(__temp_198:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_198 : JSON::PullParser)</a>
         
       </li>
     
@@ -326,42 +315,102 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#filename:String-instance-method" class="signature"><strong>#filename</strong> : String</a>
+        <a href="#author:Committer-instance-method" class="signature"><strong>#author</strong> : Committer</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#filename=(_filename:String)-instance-method" class="signature"><strong>#filename=</strong>(_filename : String)</a>
+        <a href="#author=(_author:Committer)-instance-method" class="signature"><strong>#author=</strong>(_author : Committer)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#language:::Union(String,Nil)-instance-method" class="signature"><strong>#language</strong> : ::Union(String, Nil)</a>
+        <a href="#comments_url:String-instance-method" class="signature"><strong>#comments_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#language=(_language:::Union(String,Nil))-instance-method" class="signature"><strong>#language=</strong>(_language : ::Union(String, Nil))</a>
+        <a href="#comments_url=(_comments_url:String)-instance-method" class="signature"><strong>#comments_url=</strong>(_comments_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#raw_url:String-instance-method" class="signature"><strong>#raw_url</strong> : String</a>
+        <a href="#commit:CommitData-instance-method" class="signature"><strong>#commit</strong> : CommitData</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#raw_url=(_raw_url:String)-instance-method" class="signature"><strong>#raw_url=</strong>(_raw_url : String)</a>
+        <a href="#commit=(_commit:CommitData)-instance-method" class="signature"><strong>#commit=</strong>(_commit : CommitData)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#size:Int32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        <a href="#committer:Committer-instance-method" class="signature"><strong>#committer</strong> : Committer</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#size=(_size:Int32)-instance-method" class="signature"><strong>#size=</strong>(_size : Int32)</a>
+        <a href="#committer=(_committer:Committer)-instance-method" class="signature"><strong>#committer=</strong>(_committer : Committer)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#files:Array(CommitFile)-instance-method" class="signature"><strong>#files</strong> : Array(CommitFile)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#files=(_files:Array(CommitFile))-instance-method" class="signature"><strong>#files=</strong>(_files : Array(CommitFile))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#html_url:String-instance-method" class="signature"><strong>#html_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#html_url=(_html_url:String)-instance-method" class="signature"><strong>#html_url=</strong>(_html_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#node_id:String-instance-method" class="signature"><strong>#node_id</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#node_id=(_node_id:String)-instance-method" class="signature"><strong>#node_id=</strong>(_node_id : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parents:Array(Parent)-instance-method" class="signature"><strong>#parents</strong> : Array(Parent)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parents=(_parents:Array(Parent))-instance-method" class="signature"><strong>#parents=</strong>(_parents : Array(Parent))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sha:String-instance-method" class="signature"><strong>#sha</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sha=(_sha:String)-instance-method" class="signature"><strong>#sha=</strong>(_sha : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#stats:Stats-instance-method" class="signature"><strong>#stats</strong> : Stats</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#stats=(_stats:Stats)-instance-method" class="signature"><strong>#stats=</strong>(_stats : Stats)</a>
         
       </li>
     
@@ -371,12 +420,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#type:String-instance-method" class="signature"><strong>#type</strong> : String</a>
+        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#type=(_type:String)-instance-method" class="signature"><strong>#type=</strong>(_type : String)</a>
+        <a href="#url=(_url:String)-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
         
       </li>
     
@@ -430,12 +479,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_277:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_198:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_277 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_198 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_277:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_198:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -458,12 +507,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="filename:String-instance-method">
+    <div class="entry-detail" id="author:Committer-instance-method">
       <div class="signature">
         
-        def <strong>filename</strong> : String
+        def <strong>author</strong> : <a href="Committer.html">Committer</a>
 
-        <a class="method-permalink" href="#filename:String-instance-method">#</a>
+        <a class="method-permalink" href="#author:Committer-instance-method">#</a>
       </div>
       
       <br/>
@@ -472,12 +521,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="filename=(_filename:String)-instance-method">
+    <div class="entry-detail" id="author=(_author:Committer)-instance-method">
       <div class="signature">
         
-        def <strong>filename=</strong>(_filename : String)
+        def <strong>author=</strong>(_author : <a href="Committer.html">Committer</a>)
 
-        <a class="method-permalink" href="#filename=(_filename:String)-instance-method">#</a>
+        <a class="method-permalink" href="#author=(_author:Committer)-instance-method">#</a>
       </div>
       
       <br/>
@@ -486,12 +535,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="language:::Union(String,Nil)-instance-method">
+    <div class="entry-detail" id="comments_url:String-instance-method">
       <div class="signature">
         
-        def <strong>language</strong> : ::Union(String, Nil)
+        def <strong>comments_url</strong> : String
 
-        <a class="method-permalink" href="#language:::Union(String,Nil)-instance-method">#</a>
+        <a class="method-permalink" href="#comments_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -500,12 +549,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="language=(_language:::Union(String,Nil))-instance-method">
+    <div class="entry-detail" id="comments_url=(_comments_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>language=</strong>(_language : ::Union(String, Nil))
+        def <strong>comments_url=</strong>(_comments_url : String)
 
-        <a class="method-permalink" href="#language=(_language:::Union(String,Nil))-instance-method">#</a>
+        <a class="method-permalink" href="#comments_url=(_comments_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -514,12 +563,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="raw_url:String-instance-method">
+    <div class="entry-detail" id="commit:CommitData-instance-method">
       <div class="signature">
         
-        def <strong>raw_url</strong> : String
+        def <strong>commit</strong> : <a href="CommitData.html">CommitData</a>
 
-        <a class="method-permalink" href="#raw_url:String-instance-method">#</a>
+        <a class="method-permalink" href="#commit:CommitData-instance-method">#</a>
       </div>
       
       <br/>
@@ -528,12 +577,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="raw_url=(_raw_url:String)-instance-method">
+    <div class="entry-detail" id="commit=(_commit:CommitData)-instance-method">
       <div class="signature">
         
-        def <strong>raw_url=</strong>(_raw_url : String)
+        def <strong>commit=</strong>(_commit : <a href="CommitData.html">CommitData</a>)
 
-        <a class="method-permalink" href="#raw_url=(_raw_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#commit=(_commit:CommitData)-instance-method">#</a>
       </div>
       
       <br/>
@@ -542,12 +591,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="size:Int32-instance-method">
+    <div class="entry-detail" id="committer:Committer-instance-method">
       <div class="signature">
         
-        def <strong>size</strong> : Int32
+        def <strong>committer</strong> : <a href="Committer.html">Committer</a>
 
-        <a class="method-permalink" href="#size:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#committer:Committer-instance-method">#</a>
       </div>
       
       <br/>
@@ -556,12 +605,180 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="size=(_size:Int32)-instance-method">
+    <div class="entry-detail" id="committer=(_committer:Committer)-instance-method">
       <div class="signature">
         
-        def <strong>size=</strong>(_size : Int32)
+        def <strong>committer=</strong>(_committer : <a href="Committer.html">Committer</a>)
 
-        <a class="method-permalink" href="#size=(_size:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#committer=(_committer:Committer)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="files:Array(CommitFile)-instance-method">
+      <div class="signature">
+        
+        def <strong>files</strong> : Array(<a href="CommitFile.html">CommitFile</a>)
+
+        <a class="method-permalink" href="#files:Array(CommitFile)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="files=(_files:Array(CommitFile))-instance-method">
+      <div class="signature">
+        
+        def <strong>files=</strong>(_files : Array(<a href="CommitFile.html">CommitFile</a>))
+
+        <a class="method-permalink" href="#files=(_files:Array(CommitFile))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="html_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>html_url</strong> : String
+
+        <a class="method-permalink" href="#html_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="html_url=(_html_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>html_url=</strong>(_html_url : String)
+
+        <a class="method-permalink" href="#html_url=(_html_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="node_id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>node_id</strong> : String
+
+        <a class="method-permalink" href="#node_id:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="node_id=(_node_id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>node_id=</strong>(_node_id : String)
+
+        <a class="method-permalink" href="#node_id=(_node_id:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parents:Array(Parent)-instance-method">
+      <div class="signature">
+        
+        def <strong>parents</strong> : Array(<a href="Parent.html">Parent</a>)
+
+        <a class="method-permalink" href="#parents:Array(Parent)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parents=(_parents:Array(Parent))-instance-method">
+      <div class="signature">
+        
+        def <strong>parents=</strong>(_parents : Array(<a href="Parent.html">Parent</a>))
+
+        <a class="method-permalink" href="#parents=(_parents:Array(Parent))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sha:String-instance-method">
+      <div class="signature">
+        
+        def <strong>sha</strong> : String
+
+        <a class="method-permalink" href="#sha:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sha=(_sha:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>sha=</strong>(_sha : String)
+
+        <a class="method-permalink" href="#sha=(_sha:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stats:Stats-instance-method">
+      <div class="signature">
+        
+        def <strong>stats</strong> : <a href="Stats.html">Stats</a>
+
+        <a class="method-permalink" href="#stats:Stats-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="stats=(_stats:Stats)-instance-method">
+      <div class="signature">
+        
+        def <strong>stats=</strong>(_stats : <a href="Stats.html">Stats</a>)
+
+        <a class="method-permalink" href="#stats=(_stats:Stats)-instance-method">#</a>
       </div>
       
       <br/>
@@ -584,12 +801,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="type:String-instance-method">
+    <div class="entry-detail" id="url:String-instance-method">
       <div class="signature">
         
-        def <strong>type</strong> : String
+        def <strong>url</strong> : String
 
-        <a class="method-permalink" href="#type:String-instance-method">#</a>
+        <a class="method-permalink" href="#url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -598,12 +815,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="type=(_type:String)-instance-method">
+    <div class="entry-detail" id="url=(_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>type=</strong>(_type : String)
+        def <strong>url=</strong>(_url : String)
 
-        <a class="method-permalink" href="#type=(_type:String)-instance-method">#</a>
+        <a class="method-permalink" href="#url=(_url:String)-instance-method">#</a>
       </div>
       
       <br/>

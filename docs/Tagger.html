@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>EventsRepo - github.com/TheOnlyArtz/githubcr</title>
+  <title>Tagger - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -105,7 +105,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsRepo" data-name="eventsrepo">
       <a href="EventsRepo.html">EventsRepo</a>
       
     </li>
@@ -215,7 +215,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Tagger" data-name="tagger">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Tagger" data-name="tagger">
       <a href="Tagger.html">Tagger</a>
       
     </li>
@@ -239,26 +239,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> EventsRepo
+  <span class="kind">struct</span> Tagger
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="EventsRepo.html">EventsRepo</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Tagger.html">Tagger</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>Represents the repository which hosts the event</p>
 
 
 
@@ -283,8 +272,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/events.cr#L15" target="_blank">
-        githubcr/mappings/events.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/tags.cr#L1" target="_blank">
+        githubcr/mappings/tags.cr
       </a>
     
     <br/>
@@ -305,7 +294,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_236:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_236 : JSON::PullParser)</a>
+        <a href="#new(__temp_408:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_408 : JSON::PullParser)</a>
         
       </li>
     
@@ -326,12 +315,22 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        <a href="#date:String-instance-method" class="signature"><strong>#date</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#id=(_id:Int32)-instance-method" class="signature"><strong>#id=</strong>(_id : Int32)</a>
+        <a href="#date=(_date:String)-instance-method" class="signature"><strong>#date=</strong>(_date : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#email:String-instance-method" class="signature"><strong>#email</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#email=(_email:String)-instance-method" class="signature"><strong>#email=</strong>(_email : String)</a>
         
       </li>
     
@@ -347,16 +346,6 @@
     
       <li class="entry-summary">
         <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url=(_url:String)-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
         
       </li>
     
@@ -410,12 +399,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_236:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_408:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_236 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_408 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_236:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_408:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -438,12 +427,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="id:Int32-instance-method">
+    <div class="entry-detail" id="date:String-instance-method">
       <div class="signature">
         
-        def <strong>id</strong> : Int32
+        def <strong>date</strong> : String
 
-        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#date:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -452,12 +441,40 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="id=(_id:Int32)-instance-method">
+    <div class="entry-detail" id="date=(_date:String)-instance-method">
       <div class="signature">
         
-        def <strong>id=</strong>(_id : Int32)
+        def <strong>date=</strong>(_date : String)
 
-        <a class="method-permalink" href="#id=(_id:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#date=(_date:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="email:String-instance-method">
+      <div class="signature">
+        
+        def <strong>email</strong> : String
+
+        <a class="method-permalink" href="#email:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="email=(_email:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>email=</strong>(_email : String)
+
+        <a class="method-permalink" href="#email=(_email:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -500,34 +517,6 @@
         def <strong>to_json</strong>(json : JSON::Builder)
 
         <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>url</strong> : String
-
-        <a class="method-permalink" href="#url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url=(_url:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>url=</strong>(_url : String)
-
-        <a class="method-permalink" href="#url=(_url:String)-instance-method">#</a>
       </div>
       
       <br/>

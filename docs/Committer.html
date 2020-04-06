@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>Gist - github.com/TheOnlyArtz/githubcr</title>
+  <title>Committer - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -75,7 +75,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Committer" data-name="committer">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Committer" data-name="committer">
       <a href="Committer.html">Committer</a>
       
     </li>
@@ -110,7 +110,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Gist" data-name="gist">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Gist" data-name="gist">
       <a href="Gist.html">Gist</a>
       
     </li>
@@ -239,27 +239,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Gist
+  <span class="kind">struct</span> Committer
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="Gist.html">Gist</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Committer.html">Committer</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>This structs represents a Gist payload.
-see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
 
 
 
@@ -284,8 +272,8 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/gists.cr#L39" target="_blank">
-        githubcr/mappings/gists.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/677d6fc2192d9053721f012cebe515ec806f74b3/src/githubcr/mappings/commits.cr#L45" target="_blank">
+        githubcr/mappings/commits.cr
       </a>
     
     <br/>
@@ -306,7 +294,7 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_327:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_327 : JSON::PullParser)</a>
+        <a href="#new(__temp_118:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_118 : JSON::PullParser)</a>
         
       </li>
     
@@ -327,92 +315,62 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#comments:Int32-instance-method" class="signature"><strong>#comments</strong> : Int32</a>
+        <a href="#avatar_url:String-instance-method" class="signature"><strong>#avatar_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#comments=(_comments:Int32)-instance-method" class="signature"><strong>#comments=</strong>(_comments : Int32)</a>
+        <a href="#avatar_url=(_avatar_url:String)-instance-method" class="signature"><strong>#avatar_url=</strong>(_avatar_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#comments_url:String-instance-method" class="signature"><strong>#comments_url</strong> : String</a>
+        <a href="#events_url:String-instance-method" class="signature"><strong>#events_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#comments_url=(_comments_url:String)-instance-method" class="signature"><strong>#comments_url=</strong>(_comments_url : String)</a>
+        <a href="#events_url=(_events_url:String)-instance-method" class="signature"><strong>#events_url=</strong>(_events_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#commits_url:String-instance-method" class="signature"><strong>#commits_url</strong> : String</a>
+        <a href="#followers_url:String-instance-method" class="signature"><strong>#followers_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#commits_url=(_commits_url:String)-instance-method" class="signature"><strong>#commits_url=</strong>(_commits_url : String)</a>
+        <a href="#followers_url=(_followers_url:String)-instance-method" class="signature"><strong>#followers_url=</strong>(_followers_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#created_at:String-instance-method" class="signature"><strong>#created_at</strong> : String</a>
+        <a href="#following_url:String-instance-method" class="signature"><strong>#following_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#created_at=(_created_at:String)-instance-method" class="signature"><strong>#created_at=</strong>(_created_at : String)</a>
+        <a href="#following_url=(_following_url:String)-instance-method" class="signature"><strong>#following_url=</strong>(_following_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#description:::Union(String,Nil)-instance-method" class="signature"><strong>#description</strong> : ::Union(String, Nil)</a>
+        <a href="#gists_url:String-instance-method" class="signature"><strong>#gists_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#description=(_description:::Union(String,Nil))-instance-method" class="signature"><strong>#description=</strong>(_description : ::Union(String, Nil))</a>
+        <a href="#gists_url=(_gists_url:String)-instance-method" class="signature"><strong>#gists_url=</strong>(_gists_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#files:Hash(String,GistFile)-instance-method" class="signature"><strong>#files</strong> : Hash(String, GistFile)</a>
+        <a href="#gravatar_id:String-instance-method" class="signature"><strong>#gravatar_id</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#files=(_files:Hash(String,GistFile))-instance-method" class="signature"><strong>#files=</strong>(_files : Hash(String, GistFile))</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#forks_url:String-instance-method" class="signature"><strong>#forks_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#forks_url=(_forks_url:String)-instance-method" class="signature"><strong>#forks_url=</strong>(_forks_url : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#git_pull_url:String-instance-method" class="signature"><strong>#git_pull_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#git_pull_url=(_git_pull_url:String)-instance-method" class="signature"><strong>#git_pull_url=</strong>(_git_pull_url : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#git_push_url:String-instance-method" class="signature"><strong>#git_push_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#git_push_url=(_git_push_url:String)-instance-method" class="signature"><strong>#git_push_url=</strong>(_git_push_url : String)</a>
+        <a href="#gravatar_id=(_gravatar_id:String)-instance-method" class="signature"><strong>#gravatar_id=</strong>(_gravatar_id : String)</a>
         
       </li>
     
@@ -427,12 +385,22 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#id:String-instance-method" class="signature"><strong>#id</strong> : String</a>
+        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#id=(_id:String)-instance-method" class="signature"><strong>#id=</strong>(_id : String)</a>
+        <a href="#id=(_id:Int32)-instance-method" class="signature"><strong>#id=</strong>(_id : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#login:String-instance-method" class="signature"><strong>#login</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#login=(_login:String)-instance-method" class="signature"><strong>#login=</strong>(_login : String)</a>
         
       </li>
     
@@ -447,22 +415,62 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#owner:GistUser-instance-method" class="signature"><strong>#owner</strong> : GistUser</a>
+        <a href="#organizations_url:String-instance-method" class="signature"><strong>#organizations_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#owner=(_owner:GistUser)-instance-method" class="signature"><strong>#owner=</strong>(_owner : GistUser)</a>
+        <a href="#organizations_url=(_organizations_url:String)-instance-method" class="signature"><strong>#organizations_url=</strong>(_organizations_url : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#public:Bool-instance-method" class="signature"><strong>#public</strong> : Bool</a>
+        <a href="#received_events_url:String-instance-method" class="signature"><strong>#received_events_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#public=(_public:Bool)-instance-method" class="signature"><strong>#public=</strong>(_public : Bool)</a>
+        <a href="#received_events_url=(_received_events_url:String)-instance-method" class="signature"><strong>#received_events_url=</strong>(_received_events_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repos_url:String-instance-method" class="signature"><strong>#repos_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#repos_url=(_repos_url:String)-instance-method" class="signature"><strong>#repos_url=</strong>(_repos_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#site_admin:Bool-instance-method" class="signature"><strong>#site_admin</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#site_admin=(_site_admin:Bool)-instance-method" class="signature"><strong>#site_admin=</strong>(_site_admin : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#starred_url:String-instance-method" class="signature"><strong>#starred_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#starred_url=(_starred_url:String)-instance-method" class="signature"><strong>#starred_url=</strong>(_starred_url : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subscriptions_url:String-instance-method" class="signature"><strong>#subscriptions_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subscriptions_url=(_subscriptions_url:String)-instance-method" class="signature"><strong>#subscriptions_url=</strong>(_subscriptions_url : String)</a>
         
       </li>
     
@@ -472,22 +480,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#truncated:Bool-instance-method" class="signature"><strong>#truncated</strong> : Bool</a>
+        <a href="#type:String-instance-method" class="signature"><strong>#type</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#truncated=(_truncated:Bool)-instance-method" class="signature"><strong>#truncated=</strong>(_truncated : Bool)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#updated_at:String-instance-method" class="signature"><strong>#updated_at</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#updated_at=(_updated_at:String)-instance-method" class="signature"><strong>#updated_at=</strong>(_updated_at : String)</a>
+        <a href="#type=(_type:String)-instance-method" class="signature"><strong>#type=</strong>(_type : String)</a>
         
       </li>
     
@@ -498,16 +496,6 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
     
       <li class="entry-summary">
         <a href="#url=(_url:String)-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#user:::Union(GistUser,Nil)-instance-method" class="signature"><strong>#user</strong> : ::Union(GistUser, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#user=(_user:::Union(GistUser,Nil))-instance-method" class="signature"><strong>#user=</strong>(_user : ::Union(GistUser, Nil))</a>
         
       </li>
     
@@ -561,12 +549,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_327:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_118:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_327 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_118 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_327:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_118:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -589,12 +577,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="comments:Int32-instance-method">
+    <div class="entry-detail" id="avatar_url:String-instance-method">
       <div class="signature">
         
-        def <strong>comments</strong> : Int32
+        def <strong>avatar_url</strong> : String
 
-        <a class="method-permalink" href="#comments:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#avatar_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -603,12 +591,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="comments=(_comments:Int32)-instance-method">
+    <div class="entry-detail" id="avatar_url=(_avatar_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>comments=</strong>(_comments : Int32)
+        def <strong>avatar_url=</strong>(_avatar_url : String)
 
-        <a class="method-permalink" href="#comments=(_comments:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#avatar_url=(_avatar_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -617,12 +605,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="comments_url:String-instance-method">
+    <div class="entry-detail" id="events_url:String-instance-method">
       <div class="signature">
         
-        def <strong>comments_url</strong> : String
+        def <strong>events_url</strong> : String
 
-        <a class="method-permalink" href="#comments_url:String-instance-method">#</a>
+        <a class="method-permalink" href="#events_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -631,12 +619,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="comments_url=(_comments_url:String)-instance-method">
+    <div class="entry-detail" id="events_url=(_events_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>comments_url=</strong>(_comments_url : String)
+        def <strong>events_url=</strong>(_events_url : String)
 
-        <a class="method-permalink" href="#comments_url=(_comments_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#events_url=(_events_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -645,12 +633,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="commits_url:String-instance-method">
+    <div class="entry-detail" id="followers_url:String-instance-method">
       <div class="signature">
         
-        def <strong>commits_url</strong> : String
+        def <strong>followers_url</strong> : String
 
-        <a class="method-permalink" href="#commits_url:String-instance-method">#</a>
+        <a class="method-permalink" href="#followers_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -659,12 +647,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="commits_url=(_commits_url:String)-instance-method">
+    <div class="entry-detail" id="followers_url=(_followers_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>commits_url=</strong>(_commits_url : String)
+        def <strong>followers_url=</strong>(_followers_url : String)
 
-        <a class="method-permalink" href="#commits_url=(_commits_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#followers_url=(_followers_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -673,12 +661,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="created_at:String-instance-method">
+    <div class="entry-detail" id="following_url:String-instance-method">
       <div class="signature">
         
-        def <strong>created_at</strong> : String
+        def <strong>following_url</strong> : String
 
-        <a class="method-permalink" href="#created_at:String-instance-method">#</a>
+        <a class="method-permalink" href="#following_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -687,12 +675,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="created_at=(_created_at:String)-instance-method">
+    <div class="entry-detail" id="following_url=(_following_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>created_at=</strong>(_created_at : String)
+        def <strong>following_url=</strong>(_following_url : String)
 
-        <a class="method-permalink" href="#created_at=(_created_at:String)-instance-method">#</a>
+        <a class="method-permalink" href="#following_url=(_following_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -701,12 +689,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="description:::Union(String,Nil)-instance-method">
+    <div class="entry-detail" id="gists_url:String-instance-method">
       <div class="signature">
         
-        def <strong>description</strong> : ::Union(String, Nil)
+        def <strong>gists_url</strong> : String
 
-        <a class="method-permalink" href="#description:::Union(String,Nil)-instance-method">#</a>
+        <a class="method-permalink" href="#gists_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -715,12 +703,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="description=(_description:::Union(String,Nil))-instance-method">
+    <div class="entry-detail" id="gists_url=(_gists_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>description=</strong>(_description : ::Union(String, Nil))
+        def <strong>gists_url=</strong>(_gists_url : String)
 
-        <a class="method-permalink" href="#description=(_description:::Union(String,Nil))-instance-method">#</a>
+        <a class="method-permalink" href="#gists_url=(_gists_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -729,12 +717,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="files:Hash(String,GistFile)-instance-method">
+    <div class="entry-detail" id="gravatar_id:String-instance-method">
       <div class="signature">
         
-        def <strong>files</strong> : Hash(String, <a href="GistFile.html">GistFile</a>)
+        def <strong>gravatar_id</strong> : String
 
-        <a class="method-permalink" href="#files:Hash(String,GistFile)-instance-method">#</a>
+        <a class="method-permalink" href="#gravatar_id:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -743,96 +731,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="files=(_files:Hash(String,GistFile))-instance-method">
+    <div class="entry-detail" id="gravatar_id=(_gravatar_id:String)-instance-method">
       <div class="signature">
         
-        def <strong>files=</strong>(_files : Hash(String, <a href="GistFile.html">GistFile</a>))
+        def <strong>gravatar_id=</strong>(_gravatar_id : String)
 
-        <a class="method-permalink" href="#files=(_files:Hash(String,GistFile))-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="forks_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>forks_url</strong> : String
-
-        <a class="method-permalink" href="#forks_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="forks_url=(_forks_url:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>forks_url=</strong>(_forks_url : String)
-
-        <a class="method-permalink" href="#forks_url=(_forks_url:String)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="git_pull_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>git_pull_url</strong> : String
-
-        <a class="method-permalink" href="#git_pull_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="git_pull_url=(_git_pull_url:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>git_pull_url=</strong>(_git_pull_url : String)
-
-        <a class="method-permalink" href="#git_pull_url=(_git_pull_url:String)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="git_push_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>git_push_url</strong> : String
-
-        <a class="method-permalink" href="#git_push_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="git_push_url=(_git_push_url:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>git_push_url=</strong>(_git_push_url : String)
-
-        <a class="method-permalink" href="#git_push_url=(_git_push_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#gravatar_id=(_gravatar_id:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -869,12 +773,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="id:String-instance-method">
+    <div class="entry-detail" id="id:Int32-instance-method">
       <div class="signature">
         
-        def <strong>id</strong> : String
+        def <strong>id</strong> : Int32
 
-        <a class="method-permalink" href="#id:String-instance-method">#</a>
+        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
       </div>
       
       <br/>
@@ -883,12 +787,40 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="id=(_id:String)-instance-method">
+    <div class="entry-detail" id="id=(_id:Int32)-instance-method">
       <div class="signature">
         
-        def <strong>id=</strong>(_id : String)
+        def <strong>id=</strong>(_id : Int32)
 
-        <a class="method-permalink" href="#id=(_id:String)-instance-method">#</a>
+        <a class="method-permalink" href="#id=(_id:Int32)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="login:String-instance-method">
+      <div class="signature">
+        
+        def <strong>login</strong> : String
+
+        <a class="method-permalink" href="#login:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="login=(_login:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>login=</strong>(_login : String)
+
+        <a class="method-permalink" href="#login=(_login:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -925,12 +857,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="owner:GistUser-instance-method">
+    <div class="entry-detail" id="organizations_url:String-instance-method">
       <div class="signature">
         
-        def <strong>owner</strong> : <a href="GistUser.html">GistUser</a>
+        def <strong>organizations_url</strong> : String
 
-        <a class="method-permalink" href="#owner:GistUser-instance-method">#</a>
+        <a class="method-permalink" href="#organizations_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -939,12 +871,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="owner=(_owner:GistUser)-instance-method">
+    <div class="entry-detail" id="organizations_url=(_organizations_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>owner=</strong>(_owner : <a href="GistUser.html">GistUser</a>)
+        def <strong>organizations_url=</strong>(_organizations_url : String)
 
-        <a class="method-permalink" href="#owner=(_owner:GistUser)-instance-method">#</a>
+        <a class="method-permalink" href="#organizations_url=(_organizations_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -953,12 +885,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="public:Bool-instance-method">
+    <div class="entry-detail" id="received_events_url:String-instance-method">
       <div class="signature">
         
-        def <strong>public</strong> : Bool
+        def <strong>received_events_url</strong> : String
 
-        <a class="method-permalink" href="#public:Bool-instance-method">#</a>
+        <a class="method-permalink" href="#received_events_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -967,12 +899,124 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="public=(_public:Bool)-instance-method">
+    <div class="entry-detail" id="received_events_url=(_received_events_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>public=</strong>(_public : Bool)
+        def <strong>received_events_url=</strong>(_received_events_url : String)
 
-        <a class="method-permalink" href="#public=(_public:Bool)-instance-method">#</a>
+        <a class="method-permalink" href="#received_events_url=(_received_events_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repos_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>repos_url</strong> : String
+
+        <a class="method-permalink" href="#repos_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="repos_url=(_repos_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>repos_url=</strong>(_repos_url : String)
+
+        <a class="method-permalink" href="#repos_url=(_repos_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="site_admin:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>site_admin</strong> : Bool
+
+        <a class="method-permalink" href="#site_admin:Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="site_admin=(_site_admin:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>site_admin=</strong>(_site_admin : Bool)
+
+        <a class="method-permalink" href="#site_admin=(_site_admin:Bool)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="starred_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>starred_url</strong> : String
+
+        <a class="method-permalink" href="#starred_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="starred_url=(_starred_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>starred_url=</strong>(_starred_url : String)
+
+        <a class="method-permalink" href="#starred_url=(_starred_url:String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subscriptions_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>subscriptions_url</strong> : String
+
+        <a class="method-permalink" href="#subscriptions_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subscriptions_url=(_subscriptions_url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>subscriptions_url=</strong>(_subscriptions_url : String)
+
+        <a class="method-permalink" href="#subscriptions_url=(_subscriptions_url:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -995,12 +1039,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="truncated:Bool-instance-method">
+    <div class="entry-detail" id="type:String-instance-method">
       <div class="signature">
         
-        def <strong>truncated</strong> : Bool
+        def <strong>type</strong> : String
 
-        <a class="method-permalink" href="#truncated:Bool-instance-method">#</a>
+        <a class="method-permalink" href="#type:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -1009,40 +1053,12 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="truncated=(_truncated:Bool)-instance-method">
+    <div class="entry-detail" id="type=(_type:String)-instance-method">
       <div class="signature">
         
-        def <strong>truncated=</strong>(_truncated : Bool)
+        def <strong>type=</strong>(_type : String)
 
-        <a class="method-permalink" href="#truncated=(_truncated:Bool)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="updated_at:String-instance-method">
-      <div class="signature">
-        
-        def <strong>updated_at</strong> : String
-
-        <a class="method-permalink" href="#updated_at:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="updated_at=(_updated_at:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>updated_at=</strong>(_updated_at : String)
-
-        <a class="method-permalink" href="#updated_at=(_updated_at:String)-instance-method">#</a>
+        <a class="method-permalink" href="#type=(_type:String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -1071,34 +1087,6 @@ see https://developer.github.com/v3/gists/#list-gists-for-a-user</p>
         def <strong>url=</strong>(_url : String)
 
         <a class="method-permalink" href="#url=(_url:String)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="user:::Union(GistUser,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>user</strong> : ::Union(<a href="GistUser.html">GistUser</a>, Nil)
-
-        <a class="method-permalink" href="#user:::Union(GistUser,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="user=(_user:::Union(GistUser,Nil))-instance-method">
-      <div class="signature">
-        
-        def <strong>user=</strong>(_user : ::Union(<a href="GistUser.html">GistUser</a>, Nil))
-
-        <a class="method-permalink" href="#user=(_user:::Union(GistUser,Nil))-instance-method">#</a>
       </div>
       
       <br/>
