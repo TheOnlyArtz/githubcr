@@ -3,6 +3,12 @@ struct GistCreationFilePayload
   property content
   def initialize(@content : String)
   end
+
+  def to_h
+    {
+      "content" => @content
+    }
+  end
 end
 
 # Represents gist creation payload
