@@ -13,8 +13,8 @@ end
 # NOTE: Fields which are required to gist creation
 # `public`
 record GistPayload,
- description : String,
  files : Hash(String, GistFilePayload),
+ description : String? = nil,
  public : Bool? = nil, do
   include JSON::Serializable
 end

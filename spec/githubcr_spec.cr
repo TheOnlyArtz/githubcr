@@ -21,7 +21,6 @@ describe GistPayload do
     )
 
     equal = {
-      "description" => "This is a description",
       "files" => {
         "test.cr" => {
           "content" => "This is some content"
@@ -30,6 +29,7 @@ describe GistPayload do
           "content" => "This is some content"
         }
       },
+      "description" => "This is a description",
       "public" => true,
     }
 
