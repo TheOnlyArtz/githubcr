@@ -215,13 +215,50 @@ module GitHub
 
       # Allows you star a gist by it's ID
       # TODO: Why this route returns 404
-      def star_gist(id : String)
+      def star_gist(id : String) : Nil
         response = REST.request(
           "PUT",
           "/gists/#{id}/star",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+      end
+
+      # Allows you to unstar a gist by it's ID
+      # TODO: Why this route returns 404
+      def unstar_gist(id : String) : Nil
+        response = REST.request(
+          "DELETE",
+          "/gists/#{id}/star",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # Allows you to check whether a gist is starred
+      # NOTE: If an error is being raised, the git is not starred.
+      def gist_starred?(id : String) : Bool
+        response = REST.request(
+          "GET",
+          "/gists/#{id}/star",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        true
+      end
+
+      # Allows you to fork a gist by it's ID
+      # NOTE: Check why this route returns 404
+      def fork_gist(id : String) : Gist
+        json = REST.request(
+          "POST",
+          "/gists/#{id}/forks",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Gist.from_json(json)
       end
     end
   end
