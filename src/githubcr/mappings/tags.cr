@@ -6,7 +6,7 @@ struct Tagger
   )
 end
 
-struct Object
+struct TagObject
   JSON.mapping(
     type: String,
     sha: String,
@@ -31,7 +31,7 @@ struct Tag
     url: String,
     message: String,
     tagger: Tagger,
-    object: Object,
+    object: TagObject,
     verification: Verification
   )
 end
