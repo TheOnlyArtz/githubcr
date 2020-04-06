@@ -1,3 +1,4 @@
+require "uri"
 require "http/client"
 require "./mappings/*"
 
@@ -44,6 +45,7 @@ module GitHub
       response = raw_request(method, path, headers, body)
 
       unless response.success?
+        pp response.body
         raise "Unknown payload" unless response.content_type == "application/json; charset=utf-8"
       end
 
@@ -64,10 +66,38 @@ module GitHub
     module Gists
       # NOTE: This will return the public repositories only
       # if it wasn't obvious already...
-      def get_all_gists(owner : String)
+      def get_all_gists(owner : String) : Array(Gist)
         json = REST.request(
           "GET",
           "/users/#{owner}/gists",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Gist).from_json(json)
+      end
+
+      # Gets the authenticated user's gists
+      def get_my_gists : Array(Gist)
+        get_all_gists(@username)
+      end
+
+      # List public gists sorted by most recently updated to least recently updated.
+      # NOTE: With pagination, you can fetch up to 3000 gists. For example
+      # you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per page.
+      #
+      # ```cr
+      # gists = client.get_public_gists(
+      #    Time.local(2018, 3, 8, 22, 5, 13, location: Time::Location.load("Europe/Berlin"))
+      # )
+      # ```
+      def get_public_gists(since : Time) : Array(Gist)
+        params = HTTP::Params.encode({
+          "since" => URI.parse(since.to_s).to_s
+        })
+        json = REST.request(
+          "GET",
+          "/gists/public?#{params}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
