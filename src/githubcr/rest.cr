@@ -53,8 +53,8 @@ module GitHub
       response = raw_request(method, path, headers, body)
 
       unless response.success?
-        raise MalformedMessage.from_json(response.body).message unless response.status != HTTP::Status::NOT_FOUND
-        raise "Unknown/bad payload" unless response.content_type == "application/json; charset=utf-8"
+        raise "Unknown/bad payload" unless response.content_type.not_nil!.includes?("application/json")
+        raise MalformedMessage.from_json(response.body).message
       end
 
       response.body
@@ -129,7 +129,6 @@ module GitHub
       end
 
       # Get a gist by it's ID
-      # TODO Contact GitHub about this endpoint, seems broken!
       def get_gist(id : String)
         json = REST.request(
           "GET",
@@ -142,8 +141,7 @@ module GitHub
       end
 
       # Get a revision of a gist by it's ID and sha
-      # TODO Contact GitHub about this endpoint, seems broken!
-      def get_gist(id : String, sha : String)
+      def get_gist_revision(id : String, sha : String)
         json = REST.request(
           "GET",
           "/gists/#{id}/#{sha}",
@@ -165,7 +163,6 @@ module GitHub
       # )
       # client.create_gist(payload)
       # ```
-      # TODO: This endpoint seems broken too, check this out.
       def create_gist(payload : GistPayload) : Gist
         json = REST.request(
           "POST",
@@ -212,7 +209,6 @@ module GitHub
       end
 
       # Allows you star a gist by it's ID
-      # TODO: Why this route returns 404
       def star_gist(id : String) : Nil
         response = REST.request(
           "PUT",
@@ -223,7 +219,6 @@ module GitHub
       end
 
       # Allows you to unstar a gist by it's ID
-      # TODO: Why this route returns 404
       def unstar_gist(id : String) : Nil
         response = REST.request(
           "DELETE",
@@ -234,7 +229,6 @@ module GitHub
       end
 
       # Allows you to check whether a gist is starred
-      # NOTE: If an error is being raised, the git is not starred.
       def gist_starred?(id : String) : Bool
         response = REST.request(
           "GET",
@@ -247,7 +241,6 @@ module GitHub
       end
 
       # Allows you to fork a gist by it's ID
-      # NOTE: Check why this route returns 404
       def fork_gist(id : String) : Gist
         json = REST.request(
           "POST",
@@ -260,7 +253,6 @@ module GitHub
       end
 
       # Allows you to delete a gist by it's ID
-      # NOTE: Fails if gist doesn't exist
       def delete_gist(id : String) : Nil
         response = REST.request(
           "DELETE",
@@ -280,7 +272,7 @@ module GitHub
       def get_blob(owner : String, repository : String, file_sha : String) : Blob
         json = REST.request(
           "GET",
-          "/repos/#{owner}/#{repository}/git/blobs/#{file_sha}/",
+          "/repos/#{owner}/#{repository}/git/blobs/#{file_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
@@ -291,7 +283,7 @@ module GitHub
       def create_blob(owner : String, repository : String, payload : BlobPayload)
         json = REST.request(
           "POST",
-          "/repos/#{owner}/#{repository}/git/blobs/",
+          "/repos/#{owner}/#{repository}/git/blobs",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
