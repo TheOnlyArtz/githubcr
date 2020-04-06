@@ -13,6 +13,7 @@ module GitHub
     HTTP_CLIENT = HTTP::Client.new API_BASE, tls: true
     GLOBAL_MUTEX = Mutex.new
 
+    # :nodoc:
     struct MalformedMessage
       JSON.mapping(
         message: String,
@@ -180,6 +181,10 @@ module GitHub
 
         Gist.from_json(json)
       end
+
+      # Allows you to update or delete a gist file and rename gist files
+      # Files from the previous version of the gist that aren't
+      # explicitly changed during an edit are unchanged.
     end
   end
 end
