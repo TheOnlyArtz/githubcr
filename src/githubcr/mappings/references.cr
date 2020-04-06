@@ -1,19 +1,16 @@
-require "json"
-
-struct GitReferenceObject
+struct RefObject
   JSON.mapping(
-    type: String,
-    sha: String,
-    url: String
+    type: {type: String, setter: false},
+    sha: {type: String, setter: false},
+    url: {type: String, setter: false}
   )
 end
 
-# Reference is a reserved class
-struct GitReference
+struct Ref
   JSON.mapping(
-    ref: String,
-    node_id: String,
-    url: String,
-    object: GitReferenceObject
+    ref: {type: String, setter: false},
+    node_id: {type: String, setter: false},
+    url: {type: String, setter: false},
+    object: {type: RefObject, setter: false}
   )
 end

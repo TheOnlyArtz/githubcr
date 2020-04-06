@@ -1,9 +1,19 @@
-keyMappings = {
+let keyMappings = {
   "string": "String",
   "boolean": "Bool",
   "number": "Int32",
 
 }
+
+let reserved = [
+  "File",
+  "Object",
+  "Reference"
+];
+
+let predefined = [
+  "User"
+];
 
 String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
@@ -12,11 +22,20 @@ String.prototype.replaceAt=function(index, replacement) {
 /**
 * @param {Object} payload
 **/
+
+function getNewKey(key, name, root, array = false) {
+  let newKey = key.replaceAt(0, key[0].toUpperCase());
+  if (array) newKey = newKey.replaceAt(newKey.length - 1, ""); // delete the last char `s`
+  if (reserved.includes(newKey))
+    newKey = name + newKey;
+
+  return newKey;
+}
+
 function generate(payload, name, indentationLevel = 2, root = true) {
   if (!payload)
-  {
     return "";
-  }
+
   let keys = Object.keys(payload);
   let code = [
     `struct ${name}`,
@@ -28,16 +47,16 @@ function generate(payload, name, indentationLevel = 2, root = true) {
   let i = 0;
   keys.forEach(key => {
     if (payload[key] == null) {
-      let newKey = key.replaceAt(0, key[0].toUpperCase());
+      let newKey = getNewKey(key, name, root);
       code.push("  ".repeat(indentationLevel) + `${key}: <CHANGE_ME>`);
     } else if (typeof(payload[key]) == "object" && payload[key].length == undefined){
-      let newKey = key.replaceAt(0, key[0].toUpperCase());
+      let newKey = getNewKey(key, name, root);
       newKey = root ? newKey : name + newKey;
       children.push(generate(payload[key], newKey, indentationLevel, false));
       code.push("  ".repeat(indentationLevel) + `${key}: {type: ${newKey}, setter: false}`);
     } else if (typeof(payload[key]) == "object" && payload[key].length != undefined) {
       // ARRAY
-      let newKey = key.replaceAt(0, key[0].toUpperCase());
+      let newKey = getNewKey(key, name, root, true);
       children.push(generate(payload[key][0], newKey, indentationLevel, false));
       code.push("  ".repeat(indentationLevel) + `${key}: {type: Array(${newKey}), setter: false}`);
     } else {
@@ -62,51 +81,14 @@ function generate(payload, name, indentationLevel = 2, root = true) {
 }
 
 const JSON = {
-    "url": "https://api.github.com/gists/aa5a315d61ae9438b18d",
-    "forks_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/forks",
-    "commits_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/commits",
-    "id": "aa5a315d61ae9438b18d",
-    "node_id": "MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk",
-    "git_pull_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-    "git_push_url": "https://gist.github.com/aa5a315d61ae9438b18d.git",
-    "html_url": "https://gist.github.com/aa5a315d61ae9438b18d",
-    "files": {
-      "hello_world.rb": {
-        "filename": "hello_world.rb",
-        "type": "application/x-ruby",
-        "language": "Ruby",
-        "raw_url": "https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb",
-        "size": 167
-      }
-    },
-    "public": true,
-    "created_at": "2010-04-14T02:15:15Z",
-    "updated_at": "2011-06-20T11:34:15Z",
-    "description": "Hello World Examples",
-    "comments": 0,
-    "user": null,
-    "comments_url": "https://api.github.com/gists/aa5a315d61ae9438b18d/comments/",
-    "owner": {
-      "login": "octocat",
-      "id": 1,
-      "node_id": "MDQ6VXNlcjE=",
-      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/octocat",
-      "html_url": "https://github.com/octocat",
-      "followers_url": "https://api.github.com/users/octocat/followers",
-      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
-      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
-      "organizations_url": "https://api.github.com/users/octocat/orgs",
-      "repos_url": "https://api.github.com/users/octocat/repos",
-      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/octocat/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "truncated": false
+  "ref": "refs/heads/featureA",
+  "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==",
+  "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA",
+  "object": {
+    "type": "commit",
+    "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+    "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+  }
 }
 
-console.log(generate(JSON, "Commit", 2, true));
+console.log(generate(JSON, "Ref", 2, true));
