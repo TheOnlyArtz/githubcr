@@ -54,7 +54,7 @@ struct Gist
     public: Bool,
     created_at: String,
     updated_at: String,
-    description: String,
+    description: String?,
     comments: Int32,
     # user: GistUser?, # (always got null, no idea what to put here.)
     comments_url: String,
