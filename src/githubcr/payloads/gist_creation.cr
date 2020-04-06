@@ -20,7 +20,7 @@ struct GistCreationPayload
     {
       "description" => @description,
       "public" => @public,
-      "files" => @files
+      "files" => @files.map { |k, v| v.to_h}
     }
   end
 end
