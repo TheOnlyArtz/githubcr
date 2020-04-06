@@ -23,7 +23,7 @@ module GitHub
     # This function is responsible for requesting the API
     def self.raw_request(method : String, path : String, headers : HTTP::Headers, body : String?)
       request_done = false
-
+      pp API_BASE + path
       until request_done
         GLOBAL_MUTEX.synchronize {}
 
@@ -166,15 +166,19 @@ module GitHub
       # )
       # client.create_gist(payload)
       # ```
+      # TODO: This endpoint seems broken too, check this out
       def create_gist(payload : GistCreationPayload) : Gist
         json = REST.request(
           "POST",
           "/gists",
-          HTTP::Headers{"Authorization" => get_auth_header},
-          payload.to_h.to_json
+          HTTP::Headers{
+            "Authorization" => get_auth_header,
+            "Content-Type" => "application/json",
+          },
+          payload.to_json
         )
 
-        Gist.from_json(payload)
+        Gist.from_json(json)
       end
     end
   end
