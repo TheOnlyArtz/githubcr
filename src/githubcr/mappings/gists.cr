@@ -32,7 +32,7 @@ struct GistOwner
     organizations_url: String,
     repos_url: String?,
     events_url: String,
-    recieved_events_url: String,
+    received_events_url: String,
     type: String?,
     site_admin: Bool
   )
@@ -56,7 +56,7 @@ struct Gist
     updated_at: String,
     description: String,
     comments: Int32,
-    user: GistUser?, # (always got null, no idea what to put here.)
+    # user: GistUser?, # (always got null, no idea what to put here.)
     comments_url: String,
     owner: GistOwner,
     truncated: Bool
