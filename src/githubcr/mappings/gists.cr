@@ -11,12 +11,8 @@ struct GistFile
   )
 end
 
-struct GistUser
-  # TODO
-end
-
 # A struct which represents the owenr of the gist.
-struct GistOwner
+struct GistUser
   JSON.mapping(
     login: String?,
     id: Int32?,
@@ -56,9 +52,29 @@ struct Gist
     updated_at: String,
     description: String?,
     comments: Int32,
-    # user: GistUser?, # (always got null, no idea what to put here.)
+    user: GistUser?, # (always got null, no idea what to put here.)
     comments_url: String,
-    owner: GistOwner,
+    owner: GistUser,
     truncated: Bool
+  )
+end
+
+# This struct represent the change status of a commit.
+struct GistCommitChangeStatus
+  JSON.mapping(
+    deletions: Int32,
+    additions: Int32,
+    total: Int32
+  )
+end
+
+# This struct represent a single commit.
+struct GistCommit
+  JSON.mapping(
+    url: String,
+    version: String,
+    user: GistUser,
+    change_status: GistCommitChangeStatus,
+    committed_at: String
   )
 end
