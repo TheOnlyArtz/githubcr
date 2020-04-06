@@ -1,26 +1,14 @@
-# Represents a file
-struct GistCreationFilePayload
-  property content
-  def initialize(@content : String)
-  end
+require "json"
 
-  def to_h
-    {
-      "content" => @content
-    }
-  end
+# Represents a file
+record GistCreationFilePayload, content : String do
+  include JSON::Serializable
 end
 
 # Represents gist creation payload
-struct GistCreationPayload
-  def initialize(@description : String, @public : Bool, @files : Hash(String, GistCreationFilePayload))
-  end
-
-  def to_h
-    {
-      "description" => @description,
-      "public" => @public,
-      "files" => @files.map { |k, v| v.to_h}
-    }
-  end
+record GistCreationPayload,
+ description : String,
+ public : Bool,
+ files : Hash(String, GistCreationFilePayload) do
+  include JSON::Serializable
 end

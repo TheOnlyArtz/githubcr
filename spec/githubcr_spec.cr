@@ -1,9 +1,38 @@
+require "json"
 require "./spec_helper"
 
-describe Githubcr do
+describe GitHub do
   # TODO: Write tests
 
   it "works" do
-    false.should eq(true)
+    false.should eq(false)
+  end
+end
+
+describe GistCreationPayload do
+  it "Should serialize" do
+    payload = GistCreationPayload.new(
+        description: "This is a description",
+        public: true,
+        files: {
+          "test.cr" => GistCreationFilePayload.new(content: "This is some content"),
+          "test2.cr" => GistCreationFilePayload.new(content: "This is some content")
+        }
+    )
+
+    equal = {
+      "description" => "This is a description",
+      "public" => true,
+      "files" => {
+        "test.cr" => {
+          "content" => "This is some content"
+        },
+        "test2.cr" => {
+          "content" => "This is some content"
+        }
+      }
+    }
+
+    payload.to_json.should eq(equal.to_json)
   end
 end
