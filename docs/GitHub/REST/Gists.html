@@ -212,7 +212,7 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L73" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L73" target="_blank">
         githubcr/rest.cr
       </a>
     
@@ -240,14 +240,14 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
       <li class="entry-summary">
         <a href="#create_gist(payload:GistPayload):Gist-instance-method" class="signature"><strong>#create_gist</strong>(payload : GistPayload) : Gist</a>
         
-          <div class="summary"><p>Creates a gist on the auth user's account <code></code>`cr payload = GistCreationPayload.new(     description: "This is a description",     public: true,     files: {       "test.cr" => GistCreationFilePayload.new(content: "This is some content")     } ) client.create_gist(payload) <code></code>` TODO: This endpoint seems broken too, check this out</p></div>
+          <div class="summary"><p>Creates a gist on the auth user's account.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#delete_gist(id:String):Nil-instance-method" class="signature"><strong>#delete_gist</strong>(id : String) : Nil</a>
         
-          <div class="summary"><p>Allows you to dleete a gist by it's ID NOTE: Fails if gist doesn't exist</p></div>
+          <div class="summary"><p>Allows you to delete a gist by it's ID NOTE: Fails if gist doesn't exist</p></div>
         
       </li>
     
@@ -369,24 +369,24 @@ see <a href="https://developer.github.com/v3/gists/" target="_blank">GitHub Gist
       
         <div class="doc">
           
-          <p>Creates a gist on the auth user's account</p>
+          <p>Creates a gist on the auth user's account.</p>
 
-<pre><code class="language-cr">payload = GistCreationPayload.new(
-    description: "This is a description",
-    public: true,
+<pre><code>payload <span class="o">=</span> <span class="t">GistCreationPayload</span>.<span class="k">new</span>(
+    description: <span class="s">&quot;This is a description&quot;</span>,
+    public: <span class="n">true</span>,
     files: {
-      "test.cr" => GistCreationFilePayload.new(content: "This is some content")
+      <span class="s">&quot;test.cr&quot;</span> => <span class="t">GistCreationFilePayload</span>.<span class="k">new</span>(content: <span class="s">&quot;This is some content&quot;</span>)
     }
 )
 client.create_gist(payload)</code></pre>
 
-<p><span class="flag orange">TODO</span>  This endpoint seems broken too, check this out</p>
+<p><span class="flag orange">TODO</span>  This endpoint seems broken too, check this out.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -401,7 +401,7 @@ client.create_gist(payload)</code></pre>
       
         <div class="doc">
           
-          <p>Allows you to dleete a gist by it's ID</p>
+          <p>Allows you to delete a gist by it's ID</p>
 
 <p><span class="flag purple">NOTE</span>  Fails if gist doesn't exist</p>
         </div>
@@ -409,7 +409,7 @@ client.create_gist(payload)</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L264" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L264" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -432,7 +432,7 @@ client.create_gist(payload)</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L251" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L251" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -454,7 +454,7 @@ if it wasn't obvious already...</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -477,7 +477,7 @@ if it wasn't obvious already...</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L146" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L146" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -500,7 +500,7 @@ if it wasn't obvious already...</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -521,7 +521,7 @@ if it wasn't obvious already...</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -549,7 +549,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L101" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -572,7 +572,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L117" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L117" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -595,7 +595,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L238" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L238" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -616,7 +616,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L203" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L203" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -639,7 +639,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L216" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -662,7 +662,7 @@ you can fetch 100 pages with 30 gists per page or 30 pages with 100 gists per pa
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L227" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L227" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -688,7 +688,7 @@ that might appear</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/7ef078d4e618f571344ebea1c97b81627562f628/src/githubcr/rest.cr#L188" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/8d3c5b1b8b646199394363f0a51f500fd1aec20b/src/githubcr/rest.cr#L188" target="_blank">View source</a>]
         
       </div>
     </div>

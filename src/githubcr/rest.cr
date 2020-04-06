@@ -154,8 +154,8 @@ module GitHub
         Gist.from_json(json)
       end
 
-      # Creates a gist on the auth user's account
-      # ```cr
+      # Creates a gist on the auth user's account.
+      #```
       # payload = GistCreationPayload.new(
       #     description: "This is a description",
       #     public: true,
@@ -165,7 +165,7 @@ module GitHub
       # )
       # client.create_gist(payload)
       # ```
-      # TODO: This endpoint seems broken too, check this out
+      # TODO: This endpoint seems broken too, check this out.
       def create_gist(payload : GistPayload) : Gist
         json = REST.request(
           "POST",
@@ -259,7 +259,7 @@ module GitHub
         Gist.from_json(json)
       end
 
-      # Allows you to dleete a gist by it's ID
+      # Allows you to delete a gist by it's ID
       # NOTE: Fails if gist doesn't exist
       def delete_gist(id : String) : Nil
         response = REST.request(
