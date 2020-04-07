@@ -417,12 +417,97 @@ module GitHub
 
     # This module is specifically for interacting with
     # the Artifacts endpoints GitHub offers us to use.
-    # see [GitHub Artifacts endpoints](https://developer.github.com/v3/git/trees/)
+    # see [GitHub Artifacts endpoints](https://developer.github.com/v3/git/artifacts/)
     module Artifacts
-      def list_artifacts(owner : String, repository : String) : Artifact
+      def list_repo_artifacts(owner : String, repository : String) : Artifact
         json = REST(Artifact).request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/artifacts",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def list_run_artifacts(owner : String, repository : String, run_id : String) : Artifact
+        json = REST(Artifact).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/artifacts",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_artifact(owner : String ,repository : String, artifact_id : String) : Artifact
+        json = REST(Artifact).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/artifacts/#{artifact_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # TODO
+      def download_artifact
+      end
+
+      # NOTE: If raises error, the artifact was not found.
+      def delete_artifact(owner : String, repository : String, artifact_id : String) : Nil
+        REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/actions/artifacts/#{artifact_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+    end
+
+    # This module is specifically for interacting with
+    # the Secrets endpoints GitHub offers us to use.
+    # see [GitHub Secrets endpoints](https://developer.github.com/v3/git/secrets/)
+    module Secrets
+      # Gets your public key, which you must store.
+      # You need your public key to use other secrets
+      # endpoints. Use the returned key to encrypt your secrets.
+      # Anyone with read access to the repository can use this endpoint.
+      # GitHub Apps must have the secrets permission to use this endpoint.
+      def get_my_public_key(owner : String, repository : String) : PublicKey
+        REST(PublicKey).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/secrets/public-key",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # NOTE: Secrets is NOT an array! it contains an array of SecretData
+      # SEE [this](https://developer.github.com/v3/actions/secrets/#list-secrets-for-a-repository).
+      def list_secrets(owner : String, repository : String) : Secrets
+        REST(Secrets).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/secrets/public-key",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_secret(owner : String, repository : String, name : String) : Secrets::SecretData
+        REST(Secrets::SecretData).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/secrets/#{name}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # TODO
+      def create_or_update_secret
+      end
+
+      # NOTE: Raises an error when not found
+      def delete_secret(owner : String, repository : String, name : String) : Nil
+        REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/actions/secrets/#{name}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
