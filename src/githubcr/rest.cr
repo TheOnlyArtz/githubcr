@@ -7,7 +7,7 @@ require "./mappings/*"
 module GitHub
   # This module enables GitHub.cr to interact with the
   # GitHub API through HTTP requests
-  module REST
+  module REST(T)
     API_BASE     = "api.github.com"
     HTTP_CLIENT  = HTTP::Client.new API_BASE, tls: true
     GLOBAL_MUTEX = Mutex.new
@@ -56,7 +56,7 @@ module GitHub
         raise MalformedMessage.from_json(response.body).message
       end
 
-      response.body
+      T.from_json(response.body)
     end
 
     # This module is specifically for interacting with
@@ -73,14 +73,12 @@ module GitHub
       # NOTE: This will return the public repositories only
       # if it wasn't obvious already...
       def get_all_gists(owner : String) : Array(Gist)
-        json = REST.request(
+        json = REST(Array(Gist)).request(
           "GET",
           "/users/#{owner}/gists",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Array(Gist).from_json(json)
       end
 
       # Gets the authenticated user's gists
@@ -101,14 +99,12 @@ module GitHub
         params = HTTP::Params.encode({
           "since" => URI.parse(since.to_s).to_s,
         })
-        json = REST.request(
+        json = REST(Array(Gist)).request(
           "GET",
           "/gists/public?#{params}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Array(Gist).from_json(json)
       end
 
       # List the auth user's starred gists
@@ -117,38 +113,32 @@ module GitHub
         params = HTTP::Params.encode({
           "since" => URI.parse(since.to_s).to_s,
         })
-        json = REST.request(
+        json = REST(Array(Gist)).request(
           "GET",
           "/gists/starred?#{params}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Array(Gist).from_json(json)
       end
 
       # Get a gist by it's ID
-      def get_gist(id : String)
-        json = REST.request(
+      def get_gist(id : String) : Gist
+        json = REST(Gist).request(
           "GET",
           "/gists/#{id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Gist.from_json(json)
       end
 
       # Get a revision of a gist by it's ID and sha
-      def get_gist_revision(id : String, sha : String)
-        json = REST.request(
+      def get_gist_revision(id : String, sha : String) : Gist
+        json = REST(Gist).request(
           "GET",
           "/gists/#{id}/#{sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Gist.from_json(json)
       end
 
       # Creates a gist on the auth user's account.
@@ -163,7 +153,7 @@ module GitHub
       # client.create_gist(payload)
       # ```
       def create_gist(payload : GistPayload) : Gist
-        json = REST.request(
+        json = REST(Gist).request(
           "POST",
           "/gists",
           HTTP::Headers{
@@ -172,8 +162,6 @@ module GitHub
           },
           payload.to_json
         )
-
-        Gist.from_json(json)
       end
 
       # Allows you to update or delete a gist file and rename gist files
@@ -182,29 +170,22 @@ module GitHub
       # TODO: Look into the different [new fields](https://developer.github.com/v3/gists/#update-a-gist)
       # that might appear
       def update_gist(id : String, payload : GistPayload) : Gist
-        json = REST.request(
+        json = REST(Gist).request(
           "PATCH",
           "/gists/#{id}",
-          HTTP::Headers{
-            "Authorization" => get_auth_header,
-            "Content-Type"  => "application/json",
-          },
+          HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
-
-        Gist.from_json(json)
       end
 
       # Allows you to list the commits of a gist by it's ID
       def list_gist_commits(id : String) : Array(GistCommit)
-        json = REST.request(
+        json = REST(Array(GistCommit)).request(
           "GET",
           "/gists/#{id}/commits",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Array(GistCommit).from_json(json)
       end
 
       # Allows you star a gist by it's ID
@@ -241,14 +222,12 @@ module GitHub
 
       # Allows you to fork a gist by it's ID
       def fork_gist(id : String) : Gist
-        json = REST.request(
+        json = REST(Gist).request(
           "POST",
           "/gists/#{id}/forks",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Gist.from_json(json)
       end
 
       # Allows you to delete a gist by it's ID
@@ -269,14 +248,12 @@ module GitHub
       # The content in the response will always be Base64 encoded.
       # NOTE: This API supports blobs up to 100 megabytes in size.
       def get_blob(owner : String, repository : String, file_sha : String) : Blob
-        json = REST.request(
+        json = REST(Blob).request(
           "GET",
           "/repos/#{owner}/#{repository}/git/blobs/#{file_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Blob.from_json(json)
       end
 
       def create_blob(owner : String, repository : String, payload : BlobPayload)
@@ -297,25 +274,21 @@ module GitHub
     module Commits
       # Gets a Git commit object.
       def get_commit(owner : String, repository : String, commit_sha : String) : Commit
-        json = REST.request(
+        json = REST(Commit).request(
           "GET",
           "/repos/#{owner}/#{repository}/commits/#{commit_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Commit.from_json(json)
       end
 
       def create_commit(owner : String, repository : String, payload : CommitPayload) : Commit
-        json = REST.request(
+        json = REST(Commit).request(
           "POST",
           "/repos/#{owner}/#{repository}/git/commits",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Commit.from_json(json)
       end
     end
 
@@ -331,28 +304,24 @@ module GitHub
     module References
       # Get a single Reference by it's ID
       def get_reference(owner : String, repository : String, reference : String) : Ref
-        json = REST.request(
+        json = REST(Ref).request(
           "GET",
           "/repos/#{owner}/#{repository}/ref/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Ref.from_json(json)
       end
 
       # Returns an array of references from your Git database that match the supplied name.
       # The :ref in the URL must be formatted as heads/<branch name> for branches and tags/<tag name> for tags.
       # If the :ref doesn't exist in the repository, but existing refs start with :ref, they will be returned as an array.
       def get_matching_references(owner : String, repository : String, reference : String) : Array(Ref)
-        json = REST.request(
+        json = REST(Array(Ref)).request(
           "GET",
           "/repos/#{owner}/#{repository}/git/matching-refs/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Array(Ref).from_json(json)
       end
 
       # Creates a reference for your repository.
@@ -360,25 +329,21 @@ module GitHub
       # even if the commit SHA-1 hash used exists.
       # Empty repositories are repositories without branches.
       def create_reference(owner : String, repository : String, payload : RefPayload) : Ref
-        json = REST.request(
+        json = REST(Ref).request(
           "POST",
           "/repos/#{owner}/#{repository}/git/refs",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
-
-        Ref.from_json(json)
       end
 
       def update_reference(owner : String, repository : String, payload : RefPatchPayload) : Ref
-        json = REST.request(
+        json = REST(Ref).request(
           "PATCH",
           "/repos/#{owner}/#{repository}/git/refs",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
-
-        Ref.from_json(json)
       end
 
       # NOTE: If this raises an error, you've failed to delete the reference.
@@ -400,14 +365,12 @@ module GitHub
     # see [GitHub Tags endpoints](https://developer.github.com/v3/git/tags/)
     module Tags
       def get_tag(owner : String, repository : String, tag_sha : String) : Tag
-        json = REST.request(
+        json = REST(Tag).request(
           "GET",
           "/repos/#{owner}/#{repository}/git/tags/#{tag_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Tag.from_json(json)
       end
 
       # Note that creating a tag object does not create the reference that makes a tag in Git.
@@ -416,14 +379,12 @@ module GitHub
       #  f you want to create a lightweight tag, you only have to create the tag
       # reference - this call would be unnecessary.
       def create_tag(owner : String, repository : String, payload : TagPayload) : Tag
-        json = REST.request(
+        json = REST(Tag).request(
           "POST",
           "/repos/#{owner}/#{repository}/git/tags",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
-
-        Tag.from_json(json)
       end
     end
 
@@ -436,25 +397,21 @@ module GitHub
       # If you need to fetch more items, use the non-recursive.
       # method of fetching trees, and fetch one sub-tree at a time.
       def get_tree(owner : String, repository : String, tree_sha : String) : Tree
-        json = REST.request(
+        json = REST(Tree).request(
           "GET",
           "/repos/#{owner}/#{repository}/git/trees/#{tree_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        Tree.from_json(json)
       end
 
       def create_tree(owner : String, repository : String, payload : TreePayload) : Tree
-        json = REST.request(
+        json = REST(Tree).request(
           "POST",
           "/repos/#{owner}/#{repository}/git/trees",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
-
-        Tree.from_json(json)
       end
     end
 
@@ -463,15 +420,12 @@ module GitHub
     # see [GitHub Artifacts endpoints](https://developer.github.com/v3/git/trees/)
     module Artifacts
       def list_artifacts(owner : String, repository : String) : Artifact
-        json = REST.request(
+        json = REST(Artifact).request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/artifacts",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
-
-        pp json
-        Artifact.from_json(json)
       end
     end
   end
