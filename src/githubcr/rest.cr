@@ -306,6 +306,19 @@ module GitHub
 
         Commit.from_json(json)
       end
+
+      def create_commit(owner : String, repository : String, payload : CommitPayload) : Commit
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/git/commits",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Commit.from_json(json)
+      end
     end
+
+
   end
 end
