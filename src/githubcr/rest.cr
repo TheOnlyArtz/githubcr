@@ -391,7 +391,7 @@ module GitHub
       end
 
       # TODO: Check out the endpoint since it's missing in the docs.
-      def delete_reference_tag()
+      def delete_reference_tag
       end
     end
 

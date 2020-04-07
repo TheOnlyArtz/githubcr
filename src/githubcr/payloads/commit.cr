@@ -7,12 +7,12 @@ record CommitPayload,
   author : CommitPayload::Author? = nil,
   committer : CommitPayload::Author? = nil,
   signature : String? = nil do
-    include JSON::Serializable
+  include JSON::Serializable
 end
 
 record CommitPayload::Author,
   name : String? = nil,
   email : String? = nil,
   date : String? = nil do
-    include JSON::Serializable
+  include JSON::Serializable
 end

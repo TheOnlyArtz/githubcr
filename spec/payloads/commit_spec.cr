@@ -6,7 +6,7 @@ describe CommitPayload do
       message: "My commit message",
       tree: "827efc6d56897b048c772eb4087f854f46256132",
       parents: [
-        "7d1b31e74ee336d15cbd21741bc88a537ed063a0"
+        "7d1b31e74ee336d15cbd21741bc88a537ed063a0",
       ],
       author: CommitPayload::Author.new(
         name: "Amit Katz"
@@ -16,14 +16,14 @@ describe CommitPayload do
 
     equal = {
       "message" => "My commit message",
-      "tree" => "827efc6d56897b048c772eb4087f854f46256132",
+      "tree"    => "827efc6d56897b048c772eb4087f854f46256132",
       "parents" => [
-        "7d1b31e74ee336d15cbd21741bc88a537ed063a0"
+        "7d1b31e74ee336d15cbd21741bc88a537ed063a0",
       ],
       "author" => {
-        "name" => "Amit Katz"
+        "name" => "Amit Katz",
       },
-      "signature" => "MY LONG SIGNATURE"
+      "signature" => "MY LONG SIGNATURE",
     }
 
     payload.should eq(equal.to_json)

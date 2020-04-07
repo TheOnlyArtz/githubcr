@@ -7,7 +7,7 @@ describe BlobPayload do
 
     equal = {
       "content" => "This is some content",
-      "encode" => "utf-8"
+      "encode"  => "utf-8",
     }
 
     payload.should eq(equal.to_json)

@@ -13,13 +13,13 @@ describe TagPayload do
     ).to_json
 
     equal = {
-      "tag" => "v0.0.1",
+      "tag"     => "v0.0.1",
       "message" => "Initial version\n",
-      "object" => "c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c",
-      "type" => "commit",
-      "tagger" => {
-        "name" => "Amit"
-      }
+      "object"  => "c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c",
+      "type"    => "commit",
+      "tagger"  => {
+        "name" => "Amit",
+      },
     }
 
     payload.should eq(equal.to_json)

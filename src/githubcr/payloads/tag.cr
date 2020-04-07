@@ -6,12 +6,12 @@ record TagPayload,
   object : String,
   type : String,
   tagger : TagPayload::Tagger? = nil do
-    include JSON::Serializable
+  include JSON::Serializable
 end
 
 record TagPayload::Tagger,
   name : String? = nil,
   email : String? = nil,
   date : String? = nil do
-    include JSON::Serializable
+  include JSON::Serializable
 end
