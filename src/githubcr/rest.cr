@@ -292,7 +292,7 @@ module GitHub
     end
 
     # This module is specifically for interacting with
-    # the Blobs endpoints GitHub offers us to use.
+    # the Commits endpoints GitHub offers us to use.
     # see [GitHub Gists endpoints](https://developer.github.com/v3/git/commits/)
     module Commits
       # Gets a Git commit object.
@@ -319,6 +319,8 @@ module GitHub
       end
     end
 
+    module References
 
+    end
   end
 end
