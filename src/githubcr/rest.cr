@@ -152,13 +152,13 @@ module GitHub
       end
 
       # Creates a gist on the auth user's account.
-      #```
+      # ```
       # payload = GistCreationPayload.new(
-      #     description: "This is a description",
-      #     public: true,
-      #     files: {
-      #       "test.cr" => GistCreationFilePayload.new(content: "This is some content")
-      #     }
+      #   description: "This is a description",
+      #   public: true,
+      #   files: {
+      #     "test.cr" => GistCreationFilePayload.new(content: "This is some content"),
+      #   }
       # )
       # client.create_gist(payload)
       # ```
