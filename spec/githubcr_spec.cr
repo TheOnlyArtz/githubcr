@@ -15,8 +15,8 @@ describe GistPayload do
       description: "This is a description",
       public: true,
       files: {
-        "test.cr"  => GistFilePayload.new(content: "This is some content"),
-        "test2.cr" => GistFilePayload.new(content: "This is some content"),
+        "test.cr"  => GistPayload::GistFilePayload.new(content: "This is some content"),
+        "test2.cr" => GistPayload::GistFilePayload.new(content: "This is some content"),
       }
     )
 
