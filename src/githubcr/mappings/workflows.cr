@@ -125,58 +125,6 @@ struct WorkflowRun::WorkflowRunHeadCommit
   )
 end
 
-struct WorkflowRun::WorkflowRunRepository
-  JSON.mapping(
-    id: {type: Int32, setter: false},
-    node_id: {type: String, setter: false},
-    name: {type: String, setter: false},
-    full_name: {type: String, setter: false},
-    owner: {type: User, setter: false},
-    private: {type: Bool, setter: false},
-    html_url: {type: String, setter: false},
-    description: {type: String, setter: false},
-    fork: {type: Bool, setter: false},
-    url: {type: String, setter: false},
-    archive_url: {type: String, setter: false},
-    assignees_url: {type: String, setter: false},
-    blobs_url: {type: String, setter: false},
-    branches_url: {type: String, setter: false},
-    collaborators_url: {type: String, setter: false},
-    comments_url: {type: String, setter: false},
-    commits_url: {type: String, setter: false},
-    compare_url: {type: String, setter: false},
-    contents_url: {type: String, setter: false},
-    contributors_url: {type: String, setter: false},
-    deployments_url: {type: String, setter: false},
-    downloads_url: {type: String, setter: false},
-    events_url: {type: String, setter: false},
-    forks_url: {type: String, setter: false},
-    git_commits_url: {type: String, setter: false},
-    git_refs_url: {type: String, setter: false},
-    git_tags_url: {type: String, setter: false},
-    git_url: {type: String, setter: false},
-    issue_comment_url: {type: String, setter: false},
-    issue_events_url: {type: String, setter: false},
-    issues_url: {type: String, setter: false},
-    keys_url: {type: String, setter: false},
-    labels_url: {type: String, setter: false},
-    languages_url: {type: String, setter: false},
-    merges_url: {type: String, setter: false},
-    milestones_url: {type: String, setter: false},
-    notifications_url: {type: String, setter: false},
-    pulls_url: {type: String, setter: false},
-    releases_url: {type: String, setter: false},
-    ssh_url: {type: String, setter: false},
-    stargazers_url: {type: String, setter: false},
-    statuses_url: {type: String, setter: false},
-    subscribers_url: {type: String, setter: false},
-    subscription_url: {type: String, setter: false},
-    tags_url: {type: String, setter: false},
-    teams_url: {type: String, setter: false},
-    trees_url: {type: String, setter: false}
-  )
-end
-
 struct WorkflowRun::WorkflowRunHeadRepositoryOwner
   JSON.mapping(
     login: {type: String, setter: false},
@@ -197,57 +145,6 @@ struct WorkflowRun::WorkflowRunHeadRepositoryOwner
     received_events_url: {type: String, setter: false},
     type: {type: String, setter: false},
     site_admin: {type: Bool, setter: false}
-  )
-end
-
-struct WorkflowRun::WorkflowRunHeadRepository
-  JSON.mapping(
-    id: {type: Int32, setter: false},
-    node_id: {type: String, setter: false},
-    name: {type: String, setter: false},
-    full_name: {type: String, setter: false},
-    private: {type: Bool, setter: false},
-    owner: {type: WorkflowRunHeadRepositoryOwner, setter: false},
-    html_url: {type: String, setter: false},
-    description: String?,
-    fork: {type: Bool, setter: false},
-    url: {type: String, setter: false},
-    forks_url: {type: String, setter: false},
-    keys_url: {type: String, setter: false},
-    collaborators_url: {type: String, setter: false},
-    teams_url: {type: String, setter: false},
-    hooks_url: {type: String, setter: false},
-    issue_events_url: {type: String, setter: false},
-    events_url: {type: String, setter: false},
-    assignees_url: {type: String, setter: false},
-    branches_url: {type: String, setter: false},
-    tags_url: {type: String, setter: false},
-    blobs_url: {type: String, setter: false},
-    git_tags_url: {type: String, setter: false},
-    git_refs_url: {type: String, setter: false},
-    trees_url: {type: String, setter: false},
-    statuses_url: {type: String, setter: false},
-    languages_url: {type: String, setter: false},
-    stargazers_url: {type: String, setter: false},
-    contributors_url: {type: String, setter: false},
-    subscribers_url: {type: String, setter: false},
-    subscription_url: {type: String, setter: false},
-    commits_url: {type: String, setter: false},
-    git_commits_url: {type: String, setter: false},
-    comments_url: {type: String, setter: false},
-    issue_comment_url: {type: String, setter: false},
-    contents_url: {type: String, setter: false},
-    compare_url: {type: String, setter: false},
-    merges_url: {type: String, setter: false},
-    archive_url: {type: String, setter: false},
-    downloads_url: {type: String, setter: false},
-    issues_url: {type: String, setter: false},
-    pulls_url: {type: String, setter: false},
-    milestones_url: {type: String, setter: false},
-    notifications_url: {type: String, setter: false},
-    labels_url: {type: String, setter: false},
-    releases_url: {type: String, setter: false},
-    deployments_url: {type: String, setter: false}
   )
 end
 
@@ -275,8 +172,8 @@ struct WorkflowRun::WorkflowRunData
     rerun_url: {type: String, setter: false},
     workflow_url: {type: String, setter: false},
     head_commit: {type: WorkflowRunHeadCommit, setter: false},
-    repository: {type: WorkflowRunRepository, setter: false},
-    head_repository: {type: WorkflowRunHeadRepository, setter: false}
+    repository: {type: Repository, setter: false},
+    head_repository: {type: Repository, setter: false}
   )
 end
 
