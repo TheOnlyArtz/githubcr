@@ -32,7 +32,13 @@ function generate(name, payload, rootname) {
 
   keys.forEach((key, i) => {
     if (payload[key] === null) code += generateNull(name, key);
-    else if (payload[key] instanceof Object) {
+    else if (payload[key] instanceof Array) {
+
+      let newKey = key.replaceAt(0, key[0].toUpperCase());
+      generatedCode = generate(newKey, payload[key][0], rootname);
+      children.push(generatedCode);
+      code += `  ${key} : Array(${name}::${newKey})`
+    } else if (payload[key] instanceof Object) {
       let newKey = key.replaceAt(0, key[0].toUpperCase());
       generatedCode = generate(newKey, payload[key], rootname);
       children.push(generatedCode);
@@ -43,7 +49,9 @@ function generate(name, payload, rootname) {
     if (i != keys.length - 1) code += ',\n';
     else code += " "
   });
+
   code += "do\n    include JSON::Serializable\nend\n"
+
   if (rootname === name)
   {
     children.push(code);
@@ -59,16 +67,17 @@ function generateNull(key) {
 }
 
 let JSON = {
-  "message": "my commit message",
-  "author": {
-    "name": "Mona Octocat",
-    "email": "octocat@github.com",
-    "date": "2008-07-09T16:13:30+12:00"
-  },
-  "tree": "827efc6d56897b048c772eb4087f854f46256132",
-  "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABAQAdFiEESn/54jMNIrGSE6Tp6cQjvhfv7nAFAlnT71cACgkQ6cQjvhfv\n7nCWwA//XVqBKWO0zF+bZl6pggvky3Oc2j1pNFuRWZ29LXpNuD5WUGXGG209B0hI\nDkmcGk19ZKUTnEUJV2Xd0R7AW01S/YSub7OYcgBkI7qUE13FVHN5ln1KvH2all2n\n2+JCV1HcJLEoTjqIFZSSu/sMdhkLQ9/NsmMAzpf/iIM0nQOyU4YRex9eD1bYj6nA\nOQPIDdAuaTQj1gFPHYLzM4zJnCqGdRlg0sOM/zC5apBNzIwlgREatOYQSCfCKV7k\nnrU34X8b9BzQaUx48Qa+Dmfn5KQ8dl27RNeWAqlkuWyv3pUauH9UeYW+KyuJeMkU\n+NyHgAsWFaCFl23kCHThbLStMZOYEnGagrd0hnm1TPS4GJkV4wfYMwnI4KuSlHKB\njHl3Js9vNzEUQipQJbgCgTiWvRJoK3ENwBTMVkKHaqT4x9U4Jk/XZB6Q8MA09ezJ\n3QgiTjTAGcum9E9QiJqMYdWQPWkaBIRRz5cET6HPB48YNXAAUsfmuYsGrnVLYbG+\nUpC6I97VybYHTy2O9XSGoaLeMI9CsFn38ycAxxbWagk5mhclNTP5mezIq6wKSwmr\nX11FW3n1J23fWZn5HJMBsRnUCgzqzX3871IqLYHqRJ/bpZ4h20RhTyPj5c/z7QXp\neSakNQMfbbMcljkha+ZMuVQX1K9aRlVqbmv3ZMWh+OijLYVU2bc=\n=5Io4\n-----END PGP SIGNATURE-----\n"
+  "base_tree": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+  "tree": [
+    {
+      "path": "file.rb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44b4fc6d56897b048c772eb4087f854f46256132"
+    }
+  ]
 }
 
-let name = "CommitPayload";
+let name = "Tree";
 console.log("require \"json\"\n");
-generate(name, JSON, name);
+generate(name + "Payload", JSON, name + "Payload");

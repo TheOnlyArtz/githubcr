@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>Ref::RefObject - github.com/TheOnlyArtz/githubcr</title>
+  <title>SelfHostedRunners::SelfHostedRunnerData - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -270,12 +270,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/Ref" data-name="ref">
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Ref" data-name="ref">
       <a href="../Ref.html">Ref</a>
       
         <ul>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Ref/RefObject" data-name="ref::refobject">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Ref/RefObject" data-name="ref::refobject">
       <a href="../Ref/RefObject.html">RefObject</a>
       
     </li>
@@ -315,12 +315,12 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/SelfHostedRunners" data-name="selfhostedrunners">
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/SelfHostedRunners" data-name="selfhostedrunners">
       <a href="../SelfHostedRunners.html">SelfHostedRunners</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/SelfHostedRunners/SelfHostedRunnerData" data-name="selfhostedrunners::selfhostedrunnerdata">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/SelfHostedRunners/SelfHostedRunnerData" data-name="selfhostedrunners::selfhostedrunnerdata">
       <a href="../SelfHostedRunners/SelfHostedRunnerData.html">SelfHostedRunnerData</a>
       
     </li>
@@ -414,12 +414,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Ref::RefObject
+  <span class="kind">struct</span> SelfHostedRunners::SelfHostedRunnerData
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Ref/RefObject.html">Ref::RefObject</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../SelfHostedRunners/SelfHostedRunnerData.html">SelfHostedRunners::SelfHostedRunnerData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -447,8 +447,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7edcb7e04cfb33b7b92c8d2b354ded3693c48851/src/githubcr/mappings/references.cr#L4" target="_blank">
-        githubcr/mappings/references.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/7edcb7e04cfb33b7b92c8d2b354ded3693c48851/src/githubcr/mappings/runners.cr#L8" target="_blank">
+        githubcr/mappings/runners.cr
       </a>
     
     <br/>
@@ -469,7 +469,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_340:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_340 : JSON::PullParser)</a>
+        <a href="#new(__temp_367:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_367 : JSON::PullParser)</a>
         
       </li>
     
@@ -490,22 +490,27 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#sha:String-instance-method" class="signature"><strong>#sha</strong> : String</a>
+        <a href="#architecture:String-instance-method" class="signature"><strong>#architecture</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#download_url:String-instance-method" class="signature"><strong>#download_url</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#filename:String-instance-method" class="signature"><strong>#filename</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#os:String-instance-method" class="signature"><strong>#os</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
         <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#type:String-instance-method" class="signature"><strong>#type</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
         
       </li>
     
@@ -559,12 +564,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_340:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_367:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_340 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_367 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_340:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_367:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -587,12 +592,54 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="sha:String-instance-method">
+    <div class="entry-detail" id="architecture:String-instance-method">
       <div class="signature">
         
-        def <strong>sha</strong> : String
+        def <strong>architecture</strong> : String
 
-        <a class="method-permalink" href="#sha:String-instance-method">#</a>
+        <a class="method-permalink" href="#architecture:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="download_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>download_url</strong> : String
+
+        <a class="method-permalink" href="#download_url:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="filename:String-instance-method">
+      <div class="signature">
+        
+        def <strong>filename</strong> : String
+
+        <a class="method-permalink" href="#filename:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="os:String-instance-method">
+      <div class="signature">
+        
+        def <strong>os</strong> : String
+
+        <a class="method-permalink" href="#os:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -607,34 +654,6 @@
         def <strong>to_json</strong>(json : JSON::Builder)
 
         <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>type</strong> : String
-
-        <a class="method-permalink" href="#type:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>url</strong> : String
-
-        <a class="method-permalink" href="#url:String-instance-method">#</a>
       </div>
       
       <br/>

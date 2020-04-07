@@ -519,10 +519,9 @@ module GitHub
     # see [GitHub SelfHostedRunners endpoints](https://developer.github.com/v3/git/self_hosted_runners/)
     module SelfHostedWorkflowRunners
       def list_self_hosted_runner_downloads(
-          owner : String,
-          repository : String
-        ) : Array(SelfHostedRunners::SelfHostedRunnerData)
-
+        owner : String,
+        repository : String
+      ) : Array(SelfHostedRunners::SelfHostedRunnerData)
         REST(Array(SelfHostRunners::SelfHostedRunnerData)).request(
           "GET",
           "repos/#{owner}/#{repository}/actions/runners/downloads",
@@ -550,10 +549,8 @@ module GitHub
       end
 
       def get_self_hosted_runner(owner : String,
-          repository : String,
-          runner_id : String
-        ) : SeldHostedRunners::SelfHostedRunnerData
-
+                                 repository : String,
+                                 runner_id : String) : SeldHostedRunners::SelfHostedRunnerData
         REST(SeldHostedRunners::SelfHostedRunnerData).request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runners/#{runner_id}",
