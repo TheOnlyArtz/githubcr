@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>GitHub::REST::Blobs - github.com/TheOnlyArtz/githubcr</title>
+  <title>GitHub::REST::References - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../../";
   </script>
@@ -190,7 +190,7 @@
       
         <ul>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
       <a href="../../GitHub/REST/Blobs.html">Blobs</a>
       
     </li>
@@ -210,7 +210,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/References" data-name="github::rest::references">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/References" data-name="github::rest::references">
       <a href="../../GitHub/REST/References.html">References</a>
       
     </li>
@@ -344,7 +344,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> GitHub::REST::Blobs
+  <span class="kind">module</span> GitHub::REST::References
 
 </h1>
 
@@ -362,8 +362,14 @@
   </h2>
 
   <p>This module is specifically for interacting with
-the Blobs endpoints GitHub offers us to use.
-see <a href="https://developer.github.com/v3/git/blobs/" target="_blank">GitHub Blobs endpoints</a></p>
+the Reference endpoints GitHub offers us to use.
+A Git reference (git ref) is just a file that contains a Git commit SHA-1 hash.
+When referring to a Git commit, you can use the Git reference,
+which is an easy-to-remember name, rather than the hash.
+The Git reference can be rewritten to point to a new commit.
+A branch is just a Git reference that stores the new Git commit hash.
+These endpoints allow you to read and write references to your Git database on GitHub.
+see <a href="https://developer.github.com/v3/git/refs/" target="_blank">GitHub Refs endpoints</a></p>
 
 
 
@@ -402,7 +408,7 @@ see <a href="https://developer.github.com/v3/git/blobs/" target="_blank">GitHub 
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L268" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L331" target="_blank">
         githubcr/rest.cr
       </a>
     
@@ -428,14 +434,42 @@ see <a href="https://developer.github.com/v3/git/blobs/" target="_blank">GitHub 
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method" class="signature"><strong>#create_blob</strong>(owner : String, repository : String, payload : BlobPayload)</a>
+        <a href="#create_reference(owner:String,repository:String,payload:RefPayload):Ref-instance-method" class="signature"><strong>#create_reference</strong>(owner : String, repository : String, payload : RefPayload) : Ref</a>
+        
+          <div class="summary"><p>Creates a reference for your repository.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method" class="signature"><strong>#get_blob</strong>(owner : String, repository : String, file_sha : String) : Blob</a>
+        <a href="#delete_reference(owner:String,repository:String,reference:String):Nil-instance-method" class="signature"><strong>#delete_reference</strong>(owner : String, repository : String, reference : String) : Nil</a>
         
-          <div class="summary"><p>The content in the response will always be Base64 encoded.</p></div>
+          <div class="summary"><p><span class="flag purple">NOTE</span>  If this raises an error, you've failed to delete the reference.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete_reference_tag-instance-method" class="signature"><strong>#delete_reference_tag</strong></a>
+        
+          <div class="summary"><p><span class="flag orange">TODO</span>  Check out the endpoint since it's missing in the docs.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_matching_references(owner:String,repository:String,reference:String):Array(Ref)-instance-method" class="signature"><strong>#get_matching_references</strong>(owner : String, repository : String, reference : String) : Array(Ref)</a>
+        
+          <div class="summary"><p>Returns an array of references from your Git database that match the supplied name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_reference(owner:String,repository:String,reference:String):Ref-instance-method" class="signature"><strong>#get_reference</strong>(owner : String, repository : String, reference : String) : Ref</a>
+        
+          <div class="summary"><p>Get a single Reference by it's ID</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_reference(owner:String,repository:String,payload:RefPatchPayload):Ref-instance-method" class="signature"><strong>#update_reference</strong>(owner : String, repository : String, payload : RefPatchPayload) : Ref</a>
         
       </li>
     
@@ -463,41 +497,128 @@ see <a href="https://developer.github.com/v3/git/blobs/" target="_blank">GitHub 
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method">
+    <div class="entry-detail" id="create_reference(owner:String,repository:String,payload:RefPayload):Ref-instance-method">
       <div class="signature">
         
-        def <strong>create_blob</strong>(owner : String, repository : String, payload : <a href="../../BlobPayload.html">BlobPayload</a>)
+        def <strong>create_reference</strong>(owner : String, repository : String, payload : <a href="../../RefPayload.html">RefPayload</a>) : <a href="../../Ref.html">Ref</a>
 
-        <a class="method-permalink" href="#create_blob(owner:String,repository:String,payload:BlobPayload)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L282" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method">
-      <div class="signature">
-        
-        def <strong>get_blob</strong>(owner : String, repository : String, file_sha : String) : <a href="../../Blob.html">Blob</a>
-
-        <a class="method-permalink" href="#get_blob(owner:String,repository:String,file_sha:String):Blob-instance-method">#</a>
+        <a class="method-permalink" href="#create_reference(owner:String,repository:String,payload:RefPayload):Ref-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The content in the response will always be Base64 encoded.</p>
-
-<p><span class="flag purple">NOTE</span>  This API supports blobs up to 100 megabytes in size.</p>
+          <p>Creates a reference for your repository.
+You are unable to create new references for empty repositories,
+even if the commit SHA-1 hash used exists.
+Empty repositories are repositories without branches.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L271" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L362" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_reference(owner:String,repository:String,reference:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_reference</strong>(owner : String, repository : String, reference : String) : Nil
+
+        <a class="method-permalink" href="#delete_reference(owner:String,repository:String,reference:String):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  If this raises an error, you've failed to delete the reference.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L385" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete_reference_tag-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_reference_tag</strong>
+
+        <a class="method-permalink" href="#delete_reference_tag-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag orange">TODO</span>  Check out the endpoint since it's missing in the docs.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L394" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_matching_references(owner:String,repository:String,reference:String):Array(Ref)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_matching_references</strong>(owner : String, repository : String, reference : String) : Array(<a href="../../Ref.html">Ref</a>)
+
+        <a class="method-permalink" href="#get_matching_references(owner:String,repository:String,reference:String):Array(Ref)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns an array of references from your Git database that match the supplied name.
+The :ref in the URL must be formatted as heads/&lt;branch name> for branches and tags/&lt;tag name> for tags.
+If the :ref doesn't exist in the repository, but existing refs start with :ref, they will be returned as an array.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L347" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_reference(owner:String,repository:String,reference:String):Ref-instance-method">
+      <div class="signature">
+        
+        def <strong>get_reference</strong>(owner : String, repository : String, reference : String) : <a href="../../Ref.html">Ref</a>
+
+        <a class="method-permalink" href="#get_reference(owner:String,repository:String,reference:String):Ref-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get a single Reference by it's ID</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L333" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_reference(owner:String,repository:String,payload:RefPatchPayload):Ref-instance-method">
+      <div class="signature">
+        
+        def <strong>update_reference</strong>(owner : String, repository : String, payload : <a href="../../RefPatchPayload.html">RefPatchPayload</a>) : <a href="../../Ref.html">Ref</a>
+
+        <a class="method-permalink" href="#update_reference(owner:String,repository:String,payload:RefPatchPayload):Ref-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/rest.cr#L373" target="_blank">View source</a>]
         
       </div>
     </div>

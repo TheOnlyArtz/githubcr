@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>Commit - github.com/TheOnlyArtz/githubcr</title>
+  <title>Tree - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -50,7 +50,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
       <a href="Commit.html">Commit</a>
       
         <ul>
@@ -300,7 +300,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Tree" data-name="tree">
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/Tree" data-name="tree">
       <a href="Tree.html">Tree</a>
       
         <ul>
@@ -344,12 +344,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Commit
+  <span class="kind">struct</span> Tree
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="Commit.html">Commit</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Tree.html">Tree</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -377,15 +377,15 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/mappings/commits.cr#L1" target="_blank">
-        githubcr/mappings/commits.cr:1
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/mappings/trees.cr#L3" target="_blank">
+        githubcr/mappings/trees.cr:3
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/mappings/commits.cr#L79" target="_blank">
-        githubcr/mappings/commits.cr:79
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/mappings/trees.cr#L17" target="_blank">
+        githubcr/mappings/trees.cr:17
       </a>
     
     <br/>
@@ -406,7 +406,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_159:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_159 : JSON::PullParser)</a>
+        <a href="#new(__temp_395:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_395 : JSON::PullParser)</a>
         
       </li>
     
@@ -427,57 +427,22 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#author:User-instance-method" class="signature"><strong>#author</strong> : User</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#comments_url:String-instance-method" class="signature"><strong>#comments_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#commit:CommitData-instance-method" class="signature"><strong>#commit</strong> : CommitData</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#committer:User-instance-method" class="signature"><strong>#committer</strong> : User</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#files:Array(CommitFile)-instance-method" class="signature"><strong>#files</strong> : Array(CommitFile)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#html_url:String-instance-method" class="signature"><strong>#html_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#node_id:String-instance-method" class="signature"><strong>#node_id</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#parents:Array(CommitParent)-instance-method" class="signature"><strong>#parents</strong> : Array(CommitParent)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#sha:String-instance-method" class="signature"><strong>#sha</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#stats:Stats-instance-method" class="signature"><strong>#stats</strong> : Stats</a>
+        <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        <a href="#tree:Array(TreeData)-instance-method" class="signature"><strong>#tree</strong> : Array(TreeData)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#truncated:Bool-instance-method" class="signature"><strong>#truncated</strong> : Bool</a>
         
       </li>
     
@@ -536,12 +501,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_159:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_395:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_159 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_395 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_159:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_395:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -564,118 +529,6 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="author:User-instance-method">
-      <div class="signature">
-        
-        def <strong>author</strong> : <a href="User.html">User</a>
-
-        <a class="method-permalink" href="#author:User-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="comments_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>comments_url</strong> : String
-
-        <a class="method-permalink" href="#comments_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="commit:CommitData-instance-method">
-      <div class="signature">
-        
-        def <strong>commit</strong> : <a href="Commit/CommitData.html">CommitData</a>
-
-        <a class="method-permalink" href="#commit:CommitData-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="committer:User-instance-method">
-      <div class="signature">
-        
-        def <strong>committer</strong> : <a href="User.html">User</a>
-
-        <a class="method-permalink" href="#committer:User-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="files:Array(CommitFile)-instance-method">
-      <div class="signature">
-        
-        def <strong>files</strong> : Array(<a href="Commit/CommitFile.html">CommitFile</a>)
-
-        <a class="method-permalink" href="#files:Array(CommitFile)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="html_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>html_url</strong> : String
-
-        <a class="method-permalink" href="#html_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="node_id:String-instance-method">
-      <div class="signature">
-        
-        def <strong>node_id</strong> : String
-
-        <a class="method-permalink" href="#node_id:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="parents:Array(CommitParent)-instance-method">
-      <div class="signature">
-        
-        def <strong>parents</strong> : Array(<a href="Commit/CommitParent.html">CommitParent</a>)
-
-        <a class="method-permalink" href="#parents:Array(CommitParent)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="sha:String-instance-method">
       <div class="signature">
         
@@ -690,12 +543,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="stats:Stats-instance-method">
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
       <div class="signature">
         
-        def <strong>stats</strong> : <a href="Commit/Stats.html">Stats</a>
+        def <strong>to_json</strong>(json : JSON::Builder)
 
-        <a class="method-permalink" href="#stats:Stats-instance-method">#</a>
+        <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
       </div>
       
       <br/>
@@ -704,12 +557,26 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+    <div class="entry-detail" id="tree:Array(TreeData)-instance-method">
       <div class="signature">
         
-        def <strong>to_json</strong>(json : JSON::Builder)
+        def <strong>tree</strong> : Array(<a href="Tree/TreeData.html">TreeData</a>)
 
-        <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
+        <a class="method-permalink" href="#tree:Array(TreeData)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="truncated:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>truncated</strong> : Bool
+
+        <a class="method-permalink" href="#truncated:Bool-instance-method">#</a>
       </div>
       
       <br/>
