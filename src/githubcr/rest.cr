@@ -457,5 +457,22 @@ module GitHub
         Tree.from_json(json)
       end
     end
+
+    # This module is specifically for interacting with
+    # the Artifacts endpoints GitHub offers us to use.
+    # see [GitHub Artifacts endpoints](https://developer.github.com/v3/git/trees/)
+    module Artifacts
+      def list_artifacts(owner : String, repository : String) : Artifact
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/artifacts",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        pp json
+        Artifact.from_json(json)
+      end
+    end
   end
 end
