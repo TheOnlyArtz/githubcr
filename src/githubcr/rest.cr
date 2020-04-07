@@ -319,7 +319,81 @@ module GitHub
       end
     end
 
+    # This module is specifically for interacting with
+    # the Reference endpoints GitHub offers us to use.
+    # A Git reference (git ref) is just a file that contains a Git commit SHA-1 hash.
+    # When referring to a Git commit, you can use the Git reference,
+    # which is an easy-to-remember name, rather than the hash.
+    # The Git reference can be rewritten to point to a new commit.
+    # A branch is just a Git reference that stores the new Git commit hash.
+    # These endpoints allow you to read and write references to your Git database on GitHub.
+    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/refs/)
     module References
+      # Get a single Reference by it's ID
+      def get_reference(owner : String, repository : String, reference : String) : Ref
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/ref/#{reference}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Ref.from_json(json)
+      end
+
+      # Returns an array of references from your Git database that match the supplied name.
+      # The :ref in the URL must be formatted as heads/<branch name> for branches and tags/<tag name> for tags.
+      # If the :ref doesn't exist in the repository, but existing refs start with :ref, they will be returned as an array.
+      def get_matching_references(owner : String, repository : String, reference : String) : Array(Ref)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/git/matching-refs/#{reference}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Ref).from_json(json)
+      end
+
+      # Creates a reference for your repository.
+      # You are unable to create new references for empty repositories,
+      # even if the commit SHA-1 hash used exists.
+      # Empty repositories are repositories without branches.
+      def create_reference(owner : String, repository : String, payload : RefPayload) : Ref
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/git/refs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Ref.from_json(json)
+      end
+
+      def update_reference(owner : String, repository : String, payload : RefPatchPayload) : Ref
+        json = REST.request(
+          "PATCH",
+          "/repos/#{owner}/#{repository}/git/refs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Ref.from_json(json)
+      end
+
+      # NOTE: If this raises an error, you've failed to delete the reference.
+      def delete_reference(owner : String, repository : String, reference : String) : Nil
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/git/refs/#{reference}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+      end
+
+      # TODO: Check out the endpoint since it's missing in the docs.
+      def delete_reference_tag()
+      end
 
     end
   end

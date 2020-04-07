@@ -14,6 +14,7 @@ module GitHub
     include REST::Gists
     include REST::Blobs
     include REST::Commits
+    include REST::References
 
     def initialize(@username : String, @access_token : String)
     end
