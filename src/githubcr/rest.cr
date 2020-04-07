@@ -577,5 +577,110 @@ module GitHub
         )
       end
     end
+
+    # This module is specifically for interacting with
+    # the Workflows endpoints GitHub offers us to use.
+    # see [GitHub Workflows endpoints](https://developer.github.com/v3/actions/workflows/)
+    module Workflows
+      def list_workflows(owner : String, repository : String) : Workflow
+        REST(Workflow).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/workflows",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_workflows(owner : String, repository : String, workflow_id : String) : Workflow
+        REST(Workflow).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/workflows/#{workflow_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+    end
+
+    # This module is specifically for interacting with
+    # the WorkflowJobs endpoints GitHub offers us to use.
+    # see [GitHub WorkflowJobs endpoints](https://developer.github.com/v3/actions/workflow_jobs/)
+    module WorkflowJobs
+      # TODO: Add filters
+      def list_workflow_run_jobs(owner : String, repository : String, run_id : String) : WorkflowRunJobs
+        REST(WorkflowRunJobs).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/jobs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_workflow_job(owner : String, repository : String, job_id : String) : WorkflowJob
+        REST(WorkflowJob).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/jobs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # TODO
+      def get_workflow_job_logs
+      end
+    end
+
+    # This module is specifically for interacting with
+    # the WorkflowRuns endpoints GitHub offers us to use.
+    # see [GitHub WorkflowRuns endpoints](https://developer.github.com/v3/actions/workflow_runs/)
+    module WorkflowRuns
+      def list_workflow_runs(owner : String, repository : String, workflow_id : String) : WorkflowRun
+        REST(WorkflowRun).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/workflows/#{workflow_id}/runs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def list_repository_workflow_runs(owner : String, repository : String) : WorkflowRun
+        REST(WorkflowRun).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runs",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_workflow_run(owner : String, repository : String, run_id : String) : WorkflowRun::WorkflowRunData
+        REST(WorkflowRun::WorkflowRunData).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def rerun_workflow(owner : String, repository : String, run_id : String) : Nil
+        REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/rerun",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def cancel_workflow(owner : String, repository : String, run_id : String) : Nil
+        REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/cancel",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      # TODO
+      def list_workflow_run_logs
+      end
+    end
   end
 end

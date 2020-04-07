@@ -20,6 +20,9 @@ module GitHub
     include REST::Artifacts
     include REST::Secrets
     include REST::SelfHostedWorkflowRunners
+    include REST::Workflows
+    include REST::WorkflowJobs
+    include REST::WorkflowRuns
 
     def initialize(@username : String, @access_token : String)
     end
