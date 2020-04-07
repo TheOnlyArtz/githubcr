@@ -2,16 +2,16 @@ require "json"
 
 record CommitPayload,
   message : String,
-  author : CommitPayload::Author,
+  parents : Array(String),
   tree : String,
-  signature : String do
+  author : CommitPayload::Author? = nil,
+  signature : String? = nil do
     include JSON::Serializable
 end
 
 record CommitPayload::Author,
-  name : String,
-  email : String,
-  date : String do
+  name : String? = nil,
+  email : String? = nil,
+  date : String? = nil do
     include JSON::Serializable
 end
-
