@@ -513,5 +513,72 @@ module GitHub
         )
       end
     end
+
+    # This module is specifically for interacting with
+    # the SelfHostedRunners endpoints GitHub offers us to use.
+    # see [GitHub SelfHostedRunners endpoints](https://developer.github.com/v3/git/self_hosted_runners/)
+    module SelfHostedWorkflowRunners
+      def list_self_hosted_runner_downloads(
+          owner : String,
+          repository : String
+        ) : Array(SelfHostedRunners::SelfHostedRunnerData)
+
+        REST(Array(SelfHostRunners::SelfHostedRunnerData)).request(
+          "GET",
+          "repos/#{owner}/#{repository}/actions/runners/downloads",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def create_registration_token(owner : String, repository : String) : RegistrationToken
+        REST(RegistrationToken).request(
+          "POST",
+          "/repos/#{owner}/#{repository}/actions/runners/registration-token",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def list_self_hosted_runners(owner : String, repository : String) : SelfHostedRunners
+        REST(SelfHostedRunners).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runners",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def get_self_hosted_runner(owner : String,
+          repository : String,
+          runner_id : String
+        ) : SeldHostedRunners::SelfHostedRunnerData
+
+        REST(SeldHostedRunners::SelfHostedRunnerData).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/actions/runners/#{runner_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def create_remove_token(owner : String, repository : String) : RegistrationToken
+        REST(RegistrationToken).request(
+          "POST",
+          "/repos/#{owner}/#{repository}/actions/runners/remove-token",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def remove_self_hosted_runner(owner : String, repository : String, runner_id : String) : Nil
+        REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/actions/runners/#{runner_id}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+    end
   end
 end
