@@ -19,9 +19,9 @@ end
 
 struct Tag::Verification
   JSON.mapping(
-    verified: {type: Bool, setter: false},
-    reason: {type: String, setter: false},
-    signature: {type: String, setter: false},
+    verified: {type: Bool?, setter: false},
+    reason: {type: String?, setter: false},
+    signature: {type: String?, setter: false},
     payload: {type: String?, setter: false}
   )
 end
