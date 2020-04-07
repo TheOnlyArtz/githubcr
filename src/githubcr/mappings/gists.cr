@@ -1,7 +1,10 @@
 require "json"
 
+struct Gist
+end
+
 # This structs represent a single file in the files property
-struct GistFile
+struct Gist::GistFile
   JSON.mapping(
     filename: String,
     type: String,
@@ -23,7 +26,7 @@ struct Gist
     git_pull_url: {type: String, setter: false},
     git_push_url: {type: String, setter: false},
     html_url: {type: String, setter: false},
-    files: {type: Hash(String, GistFile), setter: false},
+    files: {type: Hash(String, Gist::GistFile), setter: false},
     public: {type: Bool, setter: false},
     created_at: {type: String, setter: false},
     updated_at: {type: String, setter: false},
@@ -37,7 +40,7 @@ struct Gist
 end
 
 # This struct represent the change status of a commit.
-struct GistCommitChangeStatus
+struct Gist::GistCommitChangeStatus
   JSON.mapping(
     deletions: Int32,
     additions: Int32,
@@ -46,12 +49,12 @@ struct GistCommitChangeStatus
 end
 
 # This struct represent a single commit.
-struct GistCommit
+struct Gist::GistCommit
   JSON.mapping(
     url: String,
     version: String,
     user: User,
-    change_status: GistCommitChangeStatus,
+    change_status: Gist::GistCommitChangeStatus,
     committed_at: String
   )
 end

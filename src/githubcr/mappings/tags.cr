@@ -1,4 +1,7 @@
-struct Tagger
+struct Tag
+end
+
+struct Tag::Tagger
   JSON.mapping(
     name: {type: String, setter: false},
     email: {type: String, setter: false},
@@ -6,7 +9,7 @@ struct Tagger
   )
 end
 
-struct TagObject
+struct Tag::TagObject
   JSON.mapping(
     type: {type: String, setter: false},
     sha: {type: String, setter: false},
@@ -14,7 +17,7 @@ struct TagObject
   )
 end
 
-struct Verification
+struct Tag::Verification
   JSON.mapping(
     verified: {type: Bool, setter: false},
     reason: {type: String, setter: false},

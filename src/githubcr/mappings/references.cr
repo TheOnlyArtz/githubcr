@@ -1,4 +1,7 @@
-struct RefObject
+struct Ref
+end
+
+struct Ref::RefObject
   JSON.mapping(
     type: {type: String, setter: false},
     sha: {type: String, setter: false},

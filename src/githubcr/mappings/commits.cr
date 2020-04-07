@@ -1,4 +1,7 @@
-struct CommitAuthor
+struct Commit
+end
+
+struct Commit::CommitAuthor
   JSON.mapping(
     name: {type: String, setter: false},
     email: {type: String, setter: false},
@@ -6,7 +9,7 @@ struct CommitAuthor
   )
 end
 
-struct CommitCommitter
+struct Commit::CommitCommitter
   JSON.mapping(
     name: {type: String, setter: false},
     email: {type: String, setter: false},
@@ -14,23 +17,23 @@ struct CommitCommitter
   )
 end
 
-struct CommitTree
+struct Commit::CommitTree
   JSON.mapping(
     sha: {type: String, setter: false},
     url: {type: String, setter: false}
   )
 end
 
-struct CommitVerification
+struct Commit::CommitVerification
   JSON.mapping(
     verified: {type: Bool, setter: false},
     reason: {type: String, setter: false},
-    signature: {type: String?, setter: false},
-    payload: {type: String?, setter: false}
+    signature: String?,
+    payload: String?
   )
 end
 
-struct CommitData
+struct Commit::CommitData
   JSON.mapping(
     author: {type: CommitAuthor, setter: false},
     committer: {type: CommitCommitter, setter: false},
@@ -42,7 +45,7 @@ struct CommitData
   )
 end
 
-struct Parent
+struct Commit::CommitParent
   JSON.mapping(
     sha: {type: String, setter: false},
     url: {type: String, setter: false},
@@ -50,7 +53,7 @@ struct Parent
   )
 end
 
-struct Stats
+struct Commit::Stats
   JSON.mapping(
     total: {type: Int32, setter: false},
     additions: {type: Int32, setter: false},
@@ -58,7 +61,7 @@ struct Stats
   )
 end
 
-struct CommitFile
+struct Commit::CommitFile
   JSON.mapping(
     sha: {type: String, setter: false},
     filename: {type: String, setter: false},
@@ -83,7 +86,7 @@ struct Commit
     comments_url: {type: String, setter: false},
     author: {type: User, setter: false},
     committer: {type: User, setter: false},
-    parents: {type: Array(Parent), setter: false},
+    parents: {type: Array(CommitParent), setter: false},
     stats: {type: Stats, setter: false},
     files: {type: Array(CommitFile), setter: false}
   )
