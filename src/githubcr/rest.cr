@@ -431,7 +431,31 @@ module GitHub
     # the Trees endpoints GitHub offers us to use.
     # see [GitHub Trees endpoints](https://developer.github.com/v3/git/trees/)
     module Trees
+      # If truncated is true in the response then the number
+      # of items in the tree array exceeded our maximum limit.
+      # If you need to fetch more items, use the non-recursive.
+      # method of fetching trees, and fetch one sub-tree at a time.
+      def get_tree(owner : String, repository : String, tree_sha : String) : Tree
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/git/trees/#{tree_sha}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
 
+        Tree.from_json(json)
+      end
+
+      def create_tree(owner : String, repository : String, payload : TreePayload) : Tree
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/git/trees",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Tree.from_json(json)
+      end
     end
   end
 end

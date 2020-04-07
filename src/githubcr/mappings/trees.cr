@@ -8,7 +8,7 @@ struct Tree::TreeData
     path: {type: String, setter: false},
     mode: {type: String, setter: false},
     type: {type: String, setter: false},
-    size: {type: Int32, setter: false},
+    size: {type: Int32?, setter: false},
     sha: {type: String, setter: false},
     url: {type: String, setter: false}
   )

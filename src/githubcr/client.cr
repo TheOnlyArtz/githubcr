@@ -16,6 +16,7 @@ module GitHub
     include REST::Commits
     include REST::References
     include REST::Tags
+    include REST::Trees
 
     def initialize(@username : String, @access_token : String)
     end
