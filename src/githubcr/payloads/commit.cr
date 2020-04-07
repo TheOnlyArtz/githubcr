@@ -2,9 +2,10 @@ require "json"
 
 record CommitPayload,
   message : String,
-  parents : Array(String),
   tree : String,
+  parents : Array(String),
   author : CommitPayload::Author? = nil,
+  committer : CommitPayload::Author? = nil,
   signature : String? = nil do
     include JSON::Serializable
 end
