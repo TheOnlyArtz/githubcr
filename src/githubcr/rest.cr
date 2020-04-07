@@ -437,7 +437,7 @@ module GitHub
         )
       end
 
-      def get_artifact(owner : String ,repository : String, artifact_id : String) : Artifact
+      def get_artifact(owner : String, repository : String, artifact_id : String) : Artifact
         json = REST(Artifact).request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/artifacts/#{artifact_id}",

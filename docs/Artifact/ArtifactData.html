@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>Commit::Stats - github.com/TheOnlyArtz/githubcr</title>
+  <title>Artifact::ArtifactData - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "../";
   </script>
@@ -40,12 +40,12 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Artifact" data-name="artifact">
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/Artifact" data-name="artifact">
       <a href="../Artifact.html">Artifact</a>
       
         <ul>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Artifact/ArtifactData" data-name="artifact::artifactdata">
+  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Artifact/ArtifactData" data-name="artifact::artifactdata">
       <a href="../Artifact/ArtifactData.html">ArtifactData</a>
       
     </li>
@@ -65,7 +65,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Commit" data-name="commit">
       <a href="../Commit.html">Commit</a>
       
         <ul>
@@ -105,7 +105,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/Commit/Stats" data-name="commit::stats">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Commit/Stats" data-name="commit::stats">
       <a href="../Commit/Stats.html">Stats</a>
       
     </li>
@@ -389,12 +389,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Commit::Stats
+  <span class="kind">struct</span> Artifact::ArtifactData
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Commit/Stats.html">Commit::Stats</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Artifact/ArtifactData.html">Artifact::ArtifactData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -422,8 +422,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/21229975d300624b7928dccbd5a578fd463d0f4d/src/githubcr/mappings/commits.cr#L56" target="_blank">
-        githubcr/mappings/commits.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/21229975d300624b7928dccbd5a578fd463d0f4d/src/githubcr/mappings/artifacts.cr#L6" target="_blank">
+        githubcr/mappings/artifacts.cr
       </a>
     
     <br/>
@@ -444,7 +444,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_155:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_155 : JSON::PullParser)</a>
+        <a href="#new(__temp_52:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_52 : JSON::PullParser)</a>
         
       </li>
     
@@ -465,12 +465,42 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#additions:Int32-instance-method" class="signature"><strong>#additions</strong> : Int32</a>
+        <a href="#archive_download_url:String-instance-method" class="signature"><strong>#archive_download_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#deletions:Int32-instance-method" class="signature"><strong>#deletions</strong> : Int32</a>
+        <a href="#created_at:String-instance-method" class="signature"><strong>#created_at</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expired:Bool-instance-method" class="signature"><strong>#expired</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at:String-instance-method" class="signature"><strong>#expires_at</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name:String-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#node_id:String-instance-method" class="signature"><strong>#node_id</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size_in_bytes:Int32-instance-method" class="signature"><strong>#size_in_bytes</strong> : Int32</a>
         
       </li>
     
@@ -480,7 +510,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#total:Int32-instance-method" class="signature"><strong>#total</strong> : Int32</a>
+        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
         
       </li>
     
@@ -534,12 +564,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_155:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_52:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_155 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_52 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_155:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_52:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -562,12 +592,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="additions:Int32-instance-method">
+    <div class="entry-detail" id="archive_download_url:String-instance-method">
       <div class="signature">
         
-        def <strong>additions</strong> : Int32
+        def <strong>archive_download_url</strong> : String
 
-        <a class="method-permalink" href="#additions:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#archive_download_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -576,12 +606,96 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="deletions:Int32-instance-method">
+    <div class="entry-detail" id="created_at:String-instance-method">
       <div class="signature">
         
-        def <strong>deletions</strong> : Int32
+        def <strong>created_at</strong> : String
 
-        <a class="method-permalink" href="#deletions:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#created_at:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expired:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>expired</strong> : Bool
+
+        <a class="method-permalink" href="#expired:Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at:String-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at</strong> : String
+
+        <a class="method-permalink" href="#expires_at:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int32
+
+        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="node_id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>node_id</strong> : String
+
+        <a class="method-permalink" href="#node_id:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size_in_bytes:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>size_in_bytes</strong> : Int32
+
+        <a class="method-permalink" href="#size_in_bytes:Int32-instance-method">#</a>
       </div>
       
       <br/>
@@ -604,12 +718,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="total:Int32-instance-method">
+    <div class="entry-detail" id="url:String-instance-method">
       <div class="signature">
         
-        def <strong>total</strong> : Int32
+        def <strong>url</strong> : String
 
-        <a class="method-permalink" href="#total:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#url:String-instance-method">#</a>
       </div>
       
       <br/>

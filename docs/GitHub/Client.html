@@ -40,6 +40,21 @@
   <div class="types-list">
     <ul>
   
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Artifact" data-name="artifact">
+      <a href="../Artifact.html">Artifact</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Artifact/ArtifactData" data-name="artifact::artifactdata">
+      <a href="../Artifact/ArtifactData.html">ArtifactData</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Blob" data-name="blob">
       <a href="../Blob.html">Blob</a>
       
@@ -185,10 +200,15 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST" data-name="github::rest">
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST" data-name="github::rest(t)">
       <a href="../GitHub/REST.html">REST</a>
       
         <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Artifacts" data-name="github::rest::artifacts">
+      <a href="../GitHub/REST/Artifacts.html">Artifacts</a>
+      
+    </li>
   
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Blobs" data-name="github::rest::blobs">
       <a href="../GitHub/REST/Blobs.html">Blobs</a>
@@ -215,6 +235,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Secrets" data-name="github::rest::secrets">
+      <a href="../GitHub/REST/Secrets.html">Secrets</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/Tags" data-name="github::rest::tags">
       <a href="../GitHub/REST/Tags.html">Tags</a>
       
@@ -232,6 +257,11 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/PublicKey" data-name="publickey">
+      <a href="../PublicKey.html">PublicKey</a>
       
     </li>
   
@@ -257,6 +287,21 @@
   
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/RefPayload" data-name="refpayload">
       <a href="../RefPayload.html">RefPayload</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/Secrets" data-name="secrets">
+      <a href="../Secrets.html">Secrets</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Secrets/SecretData" data-name="secrets::secretdata">
+      <a href="../Secrets/SecretData.html">SecretData</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -385,6 +430,8 @@ API.</p>
   </h2>
   <ul class="other-types-list">
     
+      <li class="other-type"><a href="../GitHub/REST/Artifacts.html">GitHub::REST::Artifacts</a></li>
+    
       <li class="other-type"><a href="../GitHub/REST/Blobs.html">GitHub::REST::Blobs</a></li>
     
       <li class="other-type"><a href="../GitHub/REST/Commits.html">GitHub::REST::Commits</a></li>
@@ -392,6 +439,8 @@ API.</p>
       <li class="other-type"><a href="../GitHub/REST/Gists.html">GitHub::REST::Gists</a></li>
     
       <li class="other-type"><a href="../GitHub/REST/References.html">GitHub::REST::References</a></li>
+    
+      <li class="other-type"><a href="../GitHub/REST/Secrets.html">GitHub::REST::Secrets</a></li>
     
       <li class="other-type"><a href="../GitHub/REST/Tags.html">GitHub::REST::Tags</a></li>
     
@@ -418,7 +467,7 @@ API.</p>
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/client.cr#L13" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/21229975d300624b7928dccbd5a578fd463d0f4d/src/githubcr/client.cr#L13" target="_blank">
         githubcr/client.cr
       </a>
     
@@ -474,6 +523,84 @@ API.</p>
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../GitHub/REST/Secrets.html">GitHub::REST::Secrets</a></code></h3>
+  
+  
+    <a href="../GitHub/REST/Secrets.html#create_or_update_secret-instance-method" class="tooltip">
+      <span>create_or_update_secret</span>
+    create_or_update_secret</a>, 
+    
+  
+    <a href="../GitHub/REST/Secrets.html#delete_secret(owner:String,repository:String,name:String):Nil-instance-method" class="tooltip">
+      <span>delete_secret(owner : String, repository : String, name : String) : Nil</span>
+    delete_secret</a>, 
+    
+  
+    <a href="../GitHub/REST/Secrets.html#get_my_public_key(owner:String,repository:String):PublicKey-instance-method" class="tooltip">
+      <span>get_my_public_key(owner : String, repository : String) : PublicKey</span>
+    get_my_public_key</a>, 
+    
+  
+    <a href="../GitHub/REST/Secrets.html#get_secret(owner:String,repository:String,name:String):Secrets::SecretData-instance-method" class="tooltip">
+      <span>get_secret(owner : String, repository : String, name : String) : Secrets::SecretData</span>
+    get_secret</a>, 
+    
+  
+    <a href="../GitHub/REST/Secrets.html#list_secrets(owner:String,repository:String):Secrets-instance-method" class="tooltip">
+      <span>list_secrets(owner : String, repository : String) : Secrets</span>
+    list_secrets</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../GitHub/REST/Artifacts.html">GitHub::REST::Artifacts</a></code></h3>
+  
+  
+    <a href="../GitHub/REST/Artifacts.html#delete_artifact(owner:String,repository:String,artifact_id:String):Nil-instance-method" class="tooltip">
+      <span>delete_artifact(owner : String, repository : String, artifact_id : String) : Nil</span>
+    delete_artifact</a>, 
+    
+  
+    <a href="../GitHub/REST/Artifacts.html#download_artifact-instance-method" class="tooltip">
+      <span>download_artifact</span>
+    download_artifact</a>, 
+    
+  
+    <a href="../GitHub/REST/Artifacts.html#get_artifact(owner:String,repository:String,artifact_id:String):Artifact-instance-method" class="tooltip">
+      <span>get_artifact(owner : String, repository : String, artifact_id : String) : Artifact</span>
+    get_artifact</a>, 
+    
+  
+    <a href="../GitHub/REST/Artifacts.html#list_repo_artifacts(owner:String,repository:String):Artifact-instance-method" class="tooltip">
+      <span>list_repo_artifacts(owner : String, repository : String) : Artifact</span>
+    list_repo_artifacts</a>, 
+    
+  
+    <a href="../GitHub/REST/Artifacts.html#list_run_artifacts(owner:String,repository:String,run_id:String):Artifact-instance-method" class="tooltip">
+      <span>list_run_artifacts(owner : String, repository : String, run_id : String) : Artifact</span>
+    list_run_artifacts</a>
+    
+  
+
+
+    
+
+
+    
+
+
   
     
 
@@ -640,13 +767,13 @@ API.</p>
     get_all_gists</a>, 
     
   
-    <a href="../GitHub/REST/Gists.html#get_gist(id:String)-instance-method" class="tooltip">
-      <span>get_gist(id : String)</span>
+    <a href="../GitHub/REST/Gists.html#get_gist(id:String):Gist-instance-method" class="tooltip">
+      <span>get_gist(id : String) : Gist</span>
     get_gist</a>, 
     
   
-    <a href="../GitHub/REST/Gists.html#get_gist_revision(id:String,sha:String)-instance-method" class="tooltip">
-      <span>get_gist_revision(id : String, sha : String)</span>
+    <a href="../GitHub/REST/Gists.html#get_gist_revision(id:String,sha:String):Gist-instance-method" class="tooltip">
+      <span>get_gist_revision(id : String, sha : String) : Gist</span>
     get_gist_revision</a>, 
     
   
@@ -742,7 +869,7 @@ API.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/client.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/21229975d300624b7928dccbd5a578fd463d0f4d/src/githubcr/client.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -777,7 +904,7 @@ API.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/d9d7d448722bada26bdce8c0e6324e201a779679/src/githubcr/client.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/21229975d300624b7928dccbd5a578fd463d0f4d/src/githubcr/client.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
