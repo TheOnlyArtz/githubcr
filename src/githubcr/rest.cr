@@ -264,7 +264,7 @@ module GitHub
 
     # This module is specifically for interacting with
     # the Blobs endpoints GitHub offers us to use.
-    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/blobs/)
+    # see [GitHub Blobs endpoints](https://developer.github.com/v3/git/blobs/)
     module Blobs
       # The content in the response will always be Base64 encoded.
       # NOTE: This API supports blobs up to 100 megabytes in size.
@@ -293,7 +293,7 @@ module GitHub
 
     # This module is specifically for interacting with
     # the Commits endpoints GitHub offers us to use.
-    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/commits/)
+    # see [GitHub Commits endpoints](https://developer.github.com/v3/git/commits/)
     module Commits
       # Gets a Git commit object.
       def get_commit(owner : String, repository : String, commit_sha : String) : Commit
@@ -327,7 +327,7 @@ module GitHub
     # The Git reference can be rewritten to point to a new commit.
     # A branch is just a Git reference that stores the new Git commit hash.
     # These endpoints allow you to read and write references to your Git database on GitHub.
-    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/refs/)
+    # see [GitHub Refs endpoints](https://developer.github.com/v3/git/refs/)
     module References
       # Get a single Reference by it's ID
       def get_reference(owner : String, repository : String, reference : String) : Ref
@@ -387,7 +387,6 @@ module GitHub
           "DELETE",
           "/repos/#{owner}/#{repository}/git/refs/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
-          payload.to_json
         )
       end
 
@@ -398,7 +397,7 @@ module GitHub
 
     # This module is specifically for interacting with
     # the Tags endpoints GitHub offers us to use.
-    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/tags/)
+    # see [GitHub Tags endpoints](https://developer.github.com/v3/git/tags/)
     module Tags
       def get_tag(owner : String, repository : String, tag_sha : String) : Tag
         json = REST.request(
@@ -418,7 +417,7 @@ module GitHub
       # reference - this call would be unnecessary.
       def create_tag(owner : String, repository : String, payload : TagPayload) : Tag
         json = REST.request(
-          "GET",
+          "POST",
           "/repos/#{owner}/#{repository}/git/tags",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
@@ -426,6 +425,13 @@ module GitHub
 
         Tag.from_json(json)
       end
+    end
+
+    # This module is specifically for interacting with
+    # the Trees endpoints GitHub offers us to use.
+    # see [GitHub Trees endpoints](https://developer.github.com/v3/git/trees/)
+    module Trees
+
     end
   end
 end
