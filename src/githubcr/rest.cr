@@ -394,7 +394,38 @@ module GitHub
       # TODO: Check out the endpoint since it's missing in the docs.
       def delete_reference_tag()
       end
+    end
 
+    # This module is specifically for interacting with
+    # the Tags endpoints GitHub offers us to use.
+    # see [GitHub Gists endpoints](https://developer.github.com/v3/git/tags/)
+    module Tags
+      def get_tag(owner : String, repository : String, tag_sha : String) : Tag
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/git/tags/#{tag_sha}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Tag.from_json(json)
+      end
+
+      # Note that creating a tag object does not create the reference that makes a tag in Git.
+      # create an annotated tag in Git, you have to do this call to create the tag object.
+      # and then create the refs/tags/[tag] reference.
+      #  f you want to create a lightweight tag, you only have to create the tag
+      # reference - this call would be unnecessary.
+      def create_tag(owner : String, repository : String, payload : TagPayload) : Tag
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/git/tags",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Tag.from_json(json)
+      end
     end
   end
 end
