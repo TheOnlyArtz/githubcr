@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/TheOnlyArtz/githubcr">
-  <title>EventsActor - github.com/TheOnlyArtz/githubcr</title>
+  <title>OAuthToken - github.com/TheOnlyArtz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -140,7 +140,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/TheOnlyArtz/githubcr/EventsActor" data-name="eventsactor">
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/EventsActor" data-name="eventsactor">
       <a href="EventsActor.html">EventsActor</a>
       
     </li>
@@ -390,7 +390,7 @@
       
     </li>
   
-  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/OAuthToken" data-name="oauthtoken">
+  <li class="parent open current" data-id="github.com/TheOnlyArtz/githubcr/OAuthToken" data-name="oauthtoken">
       <a href="OAuthToken.html">OAuthToken</a>
       
         <ul>
@@ -649,26 +649,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> EventsActor
+  <span class="kind">struct</span> OAuthToken
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="EventsActor.html">EventsActor</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="OAuthToken.html">OAuthToken</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>Represents the host of the event</p>
 
 
 
@@ -693,8 +682,8 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/mappings/events.cr#L24" target="_blank">
-        githubcr/mappings/events.cr
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/mappings/oauth_apps.cr#L3" target="_blank">
+        githubcr/mappings/oauth_apps.cr
       </a>
     
     <br/>
@@ -715,7 +704,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_234:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_234 : JSON::PullParser)</a>
+        <a href="#new(__temp_682:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_682 : JSON::PullParser)</a>
         
       </li>
     
@@ -736,22 +725,22 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#avatar_url:String-instance-method" class="signature"><strong>#avatar_url</strong> : String</a>
+        <a href="#app:App-instance-method" class="signature"><strong>#app</strong> : App</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#avatar_url=(_avatar_url:String)-instance-method" class="signature"><strong>#avatar_url=</strong>(_avatar_url : String)</a>
+        <a href="#created_at:String-instance-method" class="signature"><strong>#created_at</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#gravatar_id:String-instance-method" class="signature"><strong>#gravatar_id</strong> : String</a>
+        <a href="#fingerprint:String-instance-method" class="signature"><strong>#fingerprint</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#gravatar_id=(_gravatar_id:String)-instance-method" class="signature"><strong>#gravatar_id=</strong>(_gravatar_id : String)</a>
+        <a href="#hashed_token:String-instance-method" class="signature"><strong>#hashed_token</strong> : String</a>
         
       </li>
     
@@ -761,17 +750,17 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#id=(_id:Int32)-instance-method" class="signature"><strong>#id=</strong>(_id : Int32)</a>
+        <a href="#note:String-instance-method" class="signature"><strong>#note</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#login:String-instance-method" class="signature"><strong>#login</strong> : String</a>
+        <a href="#note_url:String-instance-method" class="signature"><strong>#note_url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#login=(_login:String)-instance-method" class="signature"><strong>#login=</strong>(_login : String)</a>
+        <a href="#scopes:Array(String)-instance-method" class="signature"><strong>#scopes</strong> : Array(String)</a>
         
       </li>
     
@@ -781,12 +770,27 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#token:String-instance-method" class="signature"><strong>#token</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#token_last_eight:String-instance-method" class="signature"><strong>#token_last_eight</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#updated_at:String-instance-method" class="signature"><strong>#updated_at</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#url=(_url:String)-instance-method" class="signature"><strong>#url=</strong>(_url : String)</a>
+        <a href="#user:User-instance-method" class="signature"><strong>#user</strong> : User</a>
         
       </li>
     
@@ -840,12 +844,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_234:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(__temp_682:JSON::PullParser)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_234 : JSON::PullParser)
+        def self.<strong>new</strong>(__temp_682 : JSON::PullParser)
 
-        <a class="method-permalink" href="#new(__temp_234:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(__temp_682:JSON::PullParser)-class-method">#</a>
       </div>
       
       <br/>
@@ -868,12 +872,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="avatar_url:String-instance-method">
+    <div class="entry-detail" id="app:App-instance-method">
       <div class="signature">
         
-        def <strong>avatar_url</strong> : String
+        def <strong>app</strong> : <a href="OAuthToken/App.html">App</a>
 
-        <a class="method-permalink" href="#avatar_url:String-instance-method">#</a>
+        <a class="method-permalink" href="#app:App-instance-method">#</a>
       </div>
       
       <br/>
@@ -882,12 +886,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="avatar_url=(_avatar_url:String)-instance-method">
+    <div class="entry-detail" id="created_at:String-instance-method">
       <div class="signature">
         
-        def <strong>avatar_url=</strong>(_avatar_url : String)
+        def <strong>created_at</strong> : String
 
-        <a class="method-permalink" href="#avatar_url=(_avatar_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#created_at:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -896,12 +900,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="gravatar_id:String-instance-method">
+    <div class="entry-detail" id="fingerprint:String-instance-method">
       <div class="signature">
         
-        def <strong>gravatar_id</strong> : String
+        def <strong>fingerprint</strong> : String
 
-        <a class="method-permalink" href="#gravatar_id:String-instance-method">#</a>
+        <a class="method-permalink" href="#fingerprint:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -910,12 +914,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="gravatar_id=(_gravatar_id:String)-instance-method">
+    <div class="entry-detail" id="hashed_token:String-instance-method">
       <div class="signature">
         
-        def <strong>gravatar_id=</strong>(_gravatar_id : String)
+        def <strong>hashed_token</strong> : String
 
-        <a class="method-permalink" href="#gravatar_id=(_gravatar_id:String)-instance-method">#</a>
+        <a class="method-permalink" href="#hashed_token:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -938,12 +942,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="id=(_id:Int32)-instance-method">
+    <div class="entry-detail" id="note:String-instance-method">
       <div class="signature">
         
-        def <strong>id=</strong>(_id : Int32)
+        def <strong>note</strong> : String
 
-        <a class="method-permalink" href="#id=(_id:Int32)-instance-method">#</a>
+        <a class="method-permalink" href="#note:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -952,12 +956,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="login:String-instance-method">
+    <div class="entry-detail" id="note_url:String-instance-method">
       <div class="signature">
         
-        def <strong>login</strong> : String
+        def <strong>note_url</strong> : String
 
-        <a class="method-permalink" href="#login:String-instance-method">#</a>
+        <a class="method-permalink" href="#note_url:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -966,12 +970,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="login=(_login:String)-instance-method">
+    <div class="entry-detail" id="scopes:Array(String)-instance-method">
       <div class="signature">
         
-        def <strong>login=</strong>(_login : String)
+        def <strong>scopes</strong> : Array(String)
 
-        <a class="method-permalink" href="#login=(_login:String)-instance-method">#</a>
+        <a class="method-permalink" href="#scopes:Array(String)-instance-method">#</a>
       </div>
       
       <br/>
@@ -994,6 +998,48 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="token:String-instance-method">
+      <div class="signature">
+        
+        def <strong>token</strong> : String
+
+        <a class="method-permalink" href="#token:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="token_last_eight:String-instance-method">
+      <div class="signature">
+        
+        def <strong>token_last_eight</strong> : String
+
+        <a class="method-permalink" href="#token_last_eight:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="updated_at:String-instance-method">
+      <div class="signature">
+        
+        def <strong>updated_at</strong> : String
+
+        <a class="method-permalink" href="#updated_at:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="url:String-instance-method">
       <div class="signature">
         
@@ -1008,12 +1054,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="url=(_url:String)-instance-method">
+    <div class="entry-detail" id="user:User-instance-method">
       <div class="signature">
         
-        def <strong>url=</strong>(_url : String)
+        def <strong>user</strong> : <a href="User.html">User</a>
 
-        <a class="method-permalink" href="#url=(_url:String)-instance-method">#</a>
+        <a class="method-permalink" href="#user:User-instance-method">#</a>
       </div>
       
       <br/>

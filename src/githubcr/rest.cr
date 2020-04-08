@@ -881,8 +881,8 @@ module GitHub
       # You must use an installation access token to access this endpoint.
       # https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation
       def create_content_attachment(token : String,
-          content_reference_id : String,
-          payload : ContentAttachmentPayload) : Installations::ContentAttachment
+                                    content_reference_id : String,
+                                    payload : ContentAttachmentPayload) : Installations::ContentAttachment
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
@@ -962,7 +962,6 @@ module GitHub
       # TODO : about to be deprecated
       def revoke_app_grant
       end
-
     end
   end
 end

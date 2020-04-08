@@ -130,6 +130,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/ContentAttachmentPayload" data-name="contentattachmentpayload">
+      <a href="../ContentAttachmentPayload.html">ContentAttachmentPayload</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
       <a href="../Event.html">Event</a>
       
@@ -240,6 +245,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/OAuthApps" data-name="github::rest::oauthapps">
+      <a href="../GitHub/REST/OAuthApps.html">OAuthApps</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/References" data-name="github::rest::references">
       <a href="../GitHub/REST/References.html">References</a>
       
@@ -320,8 +330,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/Permissions" data-name="installation::permissions">
-      <a href="../Installation/Permissions.html">Permissions</a>
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/InstallationRepositories" data-name="installation::installationrepositories">
+      <a href="../Installation/InstallationRepositories.html">InstallationRepositories</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/InstallationUsers" data-name="installation::installationusers">
+      <a href="../Installation/InstallationUsers.html">InstallationUsers</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/Permission" data-name="installation::permission">
+      <a href="../Installation/Permission.html">Permission</a>
       
     </li>
   
@@ -367,6 +387,26 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/OAuthToken" data-name="oauthtoken">
+      <a href="../OAuthToken.html">OAuthToken</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/OAuthToken/App" data-name="oauthtoken::app">
+      <a href="../OAuthToken/App.html">App</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/OAuthTokenPayload" data-name="oauthtokenpayload">
+      <a href="../OAuthTokenPayload.html">OAuthTokenPayload</a>
       
     </li>
   
@@ -699,7 +739,7 @@ API.</p>
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/client.cr#L13" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/client.cr#L13" target="_blank">
         githubcr/client.cr
       </a>
     
@@ -761,6 +801,16 @@ API.</p>
   <h3>Instance methods inherited from module <code><a href="../GitHub/REST/Installations.html">GitHub::REST::Installations</a></code></h3>
   
   
+    <a href="../GitHub/REST/Installations.html#add_repo_to_installation(installation_id:String,repository_id:String):Nil-instance-method" class="tooltip">
+      <span>add_repo_to_installation(installation_id : String, repository_id : String) : Nil</span>
+    add_repo_to_installation</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#create_content_attachment(token:String,content_reference_id:String,payload:ContentAttachmentPayload):Installations::ContentAttachment-instance-method" class="tooltip">
+      <span>create_content_attachment(token : String, content_reference_id : String, payload : ContentAttachmentPayload) : Installations::ContentAttachment</span>
+    create_content_attachment</a>, 
+    
+  
     <a href="../GitHub/REST/Installations.html#create_installation_token(token:String,installation_id:String,payload:TokenInstallationPayload):InstallationToken-instance-method" class="tooltip">
       <span>create_installation_token(token : String, installation_id : String, payload : TokenInstallationPayload) : InstallationToken</span>
     create_installation_token</a>, 
@@ -793,7 +843,32 @@ API.</p>
   
     <a href="../GitHub/REST/Installations.html#get_user_installation(token:String,username:String):Installation-instance-method" class="tooltip">
       <span>get_user_installation(token : String, username : String) : Installation</span>
-    get_user_installation</a>
+    get_user_installation</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#list_accessible_repos(token:String,installation_id:String):Installation::InstallationRepositories-instance-method" class="tooltip">
+      <span>list_accessible_repos(token : String, installation_id : String) : Installation::InstallationRepositories</span>
+    list_accessible_repos</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#list_repositories_installations(token:String):Installation::InstallationRepositories-instance-method" class="tooltip">
+      <span>list_repositories_installations(token : String) : Installation::InstallationRepositories</span>
+    list_repositories_installations</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#list_user_installations(token:String):Installation::InstallationUsers-instance-method" class="tooltip">
+      <span>list_user_installations(token : String) : Installation::InstallationUsers</span>
+    list_user_installations</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#remove_repo_from_installation(installation_id:String,repository_id:String):Nil-instance-method" class="tooltip">
+      <span>remove_repo_from_installation(installation_id : String, repository_id : String) : Nil</span>
+    remove_repo_from_installation</a>, 
+    
+  
+    <a href="../GitHub/REST/Installations.html#revoke_installation_token(token:String):Nil-instance-method" class="tooltip">
+      <span>revoke_installation_token(token : String) : Nil</span>
+    revoke_installation_token</a>
     
   
 
@@ -1320,7 +1395,7 @@ API.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/client.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/client.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1355,7 +1430,7 @@ API.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/client.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/client.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>

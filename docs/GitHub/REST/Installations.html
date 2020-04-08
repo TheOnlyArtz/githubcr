@@ -130,6 +130,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/ContentAttachmentPayload" data-name="contentattachmentpayload">
+      <a href="../../ContentAttachmentPayload.html">ContentAttachmentPayload</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Event" data-name="event">
       <a href="../../Event.html">Event</a>
       
@@ -240,6 +245,11 @@
       
     </li>
   
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/OAuthApps" data-name="github::rest::oauthapps">
+      <a href="../../GitHub/REST/OAuthApps.html">OAuthApps</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/TheOnlyArtz/githubcr/GitHub/REST/References" data-name="github::rest::references">
       <a href="../../GitHub/REST/References.html">References</a>
       
@@ -320,8 +330,18 @@
       
     </li>
   
-  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/Permissions" data-name="installation::permissions">
-      <a href="../../Installation/Permissions.html">Permissions</a>
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/InstallationRepositories" data-name="installation::installationrepositories">
+      <a href="../../Installation/InstallationRepositories.html">InstallationRepositories</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/InstallationUsers" data-name="installation::installationusers">
+      <a href="../../Installation/InstallationUsers.html">InstallationUsers</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/Installation/Permission" data-name="installation::permission">
+      <a href="../../Installation/Permission.html">Permission</a>
       
     </li>
   
@@ -367,6 +387,26 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/TheOnlyArtz/githubcr/OAuthToken" data-name="oauthtoken">
+      <a href="../../OAuthToken.html">OAuthToken</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/OAuthToken/App" data-name="oauthtoken::app">
+      <a href="../../OAuthToken/App.html">App</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/TheOnlyArtz/githubcr/OAuthTokenPayload" data-name="oauthtokenpayload">
+      <a href="../../OAuthTokenPayload.html">OAuthTokenPayload</a>
       
     </li>
   
@@ -654,7 +694,7 @@
   </h2>
   
     
-      <a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L724" target="_blank">
+      <a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L724" target="_blank">
         githubcr/rest.cr
       </a>
     
@@ -678,6 +718,18 @@
     Instance Method Summary
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add_repo_to_installation(installation_id:String,repository_id:String):Nil-instance-method" class="signature"><strong>#add_repo_to_installation</strong>(installation_id : String, repository_id : String) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create_content_attachment(token:String,content_reference_id:String,payload:ContentAttachmentPayload):Installations::ContentAttachment-instance-method" class="signature"><strong>#create_content_attachment</strong>(token : String, content_reference_id : String, payload : ContentAttachmentPayload) : Installations::ContentAttachment</a>
+        
+          <div class="summary"><p>You must use an installation access token to access this endpoint.</p></div>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#create_installation_token(token:String,installation_id:String,payload:TokenInstallationPayload):InstallationToken-instance-method" class="signature"><strong>#create_installation_token</strong>(token : String, installation_id : String, payload : TokenInstallationPayload) : InstallationToken</a>
@@ -710,6 +762,8 @@
       <li class="entry-summary">
         <a href="#get_repo_installation(token:String,owner:String,repository:String):Installation-instance-method" class="signature"><strong>#get_repo_installation</strong>(token : String, owner : String, repository : String) : Installation</a>
         
+          <div class="summary"><p>Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank">see</a>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -721,6 +775,41 @@
     
       <li class="entry-summary">
         <a href="#get_user_installation(token:String,username:String):Installation-instance-method" class="signature"><strong>#get_user_installation</strong>(token : String, username : String) : Installation</a>
+        
+          <div class="summary"><p>Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank">see</a>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#list_accessible_repos(token:String,installation_id:String):Installation::InstallationRepositories-instance-method" class="signature"><strong>#list_accessible_repos</strong>(token : String, installation_id : String) : Installation::InstallationRepositories</a>
+        
+          <div class="summary"><p><span class="flag purple">NOTE</span>  Requires a user-to-server OAuth access token</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#list_repositories_installations(token:String):Installation::InstallationRepositories-instance-method" class="signature"><strong>#list_repositories_installations</strong>(token : String) : Installation::InstallationRepositories</a>
+        
+          <div class="summary"><p>Need an <a href="https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation" target="_blank">installation access token!</a></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#list_user_installations(token:String):Installation::InstallationUsers-instance-method" class="signature"><strong>#list_user_installations</strong>(token : String) : Installation::InstallationUsers</a>
+        
+          <div class="summary"><p>Need an <a href="https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation" target="_blank">installation access token!</a></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_repo_from_installation(installation_id:String,repository_id:String):Nil-instance-method" class="signature"><strong>#remove_repo_from_installation</strong>(installation_id : String, repository_id : String) : Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#revoke_installation_token(token:String):Nil-instance-method" class="signature"><strong>#revoke_installation_token</strong>(token : String) : Nil</a>
+        
+          <div class="summary"><p>You must use an installation access token to access this endpoint.</p></div>
         
       </li>
     
@@ -748,6 +837,44 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="add_repo_to_installation(installation_id:String,repository_id:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>add_repo_to_installation</strong>(installation_id : String, repository_id : String) : Nil
+
+        <a class="method-permalink" href="#add_repo_to_installation(installation_id:String,repository_id:String):Nil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L857" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create_content_attachment(token:String,content_reference_id:String,payload:ContentAttachmentPayload):Installations::ContentAttachment-instance-method">
+      <div class="signature">
+        
+        def <strong>create_content_attachment</strong>(token : String, content_reference_id : String, payload : <a href="../../ContentAttachmentPayload.html">ContentAttachmentPayload</a>) : Installations::ContentAttachment
+
+        <a class="method-permalink" href="#create_content_attachment(token:String,content_reference_id:String,payload:ContentAttachmentPayload):Installations::ContentAttachment-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>You must use an installation access token to access this endpoint.
+https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L883" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="create_installation_token(token:String,installation_id:String,payload:TokenInstallationPayload):InstallationToken-instance-method">
       <div class="signature">
         
@@ -764,7 +891,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L766" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L766" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -786,7 +913,7 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L753" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L753" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -807,7 +934,7 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L739" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L739" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -828,7 +955,7 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L781" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L780" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -841,10 +968,15 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
         <a class="method-permalink" href="#get_repo_installation(token:String,owner:String,repository:String):Installation-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank">see</a>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L793" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L793" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -865,7 +997,7 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L726" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L726" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -878,10 +1010,116 @@ Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank
         <a class="method-permalink" href="#get_user_installation(token:String,username:String):Installation-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Need a JWT! please <a href="https://developer.github.com/v3/apps" target="_blank">see</a>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/85b46fdf3342b4ae9ac78678c27c238d9ba5428c/src/githubcr/rest.cr#L805" target="_blank">View source</a>]
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L806" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="list_accessible_repos(token:String,installation_id:String):Installation::InstallationRepositories-instance-method">
+      <div class="signature">
+        
+        def <strong>list_accessible_repos</strong>(token : String, installation_id : String) : <a href="../../Installation/InstallationRepositories.html">Installation::InstallationRepositories</a>
+
+        <a class="method-permalink" href="#list_accessible_repos(token:String,installation_id:String):Installation::InstallationRepositories-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  Requires a user-to-server OAuth access token</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L845" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="list_repositories_installations(token:String):Installation::InstallationRepositories-instance-method">
+      <div class="signature">
+        
+        def <strong>list_repositories_installations</strong>(token : String) : <a href="../../Installation/InstallationRepositories.html">Installation::InstallationRepositories</a>
+
+        <a class="method-permalink" href="#list_repositories_installations(token:String):Installation::InstallationRepositories-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Need an <a href="https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation" target="_blank">installation access token!</a></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L819" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="list_user_installations(token:String):Installation::InstallationUsers-instance-method">
+      <div class="signature">
+        
+        def <strong>list_user_installations</strong>(token : String) : <a href="../../Installation/InstallationUsers.html">Installation::InstallationUsers</a>
+
+        <a class="method-permalink" href="#list_user_installations(token:String):Installation::InstallationUsers-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Need an <a href="https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation" target="_blank">installation access token!</a></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L832" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_repo_from_installation(installation_id:String,repository_id:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_repo_from_installation</strong>(installation_id : String, repository_id : String) : Nil
+
+        <a class="method-permalink" href="#remove_repo_from_installation(installation_id:String,repository_id:String):Nil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L869" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="revoke_installation_token(token:String):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>revoke_installation_token</strong>(token : String) : Nil
+
+        <a class="method-permalink" href="#revoke_installation_token(token:String):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>You must use an installation access token to access this endpoint.
+https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/TheOnlyArtz/githubcr/blob/955ad39170f4c4e66f799ba898b4d74acd082171/src/githubcr/rest.cr#L899" target="_blank">View source</a>]
         
       </div>
     </div>
