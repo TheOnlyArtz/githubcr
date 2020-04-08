@@ -20,7 +20,7 @@ struct Installation::Account
   )
 end
 
-struct Installation::Permissions
+struct Installation::Permission
   JSON.mapping(
     metadata: {type: String, setter: false},
     contents: {type: String, setter: false},
@@ -39,7 +39,7 @@ struct Installation
     app_id: {type: Int32, setter: false},
     target_id: {type: Int32, setter: false},
     target_type: {type: String, setter: false},
-    permissions: {type: Permissions, setter: false},
+    permissions: {type: Permission, setter: false},
     events: {type: Array(String), setter: false},
     single_file_name: {type: String, setter: false},
     repository_selection: {type: String, setter: false}
@@ -154,6 +154,20 @@ struct InstallationToken
     token: {type: String, setter: false},
     expires_at: {type: String, setter: false},
     permissions: {type: Permissions, setter: false},
-    repositories: {type: Array(Repositories), setter: false}
+    repositories: {type: Array(InstallationToken::Repositories), setter: false}
+  )
+end
+
+struct Installation::InstallationRepositories
+  JSON.mapping(
+    total_count: {type: Int32, setter: false},
+    repositories: {type: Array(InstallationToken::Repositories), setter: false}
+  )
+end
+
+struct Installation::InstallationUsers
+  JSON.mapping(
+    total_count: {type: Int32, setter: false},
+    installations: {type: Array(InstallationToken::Repositories), setter: false}
   )
 end

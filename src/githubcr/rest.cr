@@ -789,6 +789,7 @@ module GitHub
         )
       end
 
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
       def get_repo_installation(token : String, owner : String, repository : String) : Installation
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
@@ -801,6 +802,7 @@ module GitHub
         )
       end
 
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
       def get_user_installation(token : String, username : String) : Installation
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
@@ -812,6 +814,155 @@ module GitHub
           nil
         )
       end
+
+      # Need an [installation access token!](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)
+      def list_repositories_installations(token : String) : Installation::InstallationRepositories
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation::InstallationRepositories).request(
+          "GET",
+          "/installation/repositories",
+          headers,
+          nil
+        )
+      end
+
+      # Need an [installation access token!](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)
+      def list_user_installations(token : String) : Installation::InstallationUsers
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation::InstallationRepositories).request(
+          "GET",
+          "/user/installation",
+          headers,
+          nil
+        )
+      end
+
+      # NOTE: Requires a user-to-server OAuth access token
+      def list_accessible_repos(token : String, installation_id : String) : Installation::InstallationRepositories
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation::InstallationRepositories).request(
+          "GET",
+          "/user/installations/#{installation_id}/repositories",
+          headers,
+          nil
+        )
+      end
+
+      def add_repo_to_installation(installation_id : String, repository_id : String) : Nil
+        headers = HTTP::Headers{"Authorization" => "Basic #{get_auth_token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST.request(
+          "PUT",
+          "/user/installations/#{installation_id}/repositories/#{repository_id}",
+          headers,
+          nil
+        )
+      end
+
+      def remove_repo_from_installation(installation_id : String, repository_id : String) : Nil
+        headers = HTTP::Headers{"Authorization" => "Authorization #{get_auth_token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST.request(
+          "DELETE",
+          "/user/installations/#{installation_id}/repositories/#{repository_id}",
+          headers,
+          nil
+        )
+      end
+
+      # You must use an installation access token to access this endpoint.
+      # https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation
+      def create_content_attachment(token : String,
+          content_reference_id : String,
+          payload : ContentAttachmentPayload) : Installations::ContentAttachment
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installations::ContentAttachment).request(
+          "POST",
+          "/content_references/#{content_reference_id}/attachments",
+          headers,
+          payload.to_json
+        )
+      end
+
+      # You must use an installation access token to access this endpoint.
+      # https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation
+      def revoke_installation_token(token : String) : Nil
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+                                "Accept"        => "application/vnd.github.machine-man-preview+json"}
+
+        REST.request(
+          "POST",
+          "/installation/token",
+          headers,
+          payload.to_json
+        )
+      end
+    end
+
+    module OAuthApps
+      # Raises an error if invalid!
+      def check_oauth_token_validation(client_id : String, payload : OAuthTokenPayload) : OAuthToken
+        REST(OAuthToken).request(
+          "POST",
+          "/applications/#{client_id}/token",
+          headers,
+          payload.to_json
+        )
+      end
+
+      def reset_oauth_token(client_id : String, payload : OAuthTokenPayload) : OAuthToken
+        REST(OAuthToken).request(
+          "PATCH",
+          "/applications/#{client_id}/token",
+          headers,
+          payload.to_json
+        )
+      end
+
+      def delete_oauth_token(client_id : String, payload : OAuthTokenPayload) : Nil
+        REST(OAuthToken).request(
+          "DELETE",
+          "/applications/#{client_id}/token",
+          headers,
+          payload.to_json
+        )
+      end
+
+      def delete_app_auth(client_id : String, payload : OAuthTokenPayload) : Nil
+        REST(OAuthToken).request(
+          "DELETE",
+          "/applications/#{client_id}/grant",
+          headers,
+          payload.to_json
+        )
+      end
+
+      # TODO : about to be deprecated
+      def check_auth
+      end
+
+      # TODO : about to be deprecated
+      def reset_auth
+      end
+
+      # TODO : about to be deprecated
+      def revoke_auth
+      end
+
+      # TODO : about to be deprecated
+      def revoke_app_grant
+      end
+
     end
   end
 end
