@@ -41,7 +41,12 @@ struct GitHubApp
     html_url: {type: String, setter: false},
     created_at: {type: String, setter: false},
     updated_at: {type: String, setter: false},
-    permissions: {type: Permissions, setter: false},
-    events: {type: Array(String), setter: false}
+    permissions: {type: Permissions?, setter: false},
+    events: {type: Array(String)?, setter: false},
+    client_id: {type: String?, setter: false},
+    client_secret: {type: String?, setter: false},
+    webhook_secret: {type: String?, setter: false},
+    pem: {type: String?, setter: false}
+
   )
 end

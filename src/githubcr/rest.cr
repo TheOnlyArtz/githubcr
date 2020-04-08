@@ -682,5 +682,137 @@ module GitHub
       def list_workflow_run_logs
       end
     end
+
+    # This model is in preview version! very unstable so it might just not work.
+    module GitHubApps
+        def get_github_app(name : String) : GitHubApp
+          headers = HTTP::Headers{"Authorization" => get_auth_header,
+             "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+          REST(GitHubApp).request(
+            "GET",
+            "/apps/#{name}",
+            headers,
+            nil
+          )
+        end
+
+        # Need a JWT! please [see](https://developer.github.com/v3/apps).
+        def get_this_app(token : String) : GitHubApp
+          headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+             "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+          REST(GitHubApp).request(
+            "GET",
+            "/app",
+            headers,
+            nil
+          )
+        end
+
+        # https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest
+        def create_app_from_manifest(code : String) : GitHubApp
+          REST(GitHubApp).request(
+            "POST",
+            "/app-manifests/#{code}/conversions",
+            HTTP::Headers{"Authorization" => get_auth_header},
+            nil
+          )
+        end
+    end
+
+    module Installations
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
+      def get_this_app_installations(token : String) : Installation
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation).request(
+          "GET",
+          "/app/installations",
+          headers,
+          nil
+        )
+      end
+
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
+      def get_installation(token : String, installation_id : String) : Installation
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation).request(
+          "GET",
+          "/app/installations/#{id}",
+          headers,
+          nil
+        )
+      end
+
+      # NOTE: Raises an error if not found
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
+      def delete_installation(token : String, installation_id : String) : Nil
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+         REST.request(
+           "DELETE",
+           "/app/installations/#{id}",
+           headers,
+           nil
+         )
+      end
+
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
+      def create_installation_token(token : String, installation_id : String,
+         payload : TokenInstallationPayload) : InstallationToken
+
+         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+            "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+          REST(InstallationToken).request(
+            "POST",
+            "/app/installations/#{id}/access_tokens",
+            headers,
+            nil
+          )
+      end
+
+      # Need a JWT! please [see](https://developer.github.com/v3/apps).
+      def get_org_installation(token : String, organization : String) : Installation
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation).request(
+          "GET",
+          "/orgs/#{organization}/installation",
+          headers,
+          nil
+        )
+      end
+
+      def get_repo_installation(token : String, owner : String, repository : String) : Installation
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation).request(
+          "GET",
+          "/repos/#{owner}/#{repository}/installation",
+          headers,
+          nil
+        )
+      end
+
+      def get_user_installation(token : String, username : String) : Installation
+        headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
+           "Accept" => "application/vnd.github.machine-man-preview+json"}
+
+        REST(Installation).request(
+          "GET",
+          "/users/#{username}/installation",
+          headers,
+          nil
+        )
+      end
+    end
   end
 end
