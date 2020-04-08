@@ -47,6 +47,5 @@ struct GitHubApp
     client_secret: {type: String?, setter: false},
     webhook_secret: {type: String?, setter: false},
     pem: {type: String?, setter: false}
-
   )
 end

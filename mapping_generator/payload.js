@@ -35,9 +35,13 @@ function generate(name, payload, rootname) {
     else if (payload[key] instanceof Array) {
 
       let newKey = key.replaceAt(0, key[0].toUpperCase());
-      generatedCode = generate(newKey, payload[key][0], rootname);
-      children.push(generatedCode);
-      code += `  ${key} : Array(${name}::${newKey})`
+      if (keyMappings[typeof(payload[key])] === undefined) {
+        generatedCode = generate(newKey, payload[key][0], rootname);
+        children.push(generatedCode);
+        code += `  ${key} : Array(${name}::${newKey})`
+      } else {
+        code += `  ${key} : Array(${keyMappings[typeof(payload[key])]})`
+      }
     } else if (payload[key] instanceof Object) {
       let newKey = key.replaceAt(0, key[0].toUpperCase());
       generatedCode = generate(newKey, payload[key], rootname);
@@ -67,17 +71,15 @@ function generateNull(key) {
 }
 
 let JSON = {
-  "base_tree": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
-  "tree": [
-    {
-      "path": "file.rb",
-      "mode": "100644",
-      "type": "blob",
-      "sha": "44b4fc6d56897b048c772eb4087f854f46256132"
-    }
-  ]
+  "repository_ids": [
+    1296269
+  ],
+  "permissions": {
+    "issues": "write",
+    "contents": "read"
+  }
 }
 
-let name = "Tree";
+let name = "InstallationToken";
 console.log("require \"json\"\n");
 generate(name + "Payload", JSON, name + "Payload");
