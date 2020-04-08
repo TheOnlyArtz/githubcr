@@ -7,7 +7,7 @@ require "./mappings/*"
 module GitHub
   # This module enables GitHub.cr to interact with the
   # GitHub API through HTTP requests
-  module REST(T)
+  module REST
     API_BASE     = "api.github.com"
     HTTP_CLIENT  = HTTP::Client.new API_BASE, tls: true
     GLOBAL_MUTEX = Mutex.new
@@ -56,7 +56,7 @@ module GitHub
         raise MalformedMessage.from_json(response.body).message
       end
 
-      T.from_json(response.body)
+      response.body
     end
 
     # This module is specifically for interacting with
@@ -73,12 +73,14 @@ module GitHub
       # NOTE: This will return the public repositories only
       # if it wasn't obvious already...
       def get_all_gists(owner : String) : Array(Gist)
-        json = REST(Array(Gist)).request(
+        json = REST.request(
           "GET",
           "/users/#{owner}/gists",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(Gist).from_json(json)
       end
 
       # Gets the authenticated user's gists
@@ -99,12 +101,14 @@ module GitHub
         params = HTTP::Params.encode({
           "since" => URI.parse(since.to_s).to_s,
         })
-        json = REST(Array(Gist)).request(
+        json = REST.request(
           "GET",
           "/gists/public?#{params}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(Gist).from_json(json)
       end
 
       # List the auth user's starred gists
@@ -113,32 +117,38 @@ module GitHub
         params = HTTP::Params.encode({
           "since" => URI.parse(since.to_s).to_s,
         })
-        json = REST(Array(Gist)).request(
+        json = REST.request(
           "GET",
           "/gists/starred?#{params}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(Gist).from_json(json)
       end
 
       # Get a gist by it's ID
       def get_gist(id : String) : Gist
-        json = REST(Gist).request(
+        json = REST.request(
           "GET",
           "/gists/#{id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Gist.from_json(json)
       end
 
       # Get a revision of a gist by it's ID and sha
       def get_gist_revision(id : String, sha : String) : Gist
-        json = REST(Gist).request(
+        json = REST.request(
           "GET",
           "/gists/#{id}/#{sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Gist.from_json(json)
       end
 
       # Creates a gist on the auth user's account.
@@ -153,7 +163,7 @@ module GitHub
       # client.create_gist(payload)
       # ```
       def create_gist(payload : GistPayload) : Gist
-        json = REST(Gist).request(
+        json = REST.request(
           "POST",
           "/gists",
           HTTP::Headers{
@@ -162,6 +172,8 @@ module GitHub
           },
           payload.to_json
         )
+
+        Gist.from_json(json)
       end
 
       # Allows you to update or delete a gist file and rename gist files
@@ -170,42 +182,50 @@ module GitHub
       # TODO: Look into the different [new fields](https://developer.github.com/v3/gists/#update-a-gist)
       # that might appear
       def update_gist(id : String, payload : GistPayload) : Gist
-        json = REST(Gist).request(
+        json = REST.request(
           "PATCH",
           "/gists/#{id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
+
+        Gist.from_json(json)
       end
 
       # Allows you to list the commits of a gist by it's ID
       def list_gist_commits(id : String) : Array(GistCommit)
-        json = REST(Array(GistCommit)).request(
+        json = REST.request(
           "GET",
           "/gists/#{id}/commits",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(GistCommit).from_json(json)
       end
 
       # Allows you star a gist by it's ID
       def star_gist(id : String) : Nil
-        response = REST.request(
+        response = json = REST.request(
           "PUT",
           "/gists/#{id}/star",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
 
       # Allows you to unstar a gist by it's ID
       def unstar_gist(id : String) : Nil
-        response = REST.request(
+        response = json = REST.request(
           "DELETE",
           "/gists/#{id}/star",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
 
       # Allows you to check whether a gist is starred
@@ -222,12 +242,14 @@ module GitHub
 
       # Allows you to fork a gist by it's ID
       def fork_gist(id : String) : Gist
-        json = REST(Gist).request(
+        json = REST.request(
           "POST",
           "/gists/#{id}/forks",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Gist.from_json(json)
       end
 
       # Allows you to delete a gist by it's ID
@@ -238,6 +260,8 @@ module GitHub
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
     end
 
@@ -248,12 +272,14 @@ module GitHub
       # The content in the response will always be Base64 encoded.
       # NOTE: This API supports blobs up to 100 megabytes in size.
       def get_blob(owner : String, repository : String, file_sha : String) : Blob
-        json = REST(Blob).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/git/blobs/#{file_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Blob.from_json(json)
       end
 
       def create_blob(owner : String, repository : String, payload : BlobPayload)
@@ -274,21 +300,25 @@ module GitHub
     module Commits
       # Gets a Git commit object.
       def get_commit(owner : String, repository : String, commit_sha : String) : Commit
-        json = REST(Commit).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/commits/#{commit_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Commit.from_json(json)
       end
 
       def create_commit(owner : String, repository : String, payload : CommitPayload) : Commit
-        json = REST(Commit).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/git/commits",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Commit.from_json(json)
       end
     end
 
@@ -304,24 +334,28 @@ module GitHub
     module References
       # Get a single Reference by it's ID
       def get_reference(owner : String, repository : String, reference : String) : Ref
-        json = REST(Ref).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/ref/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Ref.from_json(json)
       end
 
       # Returns an array of references from your Git database that match the supplied name.
       # The :ref in the URL must be formatted as heads/<branch name> for branches and tags/<tag name> for tags.
       # If the :ref doesn't exist in the repository, but existing refs start with :ref, they will be returned as an array.
       def get_matching_references(owner : String, repository : String, reference : String) : Array(Ref)
-        json = REST(Array(Ref)).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/git/matching-refs/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(Ref).from_json(json)
       end
 
       # Creates a reference for your repository.
@@ -329,21 +363,25 @@ module GitHub
       # even if the commit SHA-1 hash used exists.
       # Empty repositories are repositories without branches.
       def create_reference(owner : String, repository : String, payload : RefPayload) : Ref
-        json = REST(Ref).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/git/refs",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
+
+        Ref.from_json(json)
       end
 
       def update_reference(owner : String, repository : String, payload : RefPatchPayload) : Ref
-        json = REST(Ref).request(
+        json = REST.request(
           "PATCH",
           "/repos/#{owner}/#{repository}/git/refs",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
+
+        Ref.from_json(json)
       end
 
       # NOTE: If this raises an error, you've failed to delete the reference.
@@ -353,6 +391,8 @@ module GitHub
           "/repos/#{owner}/#{repository}/git/refs/#{reference}",
           HTTP::Headers{"Authorization" => get_auth_header},
         )
+
+        nil
       end
 
       # TODO: Check out the endpoint since it's missing in the docs.
@@ -365,12 +405,14 @@ module GitHub
     # see [GitHub Tags endpoints](https://developer.github.com/v3/git/tags/)
     module Tags
       def get_tag(owner : String, repository : String, tag_sha : String) : Tag
-        json = REST(Tag).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/git/tags/#{tag_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Tag.from_json(json)
       end
 
       # Note that creating a tag object does not create the reference that makes a tag in Git.
@@ -379,12 +421,14 @@ module GitHub
       #  f you want to create a lightweight tag, you only have to create the tag
       # reference - this call would be unnecessary.
       def create_tag(owner : String, repository : String, payload : TagPayload) : Tag
-        json = REST(Tag).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/git/tags",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
+
+        Tag.from_json(json)
       end
     end
 
@@ -397,21 +441,25 @@ module GitHub
       # If you need to fetch more items, use the non-recursive.
       # method of fetching trees, and fetch one sub-tree at a time.
       def get_tree(owner : String, repository : String, tree_sha : String) : Tree
-        json = REST(Tree).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/git/trees/#{tree_sha}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Tree.from_json(json)
       end
 
       def create_tree(owner : String, repository : String, payload : TreePayload) : Tree
-        json = REST(Tree).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/git/trees",
           HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
+
+        Tree
       end
     end
 
@@ -420,30 +468,36 @@ module GitHub
     # see [GitHub Artifacts endpoints](https://developer.github.com/v3/git/artifacts/)
     module Artifacts
       def list_repo_artifacts(owner : String, repository : String) : Artifact
-        json = REST(Artifact).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/artifacts",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Artifact.from_json(json)
       end
 
       def list_run_artifacts(owner : String, repository : String, run_id : String) : Artifact
-        json = REST(Artifact).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/artifacts",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Artifact.from_json(json)
       end
 
       def get_artifact(owner : String, repository : String, artifact_id : String) : Artifact
-        json = REST(Artifact).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/artifacts/#{artifact_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Artifact.from_json(json)
       end
 
       # TODO
@@ -452,12 +506,14 @@ module GitHub
 
       # NOTE: If raises error, the artifact was not found.
       def delete_artifact(owner : String, repository : String, artifact_id : String) : Nil
-        REST.request(
+        json = REST.request(
           "DELETE",
           "/repos/#{owner}/#{repository}/actions/artifacts/#{artifact_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
     end
 
@@ -471,32 +527,38 @@ module GitHub
       # Anyone with read access to the repository can use this endpoint.
       # GitHub Apps must have the secrets permission to use this endpoint.
       def get_my_public_key(owner : String, repository : String) : PublicKey
-        REST(PublicKey).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/secrets/public-key",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        PublicKey.from_json(json)
       end
 
       # NOTE: Secrets is NOT an array! it contains an array of SecretData
       # SEE [this](https://developer.github.com/v3/actions/secrets/#list-secrets-for-a-repository).
       def list_secrets(owner : String, repository : String) : Secrets
-        REST(Secrets).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/secrets/public-key",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Secrets.from_json(json)
       end
 
       def get_secret(owner : String, repository : String, name : String) : Secrets::SecretData
-        REST(Secrets::SecretData).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/secrets/#{name}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Secrets::SecretData.from_json(json)
       end
 
       # TODO
@@ -505,12 +567,14 @@ module GitHub
 
       # NOTE: Raises an error when not found
       def delete_secret(owner : String, repository : String, name : String) : Nil
-        REST.request(
+        json = REST.request(
           "DELETE",
           "/repos/#{owner}/#{repository}/actions/secrets/#{name}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
     end
 
@@ -522,59 +586,71 @@ module GitHub
         owner : String,
         repository : String
       ) : Array(SelfHostedRunners::SelfHostedRunnerData)
-        REST(Array(SelfHostRunners::SelfHostedRunnerData)).request(
+        json = REST.request(
           "GET",
           "repos/#{owner}/#{repository}/actions/runners/downloads",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Array(SelfHostedRunners::SelfHostedRunnerData).from_json(json)
       end
 
       def create_registration_token(owner : String, repository : String) : RegistrationToken
-        REST(RegistrationToken).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/actions/runners/registration-token",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        RegistrationToken.from_json(json)
       end
 
       def list_self_hosted_runners(owner : String, repository : String) : SelfHostedRunners
-        REST(SelfHostedRunners).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runners",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        SelfHostedRunners.from_json(json)
       end
 
       def get_self_hosted_runner(owner : String,
                                  repository : String,
                                  runner_id : String) : SeldHostedRunners::SelfHostedRunnerData
-        REST(SeldHostedRunners::SelfHostedRunnerData).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runners/#{runner_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        SelfHostedRunners::SelfHostedRunnerData.from_json(json)
       end
 
       def create_remove_token(owner : String, repository : String) : RegistrationToken
-        REST(RegistrationToken).request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/actions/runners/remove-token",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        RegistrationToken.from_json(json)
       end
 
       def remove_self_hosted_runner(owner : String, repository : String, runner_id : String) : Nil
-        REST.request(
+        json = REST.request(
           "DELETE",
           "/repos/#{owner}/#{repository}/actions/runners/#{runner_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
     end
 
@@ -583,21 +659,25 @@ module GitHub
     # see [GitHub Workflows endpoints](https://developer.github.com/v3/actions/workflows/)
     module Workflows
       def list_workflows(owner : String, repository : String) : Workflow
-        REST(Workflow).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/workflows",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Workflow.from_json(json)
       end
 
       def get_workflows(owner : String, repository : String, workflow_id : String) : Workflow
-        REST(Workflow).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/workflows/#{workflow_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        Workflow.from_json(json)
       end
     end
 
@@ -607,21 +687,25 @@ module GitHub
     module WorkflowJobs
       # TODO: Add filters
       def list_workflow_run_jobs(owner : String, repository : String, run_id : String) : WorkflowRunJobs
-        REST(WorkflowRunJobs).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/jobs",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        WorkflowRunJobs.from_json(json)
       end
 
       def get_workflow_job(owner : String, repository : String, job_id : String) : WorkflowJob
-        REST(WorkflowJob).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/jobs",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        WorkflowJob.from_json(json)
       end
 
       # TODO
@@ -634,48 +718,58 @@ module GitHub
     # see [GitHub WorkflowRuns endpoints](https://developer.github.com/v3/actions/workflow_runs/)
     module WorkflowRuns
       def list_workflow_runs(owner : String, repository : String, workflow_id : String) : WorkflowRun
-        REST(WorkflowRun).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/workflows/#{workflow_id}/runs",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        WorkflowRun.from_json(json)
       end
 
       def list_repository_workflow_runs(owner : String, repository : String) : WorkflowRun
-        REST(WorkflowRun).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runs",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        WorkflowRun.from_json(json)
       end
 
       def get_workflow_run(owner : String, repository : String, run_id : String) : WorkflowRun::WorkflowRunData
-        REST(WorkflowRun::WorkflowRunData).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        WorkflowRun::WorkflowRunData.from_json(json)
       end
 
       def rerun_workflow(owner : String, repository : String, run_id : String) : Nil
-        REST.request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/rerun",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
 
       def cancel_workflow(owner : String, repository : String, run_id : String) : Nil
-        REST.request(
+        json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/actions/runs/#{run_id}/cancel",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        nil
       end
 
       # TODO
@@ -689,12 +783,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => get_auth_header,
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(GitHubApp).request(
+        json = REST.request(
           "GET",
           "/apps/#{name}",
           headers,
           nil
         )
+
+        GitHubApp.from_json(json)
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -702,22 +798,26 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(GitHubApp).request(
+        json = REST.request(
           "GET",
           "/app",
           headers,
           nil
         )
+
+        GitHubApp.from_json(json)
       end
 
       # https://developer.github.com/v3/apps/#create-a-github-app-from-a-manifest
       def create_app_from_manifest(code : String) : GitHubApp
-        REST(GitHubApp).request(
+        json = REST.request(
           "POST",
           "/app-manifests/#{code}/conversions",
           HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
+
+        GitHubApp.from_json(json)
       end
     end
 
@@ -727,12 +827,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation).request(
+        json = REST.request(
           "GET",
           "/app/installations",
           headers,
           nil
         )
+
+        Installation.from_json(json)
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -740,12 +842,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation).request(
+        json = REST.request(
           "GET",
           "/app/installations/#{id}",
           headers,
           nil
         )
+
+        Installation.from_json(json)
       end
 
       # NOTE: Raises an error if not found
@@ -754,12 +858,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST.request(
+        json = REST.request(
           "DELETE",
           "/app/installations/#{id}",
           headers,
           nil
         )
+
+        nil
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -768,12 +874,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(InstallationToken).request(
+        json = REST.request(
           "POST",
           "/app/installations/#{id}/access_tokens",
           headers,
           nil
         )
+
+        InstallationToken.from_json(json)
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -781,12 +889,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation).request(
+        json = REST.request(
           "GET",
           "/orgs/#{organization}/installation",
           headers,
           nil
         )
+
+        Installation.from_json(json)
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -794,12 +904,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation).request(
+        json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/installation",
           headers,
           nil
         )
+
+        Installation.from_json(json)
       end
 
       # Need a JWT! please [see](https://developer.github.com/v3/apps).
@@ -807,12 +919,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation).request(
+        json = REST.request(
           "GET",
           "/users/#{username}/installation",
           headers,
           nil
         )
+
+        Installation.from_json(json)
       end
 
       # Need an [installation access token!](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)
@@ -820,12 +934,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation::InstallationRepositories).request(
+        json = REST.request(
           "GET",
           "/installation/repositories",
           headers,
           nil
         )
+
+        Installation::InstallationRepositories.from_json(json)
       end
 
       # Need an [installation access token!](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)
@@ -833,12 +949,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation::InstallationRepositories).request(
+        json = REST.request(
           "GET",
           "/user/installation",
           headers,
           nil
         )
+
+        Installation::InstallationUsers.from_json(json)
       end
 
       # NOTE: Requires a user-to-server OAuth access token
@@ -846,36 +964,42 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installation::InstallationRepositories).request(
+        json = REST.request(
           "GET",
           "/user/installations/#{installation_id}/repositories",
           headers,
           nil
         )
+
+        Installation::InstallationRepositories.from_json(json)
       end
 
       def add_repo_to_installation(installation_id : String, repository_id : String) : Nil
         headers = HTTP::Headers{"Authorization" => "Basic #{get_auth_token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST.request(
+        json = REST.request(
           "PUT",
           "/user/installations/#{installation_id}/repositories/#{repository_id}",
           headers,
           nil
         )
+
+        nil
       end
 
       def remove_repo_from_installation(installation_id : String, repository_id : String) : Nil
         headers = HTTP::Headers{"Authorization" => "Authorization #{get_auth_token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST.request(
+        json = REST.request(
           "DELETE",
           "/user/installations/#{installation_id}/repositories/#{repository_id}",
           headers,
           nil
         )
+
+        nil
       end
 
       # You must use an installation access token to access this endpoint.
@@ -886,12 +1010,14 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST(Installations::ContentAttachment).request(
+        json = REST.request(
           "POST",
           "/content_references/#{content_reference_id}/attachments",
           headers,
           payload.to_json
         )
+
+        Installations::ContentAttachment.from_json(json)
       end
 
       # You must use an installation access token to access this endpoint.
@@ -900,51 +1026,61 @@ module GitHub
         headers = HTTP::Headers{"Authorization" => "Bearer #{token}",
                                 "Accept"        => "application/vnd.github.machine-man-preview+json"}
 
-        REST.request(
+        json = REST.request(
           "POST",
           "/installation/token",
           headers,
           payload.to_json
         )
+
+        nil
       end
     end
 
     module OAuthApps
       # Raises an error if invalid!
       def check_oauth_token_validation(client_id : String, payload : OAuthTokenPayload) : OAuthToken
-        REST(OAuthToken).request(
+        json = REST.request(
           "POST",
           "/applications/#{client_id}/token",
           headers,
           payload.to_json
         )
+
+        OAuthToken.from_json(json)
       end
 
       def reset_oauth_token(client_id : String, payload : OAuthTokenPayload) : OAuthToken
-        REST(OAuthToken).request(
+        json = REST.request(
           "PATCH",
           "/applications/#{client_id}/token",
           headers,
           payload.to_json
         )
+
+        OAuthToken.from_json(json)
       end
 
       def delete_oauth_token(client_id : String, payload : OAuthTokenPayload) : Nil
-        REST(OAuthToken).request(
+        json = REST.request(
           "DELETE",
           "/applications/#{client_id}/token",
           headers,
           payload.to_json
         )
+
+        nil
       end
 
       def delete_app_auth(client_id : String, payload : OAuthTokenPayload) : Nil
-        REST(OAuthToken).request(
+        json = REST.request(
           "DELETE",
           "/applications/#{client_id}/grant",
           headers,
           payload.to_json
         )
+
+        nil
       end
 
       # TODO : about to be deprecated
@@ -961,6 +1097,72 @@ module GitHub
 
       # TODO : about to be deprecated
       def revoke_app_grant
+      end
+    end
+
+    # TODO
+    module Interactions
+    end
+
+    module Issues
+      # TODO: Endpoint is unstable
+      def list_my_issues
+      end
+
+      # TODO: Endpoint is unstable
+      def list_my_assigned_issues
+      end
+
+      # TODO: Endpoint is unstable
+      def list_my_org_assigned_issues
+      end
+
+      # TODO: Endpoint is unstable
+      def list_repo_issues
+      end
+
+      def get_issue(owner : String, repository : String, issue_number : Int32) : Issue
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Issue.from_json(json)
+      end
+
+      def create_issue(owner : String, repository : String, payload : IssuePayload) : Issue
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/issues",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue.from_json(json)
+      end
+
+      def update_issue(owner : String, repository : String, payload : IssuePayload) : Issue
+        json = REST.request(
+          "PATCH",
+          "/repos/#{owner}/#{repository}/issues",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue.from_json(json)
+      end
+
+      def lock_issue(owner : String, repository : String, issue_number : Int32, payload : IssueLockPayload? = nil) : Nil
+        json = REST.request(
+          "PUT",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/lock",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload ? payload : nil
+        )
+
+        nil
       end
     end
   end

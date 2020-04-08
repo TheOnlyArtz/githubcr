@@ -25,6 +25,8 @@ module GitHub
     include REST::WorkflowRuns
     include REST::GitHubApps
     include REST::Installations
+    include REST::Interactions
+    include REST::Issues
 
     def initialize(@username : String, @access_token : String)
     end
