@@ -9,7 +9,7 @@ module GitHub
   # ```cr
   # client = GitHub::Client.new(username: "TheOnlyArtz", token: "4f10YOU8654d442b5be610054e9sWISH7a813c4")
   # ```
-  # With this client you will be able to make API requests to Discord
+  # With this client you will be able to make API requests to GitHub
   class Client
     include REST::Gists
     include REST::Blobs
@@ -23,6 +23,8 @@ module GitHub
     include REST::Workflows
     include REST::WorkflowJobs
     include REST::WorkflowRuns
+    include REST::GitHubApps
+    include REST::Installations
 
     def initialize(@username : String, @access_token : String)
     end
