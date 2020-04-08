@@ -1164,6 +1164,59 @@ module GitHub
 
         nil
       end
+
+      def unlock_issue(owner : String, repository : String, issue_number : Int32) : Nil
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/lock",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        nil
+      end
+
+      def list_issue_assignees(owner : String, repository : String) : Array(User)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/assignees",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(User).from_json(json)
+      end
+
+      def can_assignee_be_assigned?(owner : String, repository : String, assignee : String) : Nil
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/assignees/#{assignee}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+      end
+
+      def add_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/assignees",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue.from_json(json)
+      end
+
+      def remove_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/assignees",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue.from_json(json)
+      end
     end
   end
 end

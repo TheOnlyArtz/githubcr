@@ -14,3 +14,6 @@ record IssueLockPayload,
   active_lock_reason : String do
     include JSON::Serializable
 end
+
+record AssigneePayload, assignees : Array(String) do
+end
