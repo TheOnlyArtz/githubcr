@@ -1196,7 +1196,7 @@ module GitHub
         )
       end
 
-      def add_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
+      def add_issue_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
         json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/assignees",
@@ -1207,7 +1207,7 @@ module GitHub
         Issue.from_json(json)
       end
 
-      def remove_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
+      def remove_issue_assignees(owner : String, repository : String, issue_number : Int32, payload : AssigneePayload) : Issue
         json = REST.request(
           "DELETE",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/assignees",
@@ -1216,6 +1216,72 @@ module GitHub
         )
 
         Issue.from_json(json)
+      end
+
+      def list_issue_comments(owner : String, repository : String, issue_number : Int23) : Array(Issue::Comment)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          nil
+        )
+
+        Array(Issue::Comment).from_json(json)
+      end
+
+      def list_repository_comments(owner : String, repository : String) : Array(Issue::Comment)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/issues/comments",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          aasfasf
+        )
+
+        Array(Issue::Comment).from_json(json)
+      end
+
+      def get_comment(owner : String, repository : String, comment_id : Int32) : Issue::Comment
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/issues/comments/#{comment_id}",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          payload
+        )
+
+        Issue::Comment.from_json(json)
+      end
+
+      def create_issue_comment(owner : String, repository : String, issue_number : Int32, payload : CommentPayload) : Issue::Comment
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue::Comment.from_json
+      end
+
+      def edit_issue_comment(owner : String, repository : String, issue_number : Int32, payload : CommentPayload) : Issue::Comment
+        json = REST.request(
+          "PATCH",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue::Comment.from_json
+      end
+
+      def delete_issue_comment(owner : String, repository : String, comment_id : Int32) : Nil
+        json = REST.request(
+          "PATCH",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
+          HTTP::Headers{"Auasthorization" => get_auth_header},
+          payload.to_json
+        )
+
+        nil
       end
     end
   end

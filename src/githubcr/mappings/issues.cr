@@ -83,10 +83,7 @@ struct Issue
   )
 end
 
-struct Reactions
-end
-
-struct Reactions
+struct Issue::Reactions
   JSON.mapping(
     total_count: {type: Int32, setter: false},
     up_votes: {type: Int32, setter: false, key: "+1"},
@@ -96,5 +93,18 @@ struct Reactions
     heart: {type: Int32, setter: false},
     hooray: {type: Int32, setter: false},
     url: {type: String, setter: false}
+  )
+end
+
+struct Issue::Comment
+  JSON.mapping(
+    id: {type: Int32, setter: false},
+    node_id: {type: String, setter: false},
+    url: {type: String, setter: false},
+    html_url: {type: String, setter: false},
+    body: {type: String, setter: false},
+    user: {type: User, setter: false},
+    created_at: {type: String, setter: false},
+    updated_at: {type: String, setter: false}
   )
 end

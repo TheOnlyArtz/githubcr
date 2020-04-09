@@ -17,3 +17,6 @@ end
 
 record AssigneePayload, assignees : Array(String) do
 end
+
+record CommentPayload, body : String do
+end
