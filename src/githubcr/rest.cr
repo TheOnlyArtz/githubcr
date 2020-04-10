@@ -1222,7 +1222,7 @@ module GitHub
         json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
+          HTTP::Headers{"Authorization" => get_auth_header},
           nil
         )
 
@@ -1233,7 +1233,7 @@ module GitHub
         json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/issues/comments",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
+          HTTP::Headers{"Authorization" => get_auth_header},
           aasfasf
         )
 
@@ -1244,7 +1244,7 @@ module GitHub
         json = REST.request(
           "GET",
           "/repos/#{owner}/#{repository}/issues/comments/#{comment_id}",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
+          HTTP::Headers{"Authorization" => get_auth_header},
           payload
         )
 
@@ -1255,7 +1255,7 @@ module GitHub
         json = REST.request(
           "POST",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
+          HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
 
@@ -1266,7 +1266,7 @@ module GitHub
         json = REST.request(
           "PATCH",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
+          HTTP::Headers{"Authorization" => get_auth_header},
           payload.to_json
         )
 
@@ -1275,13 +1275,147 @@ module GitHub
 
       def delete_issue_comment(owner : String, repository : String, comment_id : Int32) : Nil
         json = REST.request(
-          "PATCH",
+          "DELETE",
           "/repos/#{owner}/#{repository}/issues/#{issue_number}/comments",
-          HTTP::Headers{"Auasthorization" => get_auth_header},
-          payload.to_json
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
         )
 
         nil
+      end
+
+      # TODO: Preview endpoint
+      def list_issue_events
+      end
+
+      # TODO: Preview endpoint
+      def list_repository_events
+      end
+
+      # TODO: Preview endpoint
+      def get_event
+      end
+
+      def get_repository_labels(owner : String, repository : String) : Array(Issue::Label)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Issue::Label).from_json(json)
+      end
+
+      def get_label(owner : String, repository : String, name : String) : Issue::Label
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/labels/#{name}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Issue::Label
+      end
+
+      def create_label(owner : String, repository : String, payload : LabelPayload) : Issue::Label
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue::Label.from_json(json)
+      end
+
+      def edit_label(owner : String, repository : String, payload : LabelPayload) : Issue::Label
+        json = REST.request(
+          "PATCH",
+          "/repos/#{owner}/#{repository}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Issue::Label.from_json(json)
+      end
+
+      def delete_label(owner : String ,repository : String, name : String) : Nil
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/labels/#{name}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        nil
+      end
+
+      def get_issue_labels(owner : String, repository : String, issue_number : Int32) : Array(Issue::Label)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Issue::Label).from_json(json)
+      end
+
+      def add_labels_to_issue(owner : String, repository : String, issue_number : Int32, payload : IssueLabelPayload) : Array(Issue::Label)
+        json = REST.request(
+          "POST",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Array(Issue::Label).from_json(json)
+      end
+
+      # NOTE: Returns an array of the remaining labels
+      def remove_label_from_issue(owner : String, repository : String, issue_number : Int32, name : String) : Array(Issue::Label)
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/labels/#{name}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Issue::Label).from_json(json)
+      end
+
+      def replace_all_labels_in_issue(owner : String, repository : String, issue_number, payload : IssueLabelPayload) : Array(Issue::Label)
+        json = REST.request(
+          "PUT",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          payload.to_json
+        )
+
+        Array(Issue::Label).from_json(json)
+      end
+
+      def remove_all_labels_from_issue(owner : String, repository : String, issue_number : Int32) : Nil
+        json = REST.request(
+          "DELETE",
+          "/repos/#{owner}/#{repository}/issues/#{issue_number}",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        nil
+      end
+
+      def get_milestone_issues_labels(owner : String, repository : String, milestone_number : Int32) : Array(Issue::Label)
+        json = REST.request(
+          "GET",
+          "/repos/#{owner}/#{repository}/milestones/#{milestone_number}/labels",
+          HTTP::Headers{"Authorization" => get_auth_header},
+          nil
+        )
+
+        Array(Issue::Label).from_json(json)
       end
     end
   end
