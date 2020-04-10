@@ -1340,7 +1340,7 @@ module GitHub
         Issue::Label.from_json(json)
       end
 
-      def delete_label(owner : String ,repository : String, name : String) : Nil
+      def delete_label(owner : String, repository : String, name : String) : Nil
         json = REST.request(
           "DELETE",
           "/repos/#{owner}/#{repository}/labels/#{name}",

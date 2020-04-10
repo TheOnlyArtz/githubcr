@@ -15,7 +15,7 @@
 </svg>
 
   <meta id="repository-name" content="github.com/theonlyartz/githubcr">
-  <title>Issue - github.com/theonlyartz/githubcr</title>
+  <title>CommentPayload - github.com/theonlyartz/githubcr</title>
   <script type="text/javascript">
     CrystalDoc.base_path = "";
   </script>
@@ -70,7 +70,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/theonlyartz/githubcr/CommentPayload" data-name="commentpayload">
+  <li class=" current" data-id="github.com/theonlyartz/githubcr/CommentPayload" data-name="commentpayload">
       <a href="CommentPayload.html">CommentPayload</a>
       
     </li>
@@ -390,7 +390,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/theonlyartz/githubcr/Issue" data-name="issue">
+  <li class="parent " data-id="github.com/theonlyartz/githubcr/Issue" data-name="issue">
       <a href="Issue.html">Issue</a>
       
         <ul>
@@ -709,12 +709,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Issue
+  <span class="kind">struct</span> CommentPayload
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="Issue.html">Issue</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="CommentPayload.html">CommentPayload</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -722,6 +722,20 @@
 
 
 
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+  </ul>
 
 
 
@@ -742,15 +756,8 @@
   </h2>
   
     
-      <a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/mappings/issues.cr#L3" target="_blank">
-        githubcr/mappings/issues.cr:3
-      </a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/mappings/issues.cr#L56" target="_blank">
-        githubcr/mappings/issues.cr:56
+      <a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/payloads/issue.cr#L22" target="_blank">
+        githubcr/payloads/issue.cr
       </a>
     
     <br/>
@@ -771,7 +778,12 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(__temp_700:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(__temp_700 : JSON::PullParser)</a>
+        <a href="#new(body:String)-class-method" class="signature"><strong>.new</strong>(body : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(pull:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
       </li>
     
@@ -792,132 +804,17 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#active_lock_reason:::Union(String,Nil)-instance-method" class="signature"><strong>#active_lock_reason</strong> : ::Union(String, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#assignee:::Union(User,Nil)-instance-method" class="signature"><strong>#assignee</strong> : ::Union(User, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#assignees:Array(String)-instance-method" class="signature"><strong>#assignees</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#body:String-instance-method" class="signature"><strong>#body</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#closed_at:::Union(String,Nil)-instance-method" class="signature"><strong>#closed_at</strong> : ::Union(String, Nil)</a>
+        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#comments:Int32-instance-method" class="signature"><strong>#comments</strong> : Int32</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#comments_url:String-instance-method" class="signature"><strong>#comments_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#created_at:String-instance-method" class="signature"><strong>#created_at</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#events_url:String-instance-method" class="signature"><strong>#events_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#html_url:String-instance-method" class="signature"><strong>#html_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#labels:Array(Label)-instance-method" class="signature"><strong>#labels</strong> : Array(Label)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#labels_url:String-instance-method" class="signature"><strong>#labels_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#locked:Bool-instance-method" class="signature"><strong>#locked</strong> : Bool</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#milestone:::Union(Milestone,Nil)-instance-method" class="signature"><strong>#milestone</strong> : ::Union(Milestone, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#node_id:String-instance-method" class="signature"><strong>#node_id</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#number:Int32-instance-method" class="signature"><strong>#number</strong> : Int32</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#pull_request:::Union(PullRequest,Nil)-instance-method" class="signature"><strong>#pull_request</strong> : ::Union(PullRequest, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#repository:::Union(Repository,Nil)-instance-method" class="signature"><strong>#repository</strong> : ::Union(Repository, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#repository_url:String-instance-method" class="signature"><strong>#repository_url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#state:String-instance-method" class="signature"><strong>#state</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#title:String-instance-method" class="signature"><strong>#title</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#updated_at:::Union(String,Nil)-instance-method" class="signature"><strong>#updated_at</strong> : ::Union(String, Nil)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url:String-instance-method" class="signature"><strong>#url</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#user:User-instance-method" class="signature"><strong>#user</strong> : User</a>
+        <a href="#copy_with(body_body=@body)-instance-method" class="signature"><strong>#copy_with</strong>(body _body = @body)</a>
         
       </li>
     
@@ -928,6 +825,16 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -971,16 +878,34 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(__temp_700:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(body:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(__temp_700 : JSON::PullParser)
+        def self.<strong>new</strong>(body : String)
 
-        <a class="method-permalink" href="#new(__temp_700:JSON::PullParser)-class-method">#</a>
+        <a class="method-permalink" href="#new(body:String)-class-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/payloads/issue.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new(pull:JSON::PullParser)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/payloads/issue.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -999,48 +924,6 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="active_lock_reason:::Union(String,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>active_lock_reason</strong> : ::Union(String, Nil)
-
-        <a class="method-permalink" href="#active_lock_reason:::Union(String,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="assignee:::Union(User,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>assignee</strong> : ::Union(<a href="User.html">User</a>, Nil)
-
-        <a class="method-permalink" href="#assignee:::Union(User,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="assignees:Array(String)-instance-method">
-      <div class="signature">
-        
-        def <strong>assignees</strong> : Array(String)
-
-        <a class="method-permalink" href="#assignees:Array(String)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="body:String-instance-method">
       <div class="signature">
         
@@ -1055,310 +938,34 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="closed_at:::Union(String,Nil)-instance-method">
+    <div class="entry-detail" id="clone-instance-method">
       <div class="signature">
         
-        def <strong>closed_at</strong> : ::Union(String, Nil)
+        def <strong>clone</strong>
 
-        <a class="method-permalink" href="#closed_at:::Union(String,Nil)-instance-method">#</a>
+        <a class="method-permalink" href="#clone-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/payloads/issue.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="comments:Int32-instance-method">
+    <div class="entry-detail" id="copy_with(body_body=@body)-instance-method">
       <div class="signature">
         
-        def <strong>comments</strong> : Int32
+        def <strong>copy_with</strong>(body _body = @body)
 
-        <a class="method-permalink" href="#comments:Int32-instance-method">#</a>
+        <a class="method-permalink" href="#copy_with(body_body=@body)-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="comments_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>comments_url</strong> : String
-
-        <a class="method-permalink" href="#comments_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="created_at:String-instance-method">
-      <div class="signature">
-        
-        def <strong>created_at</strong> : String
-
-        <a class="method-permalink" href="#created_at:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="events_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>events_url</strong> : String
-
-        <a class="method-permalink" href="#events_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="html_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>html_url</strong> : String
-
-        <a class="method-permalink" href="#html_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="id:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>id</strong> : Int32
-
-        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="labels:Array(Label)-instance-method">
-      <div class="signature">
-        
-        def <strong>labels</strong> : Array(<a href="Issue/Label.html">Label</a>)
-
-        <a class="method-permalink" href="#labels:Array(Label)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="labels_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>labels_url</strong> : String
-
-        <a class="method-permalink" href="#labels_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="locked:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>locked</strong> : Bool
-
-        <a class="method-permalink" href="#locked:Bool-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="milestone:::Union(Milestone,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>milestone</strong> : ::Union(<a href="Issue/Milestone.html">Milestone</a>, Nil)
-
-        <a class="method-permalink" href="#milestone:::Union(Milestone,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="node_id:String-instance-method">
-      <div class="signature">
-        
-        def <strong>node_id</strong> : String
-
-        <a class="method-permalink" href="#node_id:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="number:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>number</strong> : Int32
-
-        <a class="method-permalink" href="#number:Int32-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="pull_request:::Union(PullRequest,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>pull_request</strong> : ::Union(<a href="Issue/PullRequest.html">PullRequest</a>, Nil)
-
-        <a class="method-permalink" href="#pull_request:::Union(PullRequest,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="repository:::Union(Repository,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>repository</strong> : ::Union(<a href="Repository.html">Repository</a>, Nil)
-
-        <a class="method-permalink" href="#repository:::Union(Repository,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="repository_url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>repository_url</strong> : String
-
-        <a class="method-permalink" href="#repository_url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="state:String-instance-method">
-      <div class="signature">
-        
-        def <strong>state</strong> : String
-
-        <a class="method-permalink" href="#state:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="title:String-instance-method">
-      <div class="signature">
-        
-        def <strong>title</strong> : String
-
-        <a class="method-permalink" href="#title:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
-      <div class="signature">
-        
-        def <strong>to_json</strong>(json : JSON::Builder)
-
-        <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="updated_at:::Union(String,Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>updated_at</strong> : ::Union(String, Nil)
-
-        <a class="method-permalink" href="#updated_at:::Union(String,Nil)-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>url</strong> : String
-
-        <a class="method-permalink" href="#url:String-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="user:User-instance-method">
-      <div class="signature">
-        
-        def <strong>user</strong> : <a href="User.html">User</a>
-
-        <a class="method-permalink" href="#user:User-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
+          [<a href="https://github.com/theonlyartz/githubcr/blob/2f2d6caae436f36f42a66e2eb43bf10ffa89d2dc/src/githubcr/payloads/issue.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
